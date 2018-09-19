@@ -12,7 +12,7 @@ const mutations = {
 
 const actions = {
   fetchData ({ commit }) {
-    return api.contentful.homepage.fetchData()
+    return api.contentful.navigation.fetchData()
       .then((response) => {
         commit('SET_DATA', response.data)
         return response.data

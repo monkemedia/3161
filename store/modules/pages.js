@@ -11,11 +11,11 @@ const mutations = {
 }
 
 const actions = {
-  fetchData ({ commit }) {
-    return api.contentful.homepage.fetchData()
+  fetchData ({ commit }, data) {
+    return api.contentful.pages.fetchData()
       .then((response) => {
-        commit('SET_DATA', response.data)
-        return response.data
+        commit('SET_DATA', response.data.fields)
+        return response.data.fields
       })
       .catch()
   }

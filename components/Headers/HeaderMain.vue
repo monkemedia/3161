@@ -8,7 +8,7 @@
         //- burger-menu
       .navbar-menu
         .navbar-start
-          a.navbar-item(v-for="nav in navigation")
+          nuxt-link.navbar-item(v-for="nav in navigation" :key="nav.slug" :to="`/page/${nav.slug}`")
             | {{ nav.label }}
         .navbar-end
           .navbar-item#user-login-desktop
@@ -19,30 +19,9 @@
   export default {
     name: 'HeaderMain',
 
-    data () {
-      return {
-        navigation: [
-          {
-            label: 'About Freemasonry',
-            path: ''
-          },
-          {
-            label: 'Become a Freemason',
-            path: ''
-          },
-          {
-            label: 'About JG Hall Lodge',
-            path: ''
-          },
-          {
-            label: 'Calender',
-            path: ''
-          },
-          {
-            label: 'Contact us',
-            path: ''
-          }
-        ]
+    computed: {
+      navigation () {
+        return this.$store.getters['navigation/getData']
       }
     }
   }

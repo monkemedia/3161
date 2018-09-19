@@ -1,5 +1,6 @@
 <template lang="pug">
   section.container
+    p {{ homepage.title }}
 </template>
 
 <script>
@@ -12,6 +13,12 @@
       if (!process.client) return
 
       return this.$store.dispatch('homepage/fetchData')
+    },
+
+    computed: {
+      homepage () {
+        return this.$store.getters['homepage/getData']
+      }
     }
   }
 </script>
