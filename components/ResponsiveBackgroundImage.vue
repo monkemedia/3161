@@ -7,10 +7,6 @@
   export default {
     name: 'ResponsiveBackgroundImg',
 
-    props: {
-
-    },
-
     data () {
       return {
       }
@@ -21,9 +17,19 @@
     },
 
     methods: {
-      setCurrentSrc (value) {
-        const img = this.$el.childNodes[0]
-        this.$emit('style', img.currentSrc)
+      setCurrentSrc () {
+        const lowQualityImage = this.$el.childNodes[0].src
+        const highQualityImage = this.$el.childNodes[1].currentSrc
+        let img = new Image()
+
+        img.src = highQualityImage
+
+        this.$emit('style', lowQualityImage)
+
+        img.onload = () => {
+          this.$emit('style', highQualityImage)
+          this.$emit('blurValue')
+        }
       }
     }
   }
