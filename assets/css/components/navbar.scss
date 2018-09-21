@@ -1,0 +1,27 @@
+.navbar {
+  .navbar-brand {
+    padding: 2rem;
+    
+    .navbar-burger {
+      &:hover {
+        background: transparent;
+      }
+    }
+  }
+
+  .navbar-brand,
+  .navbar-menu {
+    a {
+      @include Bold();
+
+      &.navbar-link,
+      &.navbar-item {
+        &.is-active,
+        &:hover {
+          color: $secondary;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}

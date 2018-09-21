@@ -13,7 +13,8 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700' }
     ]
   },
   /*
@@ -27,6 +28,11 @@ module.exports = {
     'bulma',
     // CSS file in the project
     '@/assets/css/main.scss',
+  ],
+  /*
+  ** Plugins to load before mounting the App
+  */
+  plugins: [
   ],
   /*
   ** Build configuration

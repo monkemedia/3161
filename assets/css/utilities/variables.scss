@@ -1,0 +1,68 @@
+// Colours
+$grey-lighter                          :   #f4f4f4;
+$grey-light                            :   #ececec;
+$grey                                  :   #767676;
+$grey-dark                             :   #373737;
+$grey-darker                           :   #222222;
+$red                                   :   #d61e38;
+$light-pink                            :   #fae0e0;
+$dark-red                              :   #cc1d35;
+$green                                 :   #24c965;
+$green-dark                            :   green;
+$white                                 :   #ffffff;
+
+$grey-200                              :   #e5e5e5;
+$grey-300                              :   #dddddd;
+
+$primary                               :   $red;
+$secondary                             :   $grey-dark;
+$tertiary                              :   $grey;
+$danger                                :   $red;
+$success                               :   $green;
+
+// Generic
+$body-bg                               :   $grey-lighter;
+$body-size                             :   62.5%;
+$body-color                            :   $secondary;
+$link-color                            :   $secondary;
+$link-hover                            :   $secondary;
+$link-active                           :   $secondary;
+$link                                  :   $secondary;
+
+// Sizes
+$size-100                              :   1rem;
+$size-110                              :   1.1rem;
+$size-120                              :   1.2rem;
+$size-130                              :   1.3rem;
+$size-140                              :   1.4rem;
+$size-150                              :   1.5rem;
+$size-160                              :   1.6rem;
+$size-180                              :   1.8rem;
+$size-240                              :   2.4rem;
+$size-280                              :   2.8rem;
+
+// Responsiveness
+$tablet                                :   769px;
+$desktop                               :   1024px;
+$widescreen                            :   1216px;
+$fullhd                                :   1384px;
+
+// Typography
+$family-primary                        :   'Avenir-Medium';
+$family-primary-bold                   :   'Avenir-Black';
+
+// Navbar
+$navbar-item-hover-background-color    :    transparent;
+
+// Message
+$message-body-border                   :    0;
+$message-body-color                    :    $body-color;
+$message-body-padding                  :    2rem 1.25em;
+$message-body-radius                   :    0;
+
+// Inputs
+$input-color                           :    $secondary;
+$input-background-color                :    $white;
+$input-border-color                    :    $grey-light;
+$input-shadow                          :    none;
+$input-radius                          :    0;
