@@ -18,8 +18,5 @@
 </script>
 
 <style lang="scss">
-  .main {
-    margin-top: 80px;
-  }
 
 </style>

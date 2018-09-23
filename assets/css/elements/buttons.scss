@@ -1,0 +1,138 @@
+.button {
+  @include BoldUppercase();
+  font-size: $size-120;
+  border-radius: 0;
+  line-height: 3.8;
+  padding: 0 2.6rem;
+  height: 50px;
+  margin: 2rem 0;
+  border: 0;
+  box-shadow: inset 0 0 0 2px $primary;
+  background-color: transparent;
+  transition: all .25s cubic-bezier(.4,.01,.1,1);
+  
+  &:hover,
+  &:focus,
+  &.is-hovered {
+    background-color: $primary;
+  }
+  
+  &.is-small {
+    font-size: $size-100;
+    border-radius: 0;
+    padding: auto 2.6rem;
+    line-height: 1;
+  }
+  
+  &.is-medium {
+    font-size: $size-180;
+    border-radius: 0;
+    padding: auto 2.6rem;
+    line-height: 2.24;
+  }
+  
+  &.is-large {
+    font-size: $size-240;
+    border-radius: 0;
+  }
+  
+  &.is-primary {
+    background-color: $primary;
+  
+    &:hover,
+    &.is-hovered {
+      background: $dark-red;
+      border: 1px solid $dark-red;
+    }
+    
+    &:focus:not(:active),
+    &:active:not(:focus) {
+      box-shadow: none;
+    }
+  }
+  
+  &.is-secondary {
+    background-color: $secondary;
+    color: $white;
+  
+    &:hover,
+    &.is-hovered {
+      background: $grey-darker;
+      border: 1px solid $grey-darker;
+    }
+    
+    &:focus:not(:active),
+    &:active:not(:focus) {
+      box-shadow: none;
+    }
+  }
+
+  &.is-flip span,
+  .button-line,
+  .button {
+    transition: all .25s cubic-bezier(.4,.01,.1,1);
+  }
+  
+  &.is-flip {
+    overflow: hidden;
+
+    span {
+      position: relative;
+
+      &:after {
+        font-family: FontAwesome;
+        content: attr(data-icon);
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        left: -30px;
+      }
+
+      &:before {
+        content: attr(data-text);
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        left: 0;
+      }
+    }
+  
+    &:hover,
+    &:focus {
+      span {
+        transform: translateY(-100%);
+      }
+    }
+    
+    &:disabled {
+      &:hover,
+      &:focus {
+        span {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  &[disabled] {
+    border: 0;
+  }
+
+  .button-line {
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 2px;
+    margin-left: 0;
+    transform: translateY(-50%)!important;
+  }
+
+  &:hover,
+  &:focus {
+    .button-line {
+      width: 30px;
+      margin-left: rem(10px);
+      background-color: #efefef;
+    }
+  }
+}

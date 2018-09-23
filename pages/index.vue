@@ -1,36 +1,66 @@
 <template lang="pug">
   div
+    hero(:homepage="homepage")
     .container
-      section.hero
-        responsive-background-image(
-          @style="applyBackground"
-          @blurValue="applyBlurValue")
-          img(:src="`${homepage.hero.fields.file.url}?h=100&q=5`")
-          img(
-            :src="`${homepage.hero.fields.file.url}?h=400&q=80&fl=progressive`"
-            :srcset="`${homepage.hero.fields.file.url}?h=200&fl=progressive&q=50 800w, ${homepage.hero.fields.file.url}?h=2000&q=80&fl=progressive 1200w`")
-        .hero-body
-          .container
-            h1.title
-              | Hero title
-            h2.subtitle
-              | Hero subtitle
-        .hero-bg(:style="{ backgroundImage: `url(${backgroundImg})`, filter: `blur(${blurValue})` }")
+      .columns
+        .column.is-4
+          .featured-items
+            .card
+              .card-image
+                figure.image.is-4by3
+                  img(src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image")
+              .card-content
+                .card-content__inner
+                  .media
+                    .media-left
+                      figure.image.is-48x48
+                        img(src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image")
+                    .media-content
+                      p.title.is-4 John Smith
+                      p.subtitle.is-6 @johnsmith
+
+                  .content
+                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+        .column.is-4
+          .card
+            .card-image
+              figure.image.is-4by3
+                img(src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image")
+            .card-content
+              .media
+                .media-left
+                  figure.image.is-48x48
+                    img(src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image")
+                .media-content
+                  p.title.is-4 John Smith
+                  p.subtitle.is-6 @johnsmith
+
+              .content
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+        .column.is-4
+          .card
+            .card-image
+              figure.image.is-4by3
+                img(src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image")
+            .card-content
+              .media
+                .media-left
+                  figure.image.is-48x48
+                    img(src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image")
+                .media-content
+                  p.title.is-4 John Smith
+                  p.subtitle.is-6 @johnsmith
+
+              .content
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. <a>@bulmaio</a>.
 </template>
 
 <script>
-  import ResponsiveBackgroundImage from '@/components/ResponsiveBackgroundImage'
+  import Hero from '@/components/Hero'
 
   export default {
     components: {
-      ResponsiveBackgroundImage
-    },
-
-    data () {
-      return {
-        backgroundImg: '',
-        blurValue: '10px'
-      }
+      Hero
     },
 
     async fetch ({ store }) {
@@ -48,16 +78,6 @@
         console.log('test', this.$store.getters['homepage/getData'])
         return this.$store.getters['homepage/getData']
       }
-    },
-
-    methods: {
-      applyBackground (value) {
-        this.backgroundImg = value
-      },
-
-      applyBlurValue () {
-        this.blurValue = 0
-      }
     }
   }
 </script>
@@ -65,26 +85,24 @@
 <style lang="scss">
   @import '../node_modules/sass-rem/rem';
   @import '../node_modules/sass-mq/mq';
+  @import '~assets/css/utilities/variables.scss';
 
-  .hero {
-    height: rem(200px);
-    position: relative;
-    overflow: hidden;
+  .featured-items {
+    .card {
+      background-color: transparent;
+      box-shadow: none;
 
-    @include mq($from: tablet) {
-      height: rem(400px);
-    }
+      .card-content {
+        margin-top: -20px;
+        padding: 0;
+        position: relative;
 
-    .hero-body {
-      z-index: 1;
-    }
-
-    .hero-bg {
-      background-size: cover;
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      z-index: 0;
+        .card-content__inner {
+          margin: 0 1.5rem;
+          padding: 1.5rem;
+          background-color: $white;
+        }
+      }
     }
   }
 

@@ -75,16 +75,6 @@ ul.no-list {
   border: 0 !important;
 }
 
-.seller,
-.stock,
-.each {
-  font-siz:e 1.1rem;
-  color: $grey;
-  display: flex;
-  margin-bottom: 0;
-  @include BoldUppercase();
-}
-
 .is-block {
   display: block !important;
 }

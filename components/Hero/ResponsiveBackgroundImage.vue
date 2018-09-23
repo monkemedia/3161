@@ -27,6 +27,7 @@
         this.$emit('style', lowQualityImage)
 
         img.onload = () => {
+          console.log('HIGH')
           this.$emit('style', highQualityImage)
           this.$emit('blurValue')
         }
