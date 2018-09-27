@@ -1,5 +1,5 @@
 <template lang="pug">
-  nav.navbar
+  nav.navbar.is-spaced
     .container
       .navbar-brand
         nuxt-link.navbar-item.is-hidden-mobile.is-hidden-tablet-only(to="/admin")
@@ -7,8 +7,9 @@
         //- burger-menu
       .navbar-menu
         .navbar-end
-          nuxt-link.navbar-item(v-for="nav in navigation" :key="nav.slug" :to="`/page/${nav.slug}`")
-            | {{ nav.label }}
+          .navbar-item
+            nuxt-link.navbar-link.animated-underline(v-for="nav in navigation" :key="nav.slug" :to="`/page/${nav.slug}`")
+              | {{ nav.label }}
 </template>
 
 <script>
@@ -23,20 +24,27 @@
   }
 </script>
 
-<style scoped>
-  /*// @import '~assets/css/utilities/variables.sass'
+<style lang="scss" scoped>
+  @import '~assets/css/utilities/variables.scss';
+  @import '../../node_modules/sass-rem/rem';
 
-  // .navbar
-  //   background $white
-  //   border-bottom 1px solid #eee
+  .navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
-  //   .navbar-brand
-  //     align-items center
-  //     padding 1rem 2rem
-  //     height 60px
+  .navbar-menu {
+    .navbar-item {
+      padding-right: 40px;
+    }
 
-  //     .navbar-item
-  //       .main-logo
-  //         height 30px
-  //         max-height 100%*/
+    .navbar-link {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .main-logo {
+    height: 20px;
+  }
 </style>
