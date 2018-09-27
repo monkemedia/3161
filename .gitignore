@@ -1,1 +1,8 @@
 /node_modules
+/.nuxt/dist
+/dist
+/.nuxt/client.js
+/.nuxt/components/nuxt-error.vue
+/.nuxt/server.js
+/.nuxt/utils.js
+/.nuxt/views/error.html

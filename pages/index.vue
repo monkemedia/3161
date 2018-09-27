@@ -8,10 +8,10 @@
 </template>
 
 <script>
-  import Hero from '@/components/Homepage/Hero'
-  import ContentBlocks from '@/components/Homepage/ContentBlocks'
-  import Banner from '@/components/Homepage/Banner'
-  import ContentAsset from '@/components/Homepage/ContentAsset'
+  import Hero from '@/components/Homepage/Hero/Index.vue'
+  import ContentBlocks from '@/components/Homepage/ContentBlocks/Index.vue'
+  import Banner from '@/components/Homepage/Banner/Index.vue'
+  import ContentAsset from '@/components/Homepage/ContentAsset/Index.vue'
 
   export default {
     components: {
