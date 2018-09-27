@@ -17,9 +17,8 @@
               h2.subtitle
                 | {{ data.subtitle }}
               p {{ data.description }}
-              nuxt-link.button(:to="data.button.path")
-                | {{ data.button.title }}
-                span.button-line
+              nuxt-link.button.is-flip(:to="data.button.path")
+                span(:data-text="data.button.title") {{ data.button.title }}
           .banner-bg(:style="{ backgroundImage: `url(${backgroundImg})`, filter: `blur(${blurValue})` }")
 </template>
 
@@ -101,9 +100,9 @@
     }
 
     .title {
-      font-size: rem(12px);
+      font-size: rem(10px);
       color: $primary;
-      margin-bottom: 0;
+      margin-bottom: 10px;
       @include ExtraBoldUppercase();
     }
 
@@ -111,13 +110,14 @@
       font-size: rem(35px);
       color: $white;
       @include ExtraBold();
-      margin: 0;
+      margin: 0 0 10px 0;
     }
 
     p {
-      font-size: rem(13px);
+      font-size: rem(12px);
       color: $grey-lighter;
       line-height: 1.6;
+      margin-bottom: 20px;
     }
 
     .button {

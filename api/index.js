@@ -1,12 +1,15 @@
 // import Cookie from 'js-cookie'
 import cachios from 'cachios'
-import { baseURL } from '~/config.js'
+
+console.log('test', process.env.baseUrl)
+
+const url = `${process.env.baseUrl}/api/v1`
 
 export default {
   contentful: {
     navigation: {
       fetchData: () => {
-        return cachios.get(`${baseURL}/contentful/navigation`, {
+        return cachios.get(`${url}/contentful/navigation`, {
           headers: {
             'Content-Type': 'application/json'
           }
@@ -19,7 +22,7 @@ export default {
 
     homepage: {
       fetchData: () => {
-        return cachios.get(`${baseURL}/contentful/homepage`, {
+        return cachios.get(`${url}/contentful/homepage`, {
           headers: {
             'Content-Type': 'application/json'
           }
@@ -33,7 +36,7 @@ export default {
 
     pages: {
       fetchData: () => {
-        return cachios.get(`${baseURL}/contentful/pages`, {
+        return cachios.get(`${url}/contentful/pages`, {
           headers: {
             'Content-Type': 'application/json'
           }
@@ -43,7 +46,7 @@ export default {
 
     page: {
       fetchData: (slug) => {
-        return cachios.get(`${baseURL}/contentful/page/${slug}`, {
+        return cachios.get(`${url}/contentful/page/${slug}`, {
           headers: {
             'Content-Type': 'application/json'
           }

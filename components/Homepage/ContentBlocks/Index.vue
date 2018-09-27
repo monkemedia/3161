@@ -3,9 +3,10 @@
     .columns.is-gapless
       .column.is-6.content-centered
         .content
-          p.title.is-4 {{ data[0].title }}
-          p.subtitle.is-6 {{ data[0].subtitle }}
+          p.title {{ data[0].title }}
           p {{ data[0].description }}
+          //- nuxt-link.button.is-flip(:to="data.button.path")
+          //-   span(:data-text="data[0].button.title") {{ data[0].button.title }}
       .column.is-6
         figure.image
           img(
@@ -19,8 +20,7 @@
             :srcset="`${data[1].image.file}?h=200&fl=progressive&q=50 800w, ${data[1].image.file}?h=2000&q=80&fl=progressive 1200w`")
       .column.is-6.content-centered
         .content
-          p.title.is-4 {{ data[1].title }}
-          p.subtitle.is-6 {{ data[1].subtitle }}
+          p.title {{ data[1].title }}
           p {{ data[1].description }}
 </template>
 

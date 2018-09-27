@@ -12,7 +12,7 @@
   .navbar-brand,
   .navbar-menu {
     .navbar-link {
-      @include ExtraBold();
+      @include ExtraBoldUppercase();
       font-size: rem(12px);
 
       &.is-active,
