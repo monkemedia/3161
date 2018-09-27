@@ -6,7 +6,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'freemasons-swansea',
+    title: 'Lodge3161 - Dr James Griffith Hall - Swansea Freemasonry',
     htmlAttrs: {
       lang: 'en',
     },

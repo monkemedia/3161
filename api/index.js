@@ -28,7 +28,6 @@ export default {
           }
         })
           .then(res => {
-            console.log('res', res)
             return res
           })
       }
@@ -41,6 +40,9 @@ export default {
             'Content-Type': 'application/json'
           }
         })
+          .then(res => {
+            return res
+          })
       }
     },
 
@@ -51,6 +53,9 @@ export default {
             'Content-Type': 'application/json'
           }
         })
+          .then(res => {
+            return res
+          })
       }
     }
   }
