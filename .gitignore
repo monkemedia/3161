@@ -6,3 +6,4 @@
 /.nuxt/server.js
 /.nuxt/utils.js
 /.nuxt/views/error.html
+/package-lock.json

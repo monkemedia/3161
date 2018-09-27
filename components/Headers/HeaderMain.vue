@@ -2,7 +2,7 @@
   nav.navbar.is-spaced
     .container
       .navbar-brand
-        nuxt-link.navbar-item.is-hidden-mobile.is-hidden-tablet-only(to="/admin")
+        nuxt-link.navbar-item.is-hidden-mobile.is-hidden-tablet-only(to="/")
           img.main-logo(src="/dr-james-griffith-hall-logo.png" alt="Dr James Griffith Hall Lodge No. 3161")
         //- burger-menu
       .navbar-menu
