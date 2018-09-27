@@ -1,6 +1,6 @@
 .navbar {
   .navbar-brand {
-    padding: 2rem;
+    padding: 20px;
     
     .navbar-burger {
       &:hover {
@@ -11,16 +11,14 @@
 
   .navbar-brand,
   .navbar-menu {
-    a {
-      @include Bold();
+    .navbar-link {
+      @include ExtraBold();
+      font-size: rem(12px);
 
-      &.navbar-link,
-      &.navbar-item {
-        &.is-active,
-        &:hover {
-          color: $secondary;
-          background-color: transparent;
-        }
+      &.is-active,
+      &:hover {
+        color: $primary;
+        background-color: transparent;
       }
     }
   }

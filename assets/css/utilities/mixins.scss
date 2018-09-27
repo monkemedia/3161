@@ -7,12 +7,23 @@
 
 // Typorgraphy
 @mixin Bold() {
-  font-family: $family-primary-bold;
+  font-family: $family-primary;
+  font-weight: 700;
+}
+
+@mixin ExtraBold() {
+  font-family: $family-primary;
+  font-weight: 900;
 }
 
 @mixin BoldUppercase() {
   text-transform: uppercase;
-  font-family: $family-primary-bold;
+  @inlude Bold()
+}
+
+@mixin ExtraBoldUppercase() {
+  text-transform: uppercase;
+  @include ExtraBold()
 }
 
 @mixin LinkUnderline($color) {
@@ -23,11 +34,17 @@
     width: 0;
     left: 0;
     bottom: -1px;
-    height: 1px;
+    height: 2px;
     background: $color;
     transition-property: width, background;
     transition-timing-function: cubic-bezier(.52,.01,.16,1);
     transition-duration: .2s;
+    border: 0;
+    margin: 0;
+    right: auto;
+    border-radius: 0;
+    top: auto;
+    transform: none;
   }
   
   &:hover {

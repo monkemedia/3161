@@ -1,8 +1,8 @@
 // Colours
 $grey-lighter                          :   #f4f4f4;
-$grey-light                            :   #ececec;
-$grey                                  :   #767676;
-$grey-dark                             :   #373737;
+$grey-light                            :   #4f4f4f;
+$grey                                  :   #373737;
+$grey-dark                             :   #242424;
 $grey-darker                           :   #222222;
 $red                                   :   #df3333;
 $light-pink                            :   #fae0e0;
@@ -15,15 +15,16 @@ $grey-200                              :   #e5e5e5;
 $grey-300                              :   #dddddd;
 
 $primary                               :   $red;
-$secondary                             :   $grey-dark;
-$tertiary                              :   $grey;
+$secondary                             :   $grey;
+$tertiary                              :   $grey-light;
 $danger                                :   $red;
 $success                               :   $green;
 
 // Generic
-$body-bg                               :   $grey-lighter;
+$body-bg                               :   'transparent';
 $body-size                             :   62.5%;
-$body-color                            :   $secondary;
+$body-color                            :   $tertiary;
+$heading-color                         :   $secondary ;
 $link-color                            :   $secondary;
 $link-hover                            :   $secondary;
 $link-active                           :   $secondary;
@@ -48,8 +49,7 @@ $widescreen                            :   1216px;
 $fullhd                                :   1384px;
 
 // Typography
-$family-primary                        :   'Avenir-Medium';
-$family-primary-bold                   :   'Avenir-Black';
+$family-primary                        :   'Muli', sans-serif;
 
 // Navbar
 $navbar-item-hover-background-color    :    transparent;

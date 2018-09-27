@@ -5,15 +5,15 @@
 
 h1, h2, h3, h4, h5, h6 {
   @include BoldUppercase();
-  margin-bottom: 2.5rem;
   line-height: 1;
-  letter-spacing: .4px;
+  color: $heading-color;
+  letter-spacing: rem(.4px);
 }
 
 body {
   background-color: $body-bg;
   min-height: 100%;
-  letter-spacing: .6px;
+  letter-spacing: rem(.8px);
 }
 
 hr {
@@ -22,21 +22,19 @@ hr {
 
 h1
 .h1 {
-  font-size: $size-240;
   margin-top: 0;
 }
 
 h2
 .h2 {
-  font-size: $size-240;
-  margin-top: .4rem;
-  margin-bottom: 1.9rem;
+  margin-top: .4px;
+  margin-bottom: 1.9px;
 }
 
 h3
 .h3 {
-  font-size: $size-180;
-  margin-top: 1rem;
+  font-size: rem($size-180);
+  margin-top: 10px;
 }
 
 a {
@@ -50,9 +48,13 @@ a {
 }
 
 p {
-  color: $tertiary;
-  font-size: $size-150;
-  line-height: 1.6;
+  color: $body-color;
+  font-size: rem($size-140);
+  line-height: 1.8;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
 }
 
 ul.no-list {
@@ -80,11 +82,25 @@ ul.no-list {
 }
 
 .is-bold {
-  font-family: $family-primary-bold;
+  @include Bold();
+}
+
+.is-extra-bold {
+  @include ExtraBold();
 }
   
 .is-bold-and-uppercased {
   @include BoldUppercase();
+}
+
+.is-extra-bold-and-uppercased {
+  @include ExtraBoldUppercase();
+}
+
+.content-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .loading-overlay {
@@ -103,12 +119,44 @@ ul.no-list {
 }
 
 .default-container-padding {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 20px;
+  padding-bottom: 20px;
   
   @include mq($from: desktop) {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+
+.image-link-overlay {
+  &:hover,
+  &:focus {
+    figure {
+      transform: scale(1);
+
+      &:after {
+        opacity: 1;
+      }
+    }
+  }
+
+  figure {
+    transform: scale(1.03);
+    transition-duration: .4s;
+    transition: all .25s cubic-bezier(.4,.01,.1,1);
+
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      background: rgba(25,25,25,.3);
+      transition: all .25s cubic-bezier(.4,.01,.1,1);
+    }
   }
 }
   
