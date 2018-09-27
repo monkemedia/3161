@@ -33,6 +33,8 @@
         }
 
         img.src = highQualityImage
+
+        if (img.complete) img.onload()
       }
     }
   }
