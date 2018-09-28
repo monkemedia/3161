@@ -34,7 +34,9 @@
 
         img.src = highQualityImage
 
-        // if (img.complete) img.onload()
+        console.log('img', img)
+
+        if (img.complete) img.onload()
       }
     }
   }
