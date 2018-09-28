@@ -27,14 +27,14 @@
         console.log('MONKEY')
 
         img.onload = () => {
-          console.log('HIGH')
+          console.log('image loaded')
           this.$emit('style', highQualityImage)
           this.$emit('blurValue')
         }
 
         img.src = highQualityImage
 
-        if (img.complete) img.onload()
+        // if (img.complete) img.onload()
       }
     }
   }

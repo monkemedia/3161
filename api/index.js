@@ -1,8 +1,6 @@
 // import Cookie from 'js-cookie'
 import cachios from 'cachios'
 
-console.log('test', process.env.baseUrl)
-
 const url = `${process.env.baseUrl}api/v1`
 
 export default {
