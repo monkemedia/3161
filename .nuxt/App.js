@@ -15,7 +15,7 @@ let layouts = {
 let resolvedLayouts = {}
 
 export default {
-  head: {"title":"freemasons-swansea","htmlAttrs":{"lang":"en"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Muli:400,700,900"}],"style":[],"script":[]},
+  head: {"title":"Dr James Griffith Hall - Swansea Freemasonry","htmlAttrs":{"lang":"en"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Muli:400,700,900"},{"rel":"stylesheet","src":"animate.css\u002Fanimate.min.css","lang":"css"}],"style":[],"script":[]},
   render(h, props) {
     const loadingEl = h('nuxt-loading', { ref: 'loading' })
     const layoutEl = h(this.layout || 'nuxt')

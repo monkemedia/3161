@@ -12,7 +12,7 @@ import { setContext, getLocation, getRouteData } from './utils'
 import { createStore } from './store.js'
 
 /* Plugins */
-import nuxt_plugin_markdownit_b4ce8514 from 'nuxt_plugin_markdownit_b4ce8514' // Source: ./markdown-it.js
+import nuxt_plugin_markdownit_4f81076e from 'nuxt_plugin_markdownit_4f81076e' // Source: ./markdown-it.js
 
 
 // Component: <no-ssr>
@@ -151,7 +151,7 @@ async function createApp (ssrContext) {
 
   // Plugin execution
   
-  if (typeof nuxt_plugin_markdownit_b4ce8514 === 'function') await nuxt_plugin_markdownit_b4ce8514(app.context, inject)
+  if (typeof nuxt_plugin_markdownit_4f81076e === 'function') await nuxt_plugin_markdownit_4f81076e(app.context, inject)
   
 
   // If server-side, wait for async component to be resolved first
