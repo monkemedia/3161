@@ -1,21 +1,22 @@
 <template lang="pug">
   div
-    hero(:data="homepage")
-    content-blocks(:data="homepage.contentBlocks")
-    banner(:data="homepage.banner")
-    content-asset(:data="homepage")
+    header-main-homepage(:data="homepage")
+    .main
+      content-blocks(:data="homepage.contentBlocks")
+      banner(:data="homepage.banner")
+      content-asset(:data="homepage")
 
 </template>
 
 <script>
-  import Hero from '@/components/Homepage/Hero/Index.vue'
+  import HeaderMainHomepage from '@/components/Headers/HeaderMainHomepage.vue'
   import ContentBlocks from '@/components/Homepage/ContentBlocks/Index.vue'
   import Banner from '@/components/Homepage/Banner/Index.vue'
   import ContentAsset from '@/components/Homepage/ContentAsset/Index.vue'
 
   export default {
     components: {
-      Hero,
+      HeaderMainHomepage,
       ContentBlocks,
       Banner,
       ContentAsset

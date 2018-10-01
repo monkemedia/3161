@@ -1,19 +1,10 @@
 <template lang="pug">
-  div
-    header-main
-    .main
-      nuxt
+  nuxt
 </template>
 
 <script>
-  import headerMain from '@/components/Headers/HeaderMain'
-
   export default {
-    name: 'DefaultLayout',
-
-    components: {
-      headerMain
-    }
+    name: 'DefaultLayout'
   }
 </script>
 

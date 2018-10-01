@@ -6,7 +6,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'Lodge3161 - Dr James Griffith Hall - Swansea Freemasonry',
+    title: 'Dr James Griffith Hall - Swansea Freemasonry',
     htmlAttrs: {
       lang: 'en',
     },
@@ -18,6 +18,7 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Muli:400,700,900' },
+      { rel: 'stylesheet', src: 'animate.css/animate.min.css', lang: 'css' }
     ]
   },
   /*

@@ -1,32 +1,37 @@
 <template lang="pug">
-  .container
-    .columns
-      .column
-        section.hero
-          responsive-background-image(
-            @style="applyBackground"
-            @blurValue="applyBlurValue")
-            img(:src="`${data.hero.image.file}?h=100&q=5`")
-            img(
-              :src="`${data.hero.image.file}?h=400&q=80&fl=progressive`"
-              :srcset="`${data.hero.image.file}?h=200&fl=progressive&q=50 800w, ${data.hero.image.file}?h=2000&q=80&fl=progressive 1200w`")
-          .hero-body.has-text-centered
-            .text-container
-              h1.title.is-spaced
-                | {{ data.hero.title }}
-              h2.subtitle
-                | {{ data.hero.subtitle }}
-              nuxt-link.button(:to="data.hero.button.path")
-                | {{ data.hero.button.title }}
-                span.button-line
-          .hero-bg(:style="{ backgroundImage: `url(${backgroundImg})`, filter: `blur(${blurValue})` }")
+  header.hero
+    .hero-head
+      navigation-homepage
+
+    .hero-body.has-text-centered
+      .text-container
+        h1.title.is-spaced
+          | {{ data.hero.title }}
+        h2.subtitle
+          | {{ data.hero.subtitle }}
+        nuxt-link.button(:to="data.hero.button.path")
+          | {{ data.hero.button.title }}
+          span.button-line
+    .hero-bg(:style="{ backgroundImage: `url(${backgroundImg})`, filter: `blur(${blurValue})` }")
+
+    responsive-background-image(
+      @style="applyBackground"
+      @blurValue="applyBlurValue")
+      img(:src="`${data.hero.image.file}?h=100&q=5`")
+      img(
+        :src="`${data.hero.image.file}?h=400&q=80&fl=progressive`"
+        :srcset="`${data.hero.image.file}?h=200&fl=progressive&q=50 800w, ${data.hero.image.file}?h=2000&q=80&fl=progressive 1200w`")
 </template>
 
 <script>
   import ResponsiveBackgroundImage from '@/components/Utils/ResponsiveBackgroundImage'
+  import NavigationHomepage from '@/components/Navigation/NavigationHomepage.vue'
 
   export default {
+    name: 'HeaderMainHomepage',
+
     components: {
+      NavigationHomepage,
       ResponsiveBackgroundImage
     },
 
@@ -57,22 +62,19 @@
 </script>
 
 <style lang="scss" scoped>
-  @import '../../../node_modules/sass-rem/rem';
-  @import '../../../node_modules/sass-mq/mq';
+  @import '../../node_modules/sass-rem/rem';
+  @import '../../node_modules/sass-mq/mq';
   @import '~assets/css/utilities/variables.scss';
   @import '~assets/css/utilities/mixins.scss';
 
   .hero {
-    height: 200px;
     position: relative;
-    display: flex;
-    overflow: hidden;
-    align-items: center;
-    justify-content: center;
+    width: 100vw;
+    height: 100vh;
 
-    @include mq($from: tablet) {
-      height: 400px;
-    }
+    // @include mq($from: tablet) {
+    //   height: 400px;
+    // }
 
     .hero-body {
       z-index: 1;
@@ -112,5 +114,4 @@
       margin: 0;
     }
   }
-
 </style>
