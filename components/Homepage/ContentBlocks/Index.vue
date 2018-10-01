@@ -1,12 +1,12 @@
 <template lang="pug">
   .container
     .columns.is-gapless
-      .column.is-6.content-centered
+      .column.is-6.content-centered.content-container
         .content
           p.title {{ data[0].title }}
           p {{ data[0].description }}
-          //- nuxt-link.button.is-flip(:to="data.button.path")
-          //-   span(:data-text="data[0].button.title") {{ data[0].button.title }}
+          nuxt-link.button.is-flip(:to="data[0].button.path")
+            span(:data-text="data[0].button.title") {{ data[0].button.title }}
       .column.is-6
         figure.image
           img(
@@ -18,7 +18,7 @@
           img(
             :src="`${data[1].image.file}?h=400&q=80&fl=progressive`"
             :srcset="`${data[1].image.file}?h=200&fl=progressive&q=50 800w, ${data[1].image.file}?h=2000&q=80&fl=progressive 1200w`")
-      .column.is-6.content-centered
+      .column.is-6.content-centered.content-container
         .content
           p.title {{ data[1].title }}
           p {{ data[1].description }}
@@ -41,15 +41,19 @@
   @import '~assets/css/utilities/variables.scss';
   @import '~assets/css/utilities/mixins.scss';
 
-  .content {
-    width: 100%;
-    max-width: 300px;
+  .content-container {
+    background-color: $grey-lighter;
+
+    .content {
+      width: 100%;
+      max-width: 300px;
+    }
   }
 
   .title {
     @include ExtraBoldUppercase();
     font-size: rem(36px);
-    width: 240px;
+    width: 260px;
     line-height: .85;
   }
 

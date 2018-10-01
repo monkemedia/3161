@@ -67,10 +67,11 @@
     position: absolute;
     top: 0;
     width: 100%;
-    transition: all .8s ease;
+    transition: all .5s ease;
     background-color: rgba(255, 255, 255, 0);
+
     &.is-sticky-header {
-      background-color: rgba(255, 255, 255, 1);
+      background-color: rgba(255, 255, 255, .95);
       position: fixed;
       padding: 0 !important;
     }
