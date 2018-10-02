@@ -9,15 +9,19 @@
             span(:data-text="data[0].button.title") {{ data[0].button.title }}
       .column.is-6
         figure.image
-          img(
-            :src="`${data[0].image.file}?h=400&q=80&fl=progressive`"
-            :srcset="`${data[0].image.file}?h=200&fl=progressive&q=50 800w, ${data[0].image.file}?h=2000&q=80&fl=progressive 1200w`")
+          no-ssr
+            progressive-img(
+              :src="imageOne"
+              :placeholder="`${data[0].image.file}?h=100&q=5`"
+              :blur="30")
     .columns.is-gapless
       .column.is-6
         figure.image
-          img(
-            :src="`${data[1].image.file}?h=400&q=80&fl=progressive`"
-            :srcset="`${data[1].image.file}?h=200&fl=progressive&q=50 800w, ${data[1].image.file}?h=2000&q=80&fl=progressive 1200w`")
+          no-ssr
+            progressive-img(
+              :src="imageTwo"
+              :placeholder="`${data[1].image.file}?h=100&q=5`"
+              :blur="30")
       .column.is-6.content-centered.content-container
         .content
           p.title {{ data[1].title }}
@@ -30,6 +34,36 @@
       data: {
         type: Array,
         required: true
+      }
+    },
+
+    data () {
+      return {
+        imageOne: '',
+        imageTwo: ''
+      }
+    },
+
+    created () {
+      if (process.client) {
+        this.responsiveImage()
+      }
+    },
+
+    methods: {
+      responsiveImage () {
+        const wH = window.innerWidth
+
+        if (wH >= 1200) {
+          this.imageOne = `${this.data[0].image.file}?h=2000&q=80`
+          this.imageTwo = `${this.data[1].image.file}?h=2000&q=80`
+        } else if (wH > 800 && wH < 1200) {
+          this.imageOne = `${this.data[0].image.file}?h=200&q=50`
+          this.imageTwo = `${this.data[1].image.file}?h=200&q=50`
+        } else {
+          this.imageOne = `${this.data[0].image.file}?h=400&q=80`
+          this.imageTwo = `${this.data[1].image.file}?h=400&q=80`
+        }
       }
     }
   }
