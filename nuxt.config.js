@@ -24,7 +24,7 @@ module.exports = {
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#fd4067' },
   /*
   ** Global CSS
   */
@@ -37,6 +37,10 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    {
+      src: '~/plugins/progressive-image',
+      ssr: false
+    }
   ],
   modules: [
     '@nuxtjs/markdownit'

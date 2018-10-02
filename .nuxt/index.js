@@ -12,7 +12,8 @@ import { setContext, getLocation, getRouteData } from './utils'
 import { createStore } from './store.js'
 
 /* Plugins */
-import nuxt_plugin_markdownit_4f81076e from 'nuxt_plugin_markdownit_4f81076e' // Source: ./markdown-it.js
+import nuxt_plugin_markdownit_0c43bfe8 from 'nuxt_plugin_markdownit_0c43bfe8' // Source: ./markdown-it.js
+import nuxt_plugin_progressiveimage_526533e3 from 'nuxt_plugin_progressiveimage_526533e3' // Source: ../plugins/progressive-image (ssr: false)
 
 
 // Component: <no-ssr>
@@ -151,8 +152,11 @@ async function createApp (ssrContext) {
 
   // Plugin execution
   
-  if (typeof nuxt_plugin_markdownit_4f81076e === 'function') await nuxt_plugin_markdownit_4f81076e(app.context, inject)
+  if (typeof nuxt_plugin_markdownit_0c43bfe8 === 'function') await nuxt_plugin_markdownit_0c43bfe8(app.context, inject)
   
+  if (process.browser) { 
+    if (typeof nuxt_plugin_progressiveimage_526533e3 === 'function') await nuxt_plugin_progressiveimage_526533e3(app.context, inject)
+  }
 
   // If server-side, wait for async component to be resolved first
   if (process.server && ssrContext && ssrContext.url) {

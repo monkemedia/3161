@@ -3,13 +3,6 @@
     .columns
       .column
         section.banner
-          responsive-background-image(
-            @style="applyBackground"
-            @blurValue="applyBlurValue")
-            img(:src="`${data.image.file}?h=100&q=5`")
-            img(
-              :src="`${data.image.file}?h=400&q=80&fl=progressive`"
-              :srcset="`${data.image.file}?h=200&fl=progressive&q=50 800w, ${data.image.file}?h=2000&q=80&fl=progressive 1200w`")
           .banner-body
             .text-container
               h1.title
@@ -19,17 +12,15 @@
               p {{ data.description }}
               nuxt-link.button.is-flip(:to="data.button.path")
                 span(:data-text="data.button.title") {{ data.button.title }}
-          .banner-bg(:style="{ backgroundImage: `url(${backgroundImg})`, filter: `blur(${blurValue})` }")
+          no-ssr
+            progressive-background.banner-bg(
+              :src="backgroundImg"
+              :placeholder="`${data.image.file}?h=100&q=5`"
+              :blur="30")
 </template>
 
 <script>
-  import ResponsiveBackgroundImage from '@/components/Utils/ResponsiveBackgroundImage'
-
   export default {
-    components: {
-      ResponsiveBackgroundImage
-    },
-
     props: {
       data: {
         type: Object,
@@ -39,8 +30,13 @@
 
     data () {
       return {
-        backgroundImg: '',
-        blurValue: '10px'
+        backgroundImg: ''
+      }
+    },
+
+    created () {
+      if (process.client) {
+        this.responsiveImage()
       }
     },
 
@@ -51,6 +47,18 @@
 
       applyBlurValue () {
         this.blurValue = 0
+      },
+
+      responsiveImage () {
+        const wH = window.innerWidth
+
+        if (wH >= 1200) {
+          this.backgroundImg = `${this.data.image.file}?h=2000&q=80`
+        } else if (wH > 800 && wH < 1200) {
+          this.backgroundImg = `${this.data.image.file}?h=200&q=50`
+        } else {
+          this.backgroundImg = `${this.data.image.file}?h=100&q=5`
+        }
       }
     }
   }

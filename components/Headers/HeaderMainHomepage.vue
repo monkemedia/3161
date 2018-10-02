@@ -2,7 +2,6 @@
   header.hero
     .hero-head
       navigation-homepage
-
     .hero-body.has-text-centered
       .text-container
         h1.title.is-spaced
@@ -12,27 +11,21 @@
         nuxt-link.button(:to="data.hero.button.path")
           | {{ data.hero.button.title }}
           span.button-line
-    .hero-bg(:style="{ backgroundImage: `url(${backgroundImg})`, filter: `blur(${blurValue})` }")
-
-    responsive-background-image(
-      @style="applyBackground"
-      @blurValue="applyBlurValue")
-      img(:src="`${data.hero.image.file}?h=100&q=5`")
-      img(
-        :src="`${data.hero.image.file}?h=400&q=80&fl=progressive`"
-        :srcset="`${data.hero.image.file}?h=200&fl=progressive&q=50 800w, ${data.hero.image.file}?h=2000&q=80&fl=progressive 1200w`")
+    no-ssr
+      progressive-background.hero-bg(
+        :src="backgroundImg"
+        :placeholder="`${data.hero.image.file}?h=100&q=5`"
+        :blur="30")
 </template>
 
 <script>
-  import ResponsiveBackgroundImage from '@/components/Utils/ResponsiveBackgroundImage'
   import NavigationHomepage from '@/components/Navigation/NavigationHomepage.vue'
 
   export default {
     name: 'HeaderMainHomepage',
 
     components: {
-      NavigationHomepage,
-      ResponsiveBackgroundImage
+      NavigationHomepage
     },
 
     props: {
@@ -44,8 +37,13 @@
 
     data () {
       return {
-        backgroundImg: '',
-        blurValue: '10px'
+        backgroundImg: ''
+      }
+    },
+
+    created () {
+      if (process.client) {
+        this.responsiveImage()
       }
     },
 
@@ -56,6 +54,18 @@
 
       applyBlurValue () {
         this.blurValue = 0
+      },
+
+      responsiveImage () {
+        const wH = window.innerWidth
+
+        if (wH >= 1200) {
+          this.backgroundImg = `${this.data.hero.image.file}?h=2000&q=80`
+        } else if (wH > 800 && wH < 1200) {
+          this.backgroundImg = `${this.data.hero.image.file}?h=200&q=50`
+        } else {
+          this.backgroundImg = `${this.data.hero.image.file}?h=100&q=5`
+        }
       }
     }
   }
