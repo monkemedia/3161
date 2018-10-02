@@ -10,12 +10,13 @@
               h2.subtitle
                 | {{ data.subtitle }}
               p {{ data.description }}
-              nuxt-link.button.is-flip(:to="data.button.path")
-                span(:data-text="data.button.title") {{ data.button.title }}
+              nuxt-link.button.is-primary(:to="data.button.path")
+                | {{ data.button.title }}
+                span.button-line
           no-ssr
             progressive-background.banner-bg(
               :src="backgroundImg"
-              :placeholder="`${data.image.file}?h=100&q=5`"
+              :placeholder="`${data.media.file}?h=100&q=5`"
               :blur="30")
 </template>
 
@@ -53,11 +54,11 @@
         const wH = window.innerWidth
 
         if (wH >= 1200) {
-          this.backgroundImg = `${this.data.image.file}?h=2000&q=80`
+          this.backgroundImg = `${this.data.media.file}?h=2000&q=80`
         } else if (wH > 800 && wH < 1200) {
-          this.backgroundImg = `${this.data.image.file}?h=200&q=50`
+          this.backgroundImg = `${this.data.media.file}?h=200&q=50`
         } else {
-          this.backgroundImg = `${this.data.image.file}?h=100&q=5`
+          this.backgroundImg = `${this.data.media.file}?h=100&q=5`
         }
       }
     }

@@ -8,14 +8,17 @@
           | {{ data.hero.title }}
         h2.subtitle
           | {{ data.hero.subtitle }}
-        nuxt-link.button(:to="data.hero.button.path")
+        nuxt-link.button.is-primary(:to="data.hero.button.path")
           | {{ data.hero.button.title }}
           span.button-line
-    no-ssr
-      progressive-background.hero-bg(
-        :src="backgroundImg"
-        :placeholder="`${data.hero.image.file}?h=100&q=5`"
-        :blur="30")
+    .hero-video-bg
+      video(autoplay muted loop)
+        source(:src="data.hero.media.file" type="video/mp4")
+    //- no-ssr(v-else)
+    //-   progressive-background.hero-bg(
+    //-     :src="backgroundImg"
+    //-     :placeholder="`${data.hero.media.file}?h=100&q=5`"
+    //-     :blur="30")
 </template>
 
 <script>
@@ -42,7 +45,7 @@
     },
 
     created () {
-      if (process.client) {
+      if (process.client && !this.data.hero.media.contentType === 'video/mp4') {
         this.responsiveImage()
       }
     },
@@ -60,11 +63,11 @@
         const wH = window.innerWidth
 
         if (wH >= 1200) {
-          this.backgroundImg = `${this.data.hero.image.file}?h=2000&q=80`
+          this.backgroundImg = `${this.data.hero.media.file}?h=2000&q=80`
         } else if (wH > 800 && wH < 1200) {
-          this.backgroundImg = `${this.data.hero.image.file}?h=200&q=50`
+          this.backgroundImg = `${this.data.hero.media.file}?h=200&q=50`
         } else {
-          this.backgroundImg = `${this.data.hero.image.file}?h=100&q=5`
+          this.backgroundImg = `${this.data.hero.media.file}?h=100&q=5`
         }
       }
     }
@@ -81,6 +84,7 @@
     position: relative;
     width: 100vw;
     height: 100vh;
+    justify-content: center;
 
     // @include mq($from: tablet) {
     //   height: 400px;
@@ -103,6 +107,27 @@
       height: 100%;
       width: 100%;
       z-index: 0;
+    }
+
+    .hero-video-bg {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+
+      video {
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+      }
     }
 
     .title {

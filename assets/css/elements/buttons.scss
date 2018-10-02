@@ -7,6 +7,7 @@
 .button {
   @include ExtraBoldUppercase();
   font-size: rem($size-110);
+  color: $primary;
   border-radius: 0;
   line-height: 3.8;
   padding: 0 26px;
@@ -20,6 +21,7 @@
   &:focus,
   &.is-hovered {
     background-color: $primary;
+    color: $white;
   }
   
   &.is-small {
@@ -46,8 +48,7 @@
   
     &:hover,
     &.is-hovered {
-      background: $dark-red;
-      border: 1px solid $dark-red;
+      background: $primary;
     }
     
     &:focus:not(:active),
@@ -62,8 +63,8 @@
   
     &:hover,
     &.is-hovered {
-      background: $grey-darker;
-      border: 1px solid $grey-darker;
+      background: $grey;
+      border: 1px solid $grey;
     }
     
     &:focus:not(:active),

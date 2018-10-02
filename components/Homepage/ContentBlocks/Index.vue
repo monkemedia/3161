@@ -5,14 +5,15 @@
         .content
           p.title {{ data[0].title }}
           p {{ data[0].description }}
-          nuxt-link.button.is-flip(:to="data[0].button.path")
-            span(:data-text="data[0].button.title") {{ data[0].button.title }}
+          nuxt-link.button(:to="data[0].button.path")
+            | {{ data[0].button.title }}
+            span.button-line
       .column.is-6
         figure.image
           no-ssr
             progressive-img(
               :src="imageOne"
-              :placeholder="`${data[0].image.file}?h=100&q=5`"
+              :placeholder="`${data[0].media.file}?h=100&q=5`"
               :blur="30")
     .columns.is-gapless
       .column.is-6
@@ -20,12 +21,15 @@
           no-ssr
             progressive-img(
               :src="imageTwo"
-              :placeholder="`${data[1].image.file}?h=100&q=5`"
+              :placeholder="`${data[1].media.file}?h=100&q=5`"
               :blur="30")
       .column.is-6.content-centered.content-container
         .content
           p.title {{ data[1].title }}
           p {{ data[1].description }}
+          nuxt-link.button(:to="data[1].button.path")
+            | {{ data[1].button.title }}
+            span.button-line
 </template>
 
 <script>
@@ -55,14 +59,14 @@
         const wH = window.innerWidth
 
         if (wH >= 1200) {
-          this.imageOne = `${this.data[0].image.file}?h=2000&q=80`
-          this.imageTwo = `${this.data[1].image.file}?h=2000&q=80`
+          this.imageOne = `${this.data[0].media.file}?h=2000&q=80`
+          this.imageTwo = `${this.data[1].media.file}?h=2000&q=80`
         } else if (wH > 800 && wH < 1200) {
-          this.imageOne = `${this.data[0].image.file}?h=200&q=50`
-          this.imageTwo = `${this.data[1].image.file}?h=200&q=50`
+          this.imageOne = `${this.data[0].media.file}?h=200&q=50`
+          this.imageTwo = `${this.data[1].media.file}?h=200&q=50`
         } else {
-          this.imageOne = `${this.data[0].image.file}?h=400&q=80`
-          this.imageTwo = `${this.data[1].image.file}?h=400&q=80`
+          this.imageOne = `${this.data[0].media.file}?h=400&q=80`
+          this.imageTwo = `${this.data[1].media.file}?h=400&q=80`
         }
       }
     }

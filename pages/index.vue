@@ -4,7 +4,9 @@
     .main
       content-blocks(:data="homepage.contentBlocks")
       banner(:data="homepage.banner")
-      content-asset(:data="homepage")
+      section
+        featured-items(:data="homepage.featuredItems")
+        content-asset(:data="homepage")
 
 </template>
 
@@ -12,6 +14,7 @@
   import HeaderMainHomepage from '@/components/Headers/HeaderMainHomepage.vue'
   import ContentBlocks from '@/components/Homepage/ContentBlocks/Index.vue'
   import Banner from '@/components/Homepage/Banner/Index.vue'
+  import FeaturedItems from '@/components/Homepage/FeaturedItems/Index.vue'
   import ContentAsset from '@/components/Homepage/ContentAsset/Index.vue'
 
   export default {
@@ -19,6 +22,7 @@
       HeaderMainHomepage,
       ContentBlocks,
       Banner,
+      FeaturedItems,
       ContentAsset
     },
 

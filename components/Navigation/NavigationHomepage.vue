@@ -74,6 +74,7 @@
       background-color: rgba(255, 255, 255, .95);
       position: fixed;
       padding: 0 !important;
+      border-bottom: 1px solid $grey-300;
     }
   }
 
