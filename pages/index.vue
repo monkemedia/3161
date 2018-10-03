@@ -1,9 +1,9 @@
 <template lang="pug">
   div
-    header-main-homepage(:data="homepage")
+    header-main-homepage(:data="homepage" v-scroll-reveal.reset)
     .main
       content-blocks(:data="homepage.contentBlocks")
-      banner(:data="homepage.banner")
+      banner(:data="homepage.banner" v-scroll-reveal.reset)
       section
         featured-items(:data="homepage.featuredItems")
         content-asset(:data="homepage")

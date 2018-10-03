@@ -51,14 +51,6 @@
     },
 
     methods: {
-      applyBackground (value) {
-        this.backgroundImg = value
-      },
-
-      applyBlurValue () {
-        this.blurValue = 0
-      },
-
       responsiveImage () {
         const wH = window.innerWidth
 

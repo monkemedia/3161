@@ -1,14 +1,14 @@
 <template lang="pug">
   .container
     .columns.is-gapless
-      .column.is-6.content-centered.content-container
+      .column.is-6.content-centered.content-container(v-scroll-reveal.reset="{ delay: 350 }")
         .content
           p.title {{ data[0].title }}
           p {{ data[0].description }}
           nuxt-link.button(:to="data[0].button.path")
             | {{ data[0].button.title }}
             span.button-line
-      .column.is-6
+      .column.is-6(v-scroll-reveal.reset="{ delay: 550 }")
         figure.image
           no-ssr
             progressive-img(
@@ -16,14 +16,14 @@
               :placeholder="`${data[0].media.file}?h=100&q=5`"
               :blur="30")
     .columns.is-gapless
-      .column.is-6
+      .column.is-6(v-scroll-reveal.reset="{ delay: 550 }")
         figure.image
           no-ssr
             progressive-img(
               :src="imageTwo"
               :placeholder="`${data[1].media.file}?h=100&q=5`"
               :blur="30")
-      .column.is-6.content-centered.content-container
+      .column.is-6.content-centered.content-container(v-scroll-reveal.reset="{ delay: 350 }")
         .content
           p.title {{ data[1].title }}
           p {{ data[1].description }}

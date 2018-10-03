@@ -38,7 +38,11 @@ module.exports = {
   */
   plugins: [
     {
-      src: '~/plugins/progressive-image',
+      src: '~/plugins/vue-progressive-image',
+      ssr: false
+    },
+    {
+      src: '~/plugins/vue-scroll-reveal',
       ssr: false
     }
   ],
