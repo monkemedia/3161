@@ -12,7 +12,7 @@ import { setContext, getLocation, getRouteData } from './utils'
 import { createStore } from './store.js'
 
 /* Plugins */
-import nuxt_plugin_markdownit_0c43bfe8 from 'nuxt_plugin_markdownit_0c43bfe8' // Source: ./markdown-it.js
+import nuxt_plugin_markdownit_4f81076e from 'nuxt_plugin_markdownit_4f81076e' // Source: ./markdown-it.js
 import nuxt_plugin_vueprogressiveimage_bd141b48 from 'nuxt_plugin_vueprogressiveimage_bd141b48' // Source: ../plugins/vue-progressive-image (ssr: false)
 import nuxt_plugin_vuescrollreveal_36883210 from 'nuxt_plugin_vuescrollreveal_36883210' // Source: ../plugins/vue-scroll-reveal (ssr: false)
 
@@ -153,7 +153,7 @@ async function createApp (ssrContext) {
 
   // Plugin execution
   
-  if (typeof nuxt_plugin_markdownit_0c43bfe8 === 'function') await nuxt_plugin_markdownit_0c43bfe8(app.context, inject)
+  if (typeof nuxt_plugin_markdownit_4f81076e === 'function') await nuxt_plugin_markdownit_4f81076e(app.context, inject)
   
   if (process.browser) { 
     if (typeof nuxt_plugin_vueprogressiveimage_bd141b48 === 'function') await nuxt_plugin_vueprogressiveimage_bd141b48(app.context, inject)

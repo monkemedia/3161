@@ -1,8 +1,7 @@
 <template lang="pug">
-  .container
-    .columns
-      .column.is-4.content-centered(v-for="item in data")
-        featuredItem(:data="item")
+  .columns
+    .column.is-4(v-for="(item, index) in data")
+      featuredItem(:data="item" :index="index")
 </template>
 
 <script>

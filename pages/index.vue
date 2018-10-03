@@ -1,12 +1,13 @@
 <template lang="pug">
   div
-    header-main-homepage(:data="homepage" v-scroll-reveal)
+    header-main-homepage(:data="homepage")
     .main
       content-blocks(:data="homepage.contentBlocks")
-      banner(:data="homepage.banner" v-scroll-reveal)
+      banner(:data="homepage.banner")
       section
-        featured-items(:data="homepage.featuredItems")
-        content-asset(:data="homepage")
+        .container.sub-main
+          featured-items(:data="homepage.featuredItems")
+          content-asset(:data="homepage")
 
 </template>
 
@@ -45,5 +46,13 @@
 </script>
 
 <style lang="scss" scoped>
+  // @import '../node_modules/sass-rem/rem';
+  // @import '../node_modules/sass-mq/mq';
+  @import '~assets/css/utilities/variables.scss';
+  // @import '~assets/css/utilities/mixins.scss';
 
+  .sub-main {
+    background-color: $grey-lighter;
+    padding: 15px;
+  }
 </style>

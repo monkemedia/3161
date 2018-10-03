@@ -5,16 +5,17 @@
         section.banner
           .banner-body
             .text-container
-              h1.title
+              h1.title(v-scroll-reveal="{ delay: 0 }")
                 | {{ data.title }} //
-              h2.subtitle
+              h2.subtitle(v-scroll-reveal="{ delay: 250 }")
                 | {{ data.subtitle }}
-              p {{ data.description }}
-              nuxt-link.button.is-primary(:to="data.button.path")
+              p(v-scroll-reveal="{ delay: 500 }") {{ data.description }}
+              nuxt-link.button.is-primary(:to="data.button.path" v-scroll-reveal="{ delay: 750 }")
                 | {{ data.button.title }}
                 span.button-line
           no-ssr
             progressive-background.banner-bg(
+              v-scroll-reveal="{ distance: '0px' }"
               :src="backgroundImg"
               :placeholder="`${data.media.file}?h=100&q=5`"
               :blur="30")

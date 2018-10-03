@@ -1,12 +1,13 @@
 <template lang="pug">
-  nuxt-link(to="test")
-    figure
-      no-ssr
-        progressive-img(
+  nuxt-link.item.image-link-overlay(to="test" v-scroll-reveal="{ delay: 250 * index }")
+    .text
+      p.title {{ data.title }}
+    no-ssr
+      figure
+        progressive-background(
           :src="image"
           :placeholder="`${data.media.file}?h=100&q=5`"
           :blur="30")
-    p.title {{ data.title }}
 </template>
 
 <script>
@@ -20,6 +21,11 @@
     props: {
       data: {
         type: Object,
+        required: true
+      },
+
+      index: {
+        type: Number,
         required: true
       }
     },
@@ -41,7 +47,7 @@
         const wH = window.innerWidth
 
         if (wH >= 1200) {
-          this.image = `${this.data.media.file}?h=200&q=80`
+          this.image = `${this.data.media.file}?h=400&q=80`
         } else if (wH > 800 && wH < 1200) {
           this.image = `${this.data.media.file}?h=200&q=50`
         } else {
@@ -58,11 +64,33 @@
   @import '~assets/css/utilities/variables.scss';
   @import '~assets/css/utilities/mixins.scss';
 
-  .title {
-    @include ExtraBoldUppercase();
-    font-size: rem(36px);
-    width: 260px;
-    line-height: .85;
+  .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    figure {
+      width: 100%;
+    }
+
+    .text {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      text-align: center;
+      z-index: 10;
+
+      .title {
+        @include ExtraBoldUppercase();
+        font-size: rem(30px);
+        width: 260px;
+        line-height: .85;
+        color: $white;
+      }
+    }
   }
 
 </style>

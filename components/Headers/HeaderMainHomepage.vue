@@ -4,21 +4,21 @@
       navigation-homepage
     .hero-body.has-text-centered
       .text-container
-        h1.title.is-spaced
+        h1.title.is-spaced(v-scroll-reveal="{ delay: 0 }")
           | {{ data.hero.title }}
-        h2.subtitle
+        h2.subtitle(v-scroll-reveal="{ delay: 250 }")
           | {{ data.hero.subtitle }}
-        nuxt-link.button.is-primary(:to="data.hero.button.path")
+        nuxt-link.button.is-primary(:to="data.hero.button.path" v-scroll-reveal="{ delay: 500 }")
           | {{ data.hero.button.title }}
           span.button-line
-    .hero-video-bg
+    .hero-video-bg(v-if="data.hero.media.contentType === 'video/mp4'")
       video(autoplay muted loop)
         source(:src="data.hero.media.file" type="video/mp4")
-    //- no-ssr(v-else)
-    //-   progressive-background.hero-bg(
-    //-     :src="backgroundImg"
-    //-     :placeholder="`${data.hero.media.file}?h=100&q=5`"
-    //-     :blur="30")
+    no-ssr(v-else)
+      progressive-background.hero-bg(
+        :src="backgroundImg"
+        :placeholder="`${data.hero.media.file}?h=100&q=5`"
+        :blur="30")
 </template>
 
 <script>
@@ -95,14 +95,14 @@
 
     .hero-bg {
       background-size: cover;
-      position: absolute;
+      position: fixed;
       height: 100%;
       width: 100%;
       z-index: 0;
     }
 
     .hero-video-bg {
-      position: absolute;
+      position: fixed;
       top: 0;
       bottom: 0;
       width: 100%;
@@ -133,6 +133,7 @@
       font-size: rem(70px);
       color: $white;
       line-height: 2;
+      margin-bottom: 0;
       @include ExtraBold();
     }
 
