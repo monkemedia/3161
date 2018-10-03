@@ -5,8 +5,11 @@ Vue.use(VueScrollReveal)
 
 Vue.use(VueScrollReveal, {
   class: 'v-scroll-reveal',
-  duration: 800,
+  delay: 300,
+  duration: 500,
   scale: 1,
   distance: '10px',
-  mobile: false
+  mobile: false,
+  reset: false,
+  interval: 800
 })

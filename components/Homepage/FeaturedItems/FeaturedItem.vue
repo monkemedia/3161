@@ -24,6 +24,12 @@
       }
     },
 
+    data () {
+      return {
+        image: ''
+      }
+    },
+
     created () {
       if (process.client) {
         this.responsiveImage()
