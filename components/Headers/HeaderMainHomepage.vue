@@ -11,9 +11,9 @@
         nuxt-link.button.is-primary.is-auto(:to="data.hero.button.path" v-scroll-reveal="{ delay: 500 }")
           | {{ data.hero.button.title }}
           span.button-line
-    .hero-video-bg(v-if="video")
+    .hero-video-bg(v-if="!!video && !mobile")
       video(autoplay muted loop)
-        source(:src="data.hero.media.file" type="video/mp4")
+        source(:src="video" type="video/mp4")
     no-ssr(v-else)
       progressive-background.hero-bg(
         :src="backgroundImg"
@@ -50,25 +50,39 @@
       if (process.client) {
         const wH = window.innerWidth
 
-        if (wH <= 800 || !this.data.hero.media.contentType === 'video/mp4') {
-          this.responsiveImage()
-        } else {
-          this.video = true
-        }
+        console.log(wH)
+
+        // if (wH <= 800 || !this.data.hero.media.contentType === 'video/mp4') {
+        window.addEventListener('resize', this.responsiveMedia)
+        this.responsiveMedia()
+        // } else {
+        //   window.addEventListener('resize', this.isVideo)
+        //   this.isVideo()
+        // }
       }
     },
 
     methods: {
-      responsiveImage () {
+      responsiveMedia () {
         const wH = window.innerWidth
-
-        console.log(wH)
+        const isVideo = this.data.hero.media.contentType === 'video/mp4'
 
         if (wH >= 1200) {
-          this.backgroundImg = `${this.data.hero.media.file}?h=2000&q=80`
+          if (isVideo) {
+            this.video = this.data.hero.media.file
+          } else {
+            this.backgroundImg = `${this.data.hero.media.file}?h=2000&q=80`
+          }
+          this.mobile = false
         } else if (wH > 800 && wH < 1200) {
-          this.backgroundImg = `${this.data.hero.media.file}?h=200&q=50`
+          if (isVideo) {
+            this.video = this.data.hero.media.file
+          } else {
+            this.backgroundImg = `${this.data.hero.media.file}?h=200&q=50`
+          }
+          this.mobile = false
         } else {
+          this.video = false
           this.backgroundImg = `${this.data.hero.media.mobile.file}?q=80`
           this.mobile = true
         }
