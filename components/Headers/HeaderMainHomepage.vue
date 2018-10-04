@@ -8,7 +8,7 @@
           | {{ data.hero.title }}
         h2.subtitle(v-scroll-reveal="{ delay: 250 }")
           | {{ data.hero.subtitle }}
-        nuxt-link.button.is-primary(:to="data.hero.button.path" v-scroll-reveal="{ delay: 500 }")
+        nuxt-link.button.is-primary.is-auto(:to="data.hero.button.path" v-scroll-reveal="{ delay: 500 }")
           | {{ data.hero.button.title }}
           span.button-line
     .hero-video-bg(v-if="video")
