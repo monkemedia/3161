@@ -1,12 +1,17 @@
 import api from '~/api'
 
 const state = () => ({
-  data: null
+  data: null,
+  mobileMenuOpen: false
 })
 
 const mutations = {
   SET_DATA (store, data) {
     store.data = data
+  },
+
+  SET_MOBILE_MENU_TOGGLE (state, payload) {
+    state.mobileMenuOpen = payload
   }
 }
 
@@ -24,6 +29,10 @@ const actions = {
 const getters = {
   getData (state) {
     return state.data
+  },
+
+  isMobileMenuOpen: (state) => {
+    return state.mobileMenuOpen
   }
 }
 

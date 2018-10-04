@@ -2,9 +2,9 @@
   nav.navbar.is-spaced(:class="stickyHeader")
     .container
       .navbar-brand
-        nuxt-link.navbar-item.is-hidden-mobile.is-hidden-tablet-only(to="/")
+        burger-menu
+        nuxt-link.navbar-item.logo(to="/")
           img.main-logo(:src="selectLogo()" alt="Dr James Griffith Hall Lodge No. 3161")
-        //- burger-menu
       .navbar-menu
         .navbar-end
           .navbar-item
@@ -13,10 +13,14 @@
 </template>
 
 <script>
-  // let lastScrollTop = 0
+  import BurgerMenu from '@/components/Headers/BurgerMenu.vue'
 
   export default {
     name: 'NavigationHomepage',
+
+    components: {
+      BurgerMenu
+    },
 
     data () {
       return {
@@ -62,6 +66,7 @@
 <style lang="scss" scoped>
   @import '~assets/css/utilities/variables.scss';
   @import '../../node_modules/sass-rem/rem';
+  @import '../../node_modules/sass-mq/mq';
 
   .navbar {
     position: absolute;
@@ -79,8 +84,24 @@
   }
 
   .navbar-brand {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 0;
+
+    @include mq($from: tablet) {
+      padding: 0 20px;
+    }
+
+    .logo {
+      position: absolute;
+      left: 50%;
+      margin-left: -52px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      width: 104px;
+
+      @include mq($from: tablet) {
+        position: relative;
+      }
+    }
   }
 
   .navbar-menu {
