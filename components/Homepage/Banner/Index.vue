@@ -9,12 +9,13 @@
                 | {{ data.title }} //
               h2.subtitle(v-scroll-reveal="{ delay: 250 }")
                 | {{ data.subtitle }}
-              p(v-scroll-reveal="{ delay: 500 }") {{ data.description }}
+              p.is-hidden-mobile(v-scroll-reveal="{ delay: 500 }") {{ data.description }}
               nuxt-link.button.is-primary(:to="data.button.path" v-scroll-reveal="{ delay: 750 }")
                 | {{ data.button.title }}
                 span.button-line
           no-ssr
             progressive-background.banner-bg(
+              v-if="backgroundImg"
               v-scroll-reveal="{ distance: '0px' }"
               :src="backgroundImg"
               :placeholder="`${data.media.file}?h=100&q=5`"
@@ -32,7 +33,7 @@
 
     data () {
       return {
-        backgroundImg: ''
+        backgroundImg: null
       }
     },
 
@@ -51,7 +52,7 @@
         } else if (wH > 800 && wH < 1200) {
           this.backgroundImg = `${this.data.media.file}?h=200&q=50`
         } else {
-          this.backgroundImg = `${this.data.media.file}?h=100&q=5`
+          this.backgroundImg = false
         }
       }
     }
@@ -81,17 +82,22 @@
 
     .banner-body {
       z-index: 1;
-      flex-grow: 0;
       flex-grow: 1;
-      flex-shrink: 0;
-      padding: 0 60px;
+
+      @include mq($from: tablet) {
+        padding: 0 60px;
+        flex-shrink: 0;
+      }
 
       .text-container {
         width: 100%;
-        max-width: 320px;
         display: inline-block;
         background-color: $text-container-bg;
         padding: 30px;
+
+        @include mq($from: tablet) {
+          max-width: 320px;
+        }
       }
     }
 
