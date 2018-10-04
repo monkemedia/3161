@@ -11,7 +11,7 @@
         nuxt-link.button.is-primary(:to="data.hero.button.path" v-scroll-reveal="{ delay: 500 }")
           | {{ data.hero.button.title }}
           span.button-line
-    .hero-video-bg(v-if="data.hero.media.contentType === 'video/mp4'")
+    .hero-video-bg(v-if="video")
       video(autoplay muted loop)
         source(:src="data.hero.media.file" type="video/mp4")
     no-ssr(v-else)
@@ -40,13 +40,21 @@
 
     data () {
       return {
-        backgroundImg: ''
+        backgroundImg: '',
+        mobile: false,
+        video: false
       }
     },
 
     created () {
-      if (process.client && !this.data.hero.media.contentType === 'video/mp4') {
-        this.responsiveImage()
+      if (process.client) {
+        const wH = window.innerWidth
+
+        if (wH <= 800 || !this.data.hero.media.contentType === 'video/mp4') {
+          this.responsiveImage()
+        } else {
+          this.video = true
+        }
       }
     },
 
@@ -54,12 +62,15 @@
       responsiveImage () {
         const wH = window.innerWidth
 
+        console.log(wH)
+
         if (wH >= 1200) {
           this.backgroundImg = `${this.data.hero.media.file}?h=2000&q=80`
         } else if (wH > 800 && wH < 1200) {
           this.backgroundImg = `${this.data.hero.media.file}?h=200&q=50`
         } else {
-          this.backgroundImg = `${this.data.hero.media.file}?h=100&q=5`
+          this.backgroundImg = `${this.data.hero.media.mobile.file}?q=80`
+          this.mobile = true
         }
       }
     }
@@ -130,11 +141,15 @@
     }
 
     .subtitle {
-      font-size: rem(70px);
+      font-size: rem(50px);
       color: $white;
       line-height: 2;
       margin-bottom: 0;
       @include ExtraBold();
+
+      @include mq($from: tablet) {
+        font-size: rem(70px);
+      }
     }
 
     .button {

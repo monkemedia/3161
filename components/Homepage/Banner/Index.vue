@@ -72,9 +72,11 @@
     display: flex;
     overflow: hidden;
     align-items: center;
+    margin: 15px 0;
 
     @include mq($from: tablet) {
       height: 400px;
+      margin: 0;
     }
 
     .banner-body {

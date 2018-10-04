@@ -73,6 +73,7 @@ ul.no-list {
 .main {
   background-color: $body-bg;
   position: relative;
+  display: inline-block;
 }
 
 .sr-only {

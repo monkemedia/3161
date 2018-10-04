@@ -1,35 +1,21 @@
 <template lang="pug">
   .container
-    .columns.is-gapless
-      .column.is-6.content-centered.content-container
-        .content
-          p.title(v-scroll-reveal="{ delay: 0 }") {{ data[0].title }}
-          p(v-scroll-reveal="{ delay: 250 }") {{ data[0].description }}
-          nuxt-link.button(:to="data[0].button.path" v-scroll-reveal="{ delay: 500 }")
-            | {{ data[0].button.title }}
-            span.button-line
+    .columns.is-gapless(v-for="(item, index) in data" )
+      .column.is-6(:class="{ 'order':  index === 1}")
+        .content-container.content-centered
+          .text-container
+            p.title(v-scroll-reveal="{ delay: 0 }") {{ item.title }}
+            p(v-scroll-reveal="{ delay: 250 }") {{ item.description }}
+            nuxt-link.button(:to="item.button.path" v-scroll-reveal="{ delay: 500 }")
+              | {{ item.button.title }}
+              span.button-line
       .column.is-6
         figure.image(v-scroll-reveal="{ distance: '0px' }")
           no-ssr
             progressive-img(
-              :src="imageOne"
-              :placeholder="`${data[0].media.file}?h=100&q=5`"
+              :src="index === 0 ? imageOne : imageTwo"
+              :placeholder="`${item.media.file}?h=100&q=5`"
               :blur="30")
-    .columns.is-gapless
-      .column.is-6
-        figure.image(v-scroll-reveal="{ distance: '0px' }")
-          no-ssr
-            progressive-img(
-              :src="imageTwo"
-              :placeholder="`${data[1].media.file}?h=100&q=5`"
-              :blur="30")
-      .column.is-6.content-centered.content-container
-        .content
-          p.title(v-scroll-reveal="{ delay: 0 }") {{ data[1].title }}
-          p(v-scroll-reveal="{ delay: 250 }") {{ data[1].description }}
-          nuxt-link.button(:to="data[1].button.path" v-scroll-reveal="{ delay: 500 }")
-            | {{ data[1].button.title }}
-            span.button-line
 </template>
 
 <script>
@@ -75,16 +61,28 @@
 
 <style lang="scss" scoped>
   @import '../../../node_modules/sass-rem/rem';
-  // @import '../node_modules/sass-mq/mq';
+  @import '../../../node_modules/sass-mq/mq';
   @import '~assets/css/utilities/variables.scss';
   @import '~assets/css/utilities/mixins.scss';
 
   .content-container {
     background-color: $grey-lighter;
+    width: 100%;
+    height: 100%;
+    margin-top: 15px;
 
-    .content {
+    @include mq($from: tablet) {
+      margin-top: 0;
+    }
+
+    .text-container {
       width: 100%;
       max-width: 300px;
+      padding: 40px 10px;
+
+      @include mq($from: tablet) {
+        padding: 0;
+      }
     }
   }
 
@@ -101,6 +99,10 @@
 
   p {
     font-size: rem(13px);
+  }
+
+  .order {
+    order: 1;
   }
 
 </style>
