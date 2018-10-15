@@ -98,10 +98,14 @@
   @import '~assets/css/utilities/mixins.scss';
 
   .hero {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
+    height: 400px;
     justify-content: center;
+
+    @include mq($from: tablet) {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
 
     // @include mq($from: tablet) {
     //   height: 400px;
