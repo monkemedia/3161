@@ -107,10 +107,6 @@
       height: 100vh;
     }
 
-    // @include mq($from: tablet) {
-    //   height: 400px;
-    // }
-
     .hero-body {
       z-index: 1;
       flex-grow: 0;

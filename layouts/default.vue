@@ -1,94 +1,27 @@
 <template lang="pug">
   div(:class="{ 'side-bar-open': isMobileMenuActive }")
-    .side-bar
-      ul
-        li(v-for="nav in navigation")
-          nuxt-link(:to="nav.slug") {{ nav.label }}
+    SideBar
     nuxt
 </template>
 
 <script>
+  import SideBar from '@/components/Navigation/SideBar'
+
   export default {
     name: 'DefaultLayout',
+
+    components: {
+      SideBar
+    },
 
     computed: {
       isMobileMenuActive () {
         return this.$store.getters['navigation/isMobileMenuOpen']
-      },
-
-      navigation () {
-        return this.$store.getters['navigation/getData']
       }
     }
   }
 </script>
 
 <style lang="scss">
-  @import '../node_modules/sass-mq/mq';
-  @import '../node_modules/sass-rem/rem';
-  @import '~assets/css/utilities/variables.scss';
-  @import '~assets/css/utilities/mixins.scss';
 
-  $transition-amount: 300px;
-
-  .side-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    visibility: hidden;
-    width: $transition-amount;
-    height: 100%;
-    transition: all 0.5s;
-    transform: translateX(-$transition-amount);
-    background: $grey;
-
-    .side-bar-open & {
-      transform: translateX(0);
-      visibility: visible;
-    }
-
-    ul li {
-      border-bottom: 1px solid $grey-light;
-      a {
-        padding: 20px;
-        width: 100%;
-        display: inline-flex;
-        font-size: rem(12px);
-        color: $white;
-        @include ExtraBoldUppercase()
-      }
-    }
-  }
-
-  .main-content {
-    .side-bar-open &{
-      transform: translateX($transition-amount);
-
-      &:after {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.2);
-        content: '';
-        opacity: 1;
-        transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
-        z-index: 40;
-      }
-    }
-  }
-
-  .main-content {
-    transition: all 0.5s;
-  }
-
-  .main {
-    padding: 0 15px;
-
-    @include mq($from: tablet) {
-      padding: 0;
-    }
-  }
 </style>
