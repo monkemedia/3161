@@ -93,7 +93,7 @@
       background-color: rgba(255, 255, 255, 1);
       position: fixed;
       padding: 0 !important;
-      border-bottom: 1px solid $grey-300;
+      // border-bottom: 1px solid $grey-300;
     }
   }
 
@@ -126,6 +126,7 @@
     .navbar-link {
       padding-left: 0;
       padding-right: 0;
+      margin: 0 20px;
 
       .homepage & {
         color: $white;
@@ -138,6 +139,17 @@
 
       .is-sticky-header & {
         color: $secondary;
+      }
+    }
+
+    .is-sticky-header & {
+      .homepage & {
+        .navbar-link {
+          &.is-active,
+          &:hover {
+            color: $secondary;
+          }
+        }
       }
     }
   }

@@ -80,12 +80,13 @@
     }
 
     .title {
-      font-size: rem(50px);
+      font-size: rem(30px);
       color: $white;
       margin-bottom: 0;
       @include ExtraBold();
+
       @include mq($from: tablet) {
-        font-size: rem(70px);
+        font-size: rem(50px);
       }
     }
   }

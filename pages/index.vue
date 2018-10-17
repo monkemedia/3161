@@ -46,13 +46,5 @@
 </script>
 
 <style lang="scss" scoped>
-  // @import '../node_modules/sass-rem/rem';
-  // @import '../node_modules/sass-mq/mq';
-  @import '~assets/css/utilities/variables.scss';
-  // @import '~assets/css/utilities/mixins.scss';
 
-  .sub-main {
-    background-color: $grey-lighter;
-    padding: 15px;
-  }
 </style>

@@ -1,7 +1,13 @@
 <template lang="pug">
   div
     header-main(:data="page")
-    h1 test {{ page.title }}
+    .main
+      .container.sub-main
+        .centered-section-blurb
+          .columns
+            .column
+              h1.title {{ page.title }}
+              p {{ page.description }}
 </template>
 
 <script>
@@ -30,6 +36,19 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+  @import '../../node_modules/sass-rem/rem';
+  @import '~assets/css/utilities/variables.scss';
+  @import '~assets/css/utilities/mixins.scss';
 
+  .container {
+    padding-top: 60px !important;
+    padding-bottom: 60px;
+  }
+
+  .title {
+    font-size: rem(70px);
+    margin-bottom: 20px;
+    @include ExtraBoldUppercase();
+  }
 </style>

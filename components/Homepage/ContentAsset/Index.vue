@@ -2,10 +2,10 @@
   .container
     .columns
       .column
-        .content-asset.has-text-centered
+        .centered-section-blurb
           h3.title
             | {{ data.title }}
-          span.description(v-html="$md.render(data.description)")
+          span(v-html="$md.render(data.description)")
 </template>
 
 <script>
@@ -25,7 +25,7 @@
   @import '~assets/css/utilities/variables.scss';
   @import '~assets/css/utilities/mixins.scss';
 
-  .content-asset {
+  .centered-section-blurb {
     padding: 40px 0;
   }
 
@@ -40,12 +40,6 @@
     color: $white;
     @include ExtraBold();
     margin: 0;
-  }
-
-  .description {
-    width: 100%;
-    max-width: 700px;
-    display: inline-block;
   }
 
   p {

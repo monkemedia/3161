@@ -77,6 +77,18 @@ ul.no-list {
   width: 100%;
 }
 
+.sub-main {
+  background-color: $grey-lighter;
+  padding: 15px;
+}
+
+.centered-section-blurb {
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+  margin: 0 auto;
+}
+
 .sr-only {
   position: absolute !important;
   width: 1px !important;

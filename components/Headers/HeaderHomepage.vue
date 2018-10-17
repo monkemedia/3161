@@ -47,19 +47,12 @@
     },
 
     created () {
-      if (process.client) {
-        const wH = window.innerWidth
-
-        console.log(wH)
-
-        // if (wH <= 800 || !this.data.hero.media.contentType === 'video/mp4') {
-        window.addEventListener('resize', this.responsiveMedia)
-        this.responsiveMedia()
-        // } else {
-        //   window.addEventListener('resize', this.isVideo)
-        //   this.isVideo()
-        // }
+      if (!process.client) {
+        return
       }
+
+      window.addEventListener('resize', this.responsiveMedia)
+      this.responsiveMedia()
     },
 
     methods: {

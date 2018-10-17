@@ -121,6 +121,7 @@
       color: $white;
       @include ExtraBold();
       margin: 0 0 10px 0;
+      text-decoration: underline;
     }
 
     p {
