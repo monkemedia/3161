@@ -1,10 +1,17 @@
 <template lang="pug">
-  section.container
-    h1 {{ page.title }}
+  div
+    header-main(:data="page")
+    h1 test {{ page.title }}
 </template>
 
 <script>
+  import HeaderMain from '@/components/Headers/HeaderMain.vue'
+
   export default {
+    components: {
+      HeaderMain
+    },
+
     async fetch ({ store, params }) {
       return store.dispatch('page/fetchData', params.slug)
     },

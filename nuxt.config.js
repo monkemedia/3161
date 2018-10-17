@@ -8,7 +8,7 @@ module.exports = {
   head: {
     title: 'Dr James Griffith Hall - Swansea Freemasonry',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },

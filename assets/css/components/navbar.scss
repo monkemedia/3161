@@ -12,12 +12,12 @@
   .navbar-brand,
   .navbar-menu {
     .navbar-link {
-      @include ExtraBoldUppercase();
+      @include Bold();
       font-size: rem(12px);
 
       &.is-active,
       &:hover {
-        color: $white;
+        color: $secondary;
         background-color: transparent;
       }
     }

@@ -4,7 +4,7 @@
       .navbar-brand
         burger-menu
         nuxt-link.navbar-item.logo(to="/")
-          img.main-logo(:src="selectLogo()" alt="Dr James Griffith Hall Lodge No. 3161")
+          img.main-logo(:src="logo" alt="Dr James Griffith Hall Lodge No. 3161")
       .navbar-menu
         .navbar-end
           .navbar-item
@@ -14,9 +14,10 @@
 
 <script>
   import BurgerMenu from '@/components/Headers/BurgerMenu.vue'
+  import _ from 'lodash'
 
   export default {
-    name: 'NavigationHomepage',
+    name: 'NavigationMain',
 
     components: {
       BurgerMenu
@@ -24,7 +25,8 @@
 
     data () {
       return {
-        stickyHeader: false
+        stickyHeader: false,
+        logo: '/djgh-white-logo.png'
       }
     },
 
@@ -35,14 +37,23 @@
     },
 
     mounted () {
-      if (process.browser) {
-        window.addEventListener('scroll', this.handleScroll)
+      if (!process.browser) {
+        return false
       }
+
+      window.addEventListener('scroll', _.debounce(() => {
+        this.handleScroll()
+      }))
+      this.selectLogo()
     },
 
     methods: {
       getCurrentScroll () {
         return window.pageYOffset || document.documentElement.scrollTop
+      },
+
+      selectLogo () {
+        this.$parent.$parent.$refs.homepage && !this.stickyHeader ? this.logo = '/djgh-white-logo.png' : this.logo = '/djgh-black-logo.png'
       },
 
       handleScroll () {
@@ -54,10 +65,8 @@
         } else {
           this.stickyHeader = ''
         }
-      },
 
-      selectLogo () {
-        return this.stickyHeader ? '/djgh-black-logo.png' : '/djgh-white-logo.png'
+        this.selectLogo()
       }
     }
   }
@@ -69,14 +78,19 @@
   @import '../../node_modules/sass-mq/mq';
 
   .navbar {
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
     transition: all .5s ease;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: $white;
+
+    .homepage & {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0);
+    }
 
     &.is-sticky-header {
-      background-color: rgba(255, 255, 255, .95);
+      background-color: rgba(255, 255, 255, 1);
       position: fixed;
       padding: 0 !important;
       border-bottom: 1px solid $grey-300;
@@ -112,7 +126,15 @@
     .navbar-link {
       padding-left: 0;
       padding-right: 0;
-      color: $white;
+
+      .homepage & {
+        color: $white;
+
+        &.is-active,
+        &:hover {
+          color: $white;
+        }
+      }
 
       .is-sticky-header & {
         color: $secondary;

@@ -1,6 +1,6 @@
 <template lang="pug">
-  div
-    header-main-homepage(:data="homepage")
+  div.homepage(ref="homepage")
+    header-homepage(:data="homepage")
     .main
       content-blocks(:data="homepage.contentBlocks")
       banner(:data="homepage.banner")
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import HeaderMainHomepage from '@/components/Headers/HeaderMainHomepage.vue'
+  import HeaderHomepage from '@/components/Headers/HeaderHomepage.vue'
   import ContentBlocks from '@/components/Homepage/ContentBlocks/Index.vue'
   import Banner from '@/components/Homepage/Banner/Index.vue'
   import FeaturedItems from '@/components/Homepage/FeaturedItems/Index.vue'
@@ -20,7 +20,7 @@
 
   export default {
     components: {
-      HeaderMainHomepage,
+      HeaderHomepage,
       ContentBlocks,
       Banner,
       FeaturedItems,

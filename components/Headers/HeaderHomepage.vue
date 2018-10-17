@@ -1,7 +1,7 @@
 <template lang="pug">
   header.hero
     .hero-head
-      navigation-homepage
+      navigation-main
     .hero-body.has-text-centered
       .text-container
         h1.title.is-spaced(v-scroll-reveal="{ delay: 0 }")
@@ -22,13 +22,13 @@
 </template>
 
 <script>
-  import NavigationHomepage from '@/components/Navigation/NavigationHomepage.vue'
+  import NavigationMain from '@/components/Navigation/NavigationMain.vue'
 
   export default {
     name: 'HeaderMainHomepage',
 
     components: {
-      NavigationHomepage
+      NavigationMain
     },
 
     props: {
