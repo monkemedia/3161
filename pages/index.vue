@@ -3,7 +3,7 @@
     header-homepage(:data="homepage")
     .main
       content-blocks(:data="homepage.contentBlocks")
-      banner(:data="homepage.banner")
+      banner.is-hidden-mobile(:data="homepage.banner")
       section
         .container.sub-main
           featured-items(:data="homepage.featuredItems")

@@ -1,7 +1,7 @@
 <template lang="pug">
   .container#content-block
     .columns.is-gapless(v-for="(item, index) in data" )
-      .column.is-6(:class="{ 'order':  index === 1}")
+      .column.is-6.mobile-padding(:class="{ 'order':  index === 1}")
         .content-container.content-centered
           .text-container
             p.title(v-scroll-reveal="{ delay: 0 }") {{ item.title }}
@@ -69,11 +69,6 @@
     background-color: $grey-lighter;
     width: 100%;
     height: 100%;
-    margin-top: 15px;
-
-    @include mq($from: tablet) {
-      margin-top: 0;
-    }
 
     .text-container {
       width: 100%;
@@ -95,6 +90,15 @@
 
   .is-gapless {
     margin-bottom: 0 !important;
+  }
+
+  .mobile-padding,
+  .columns.is-gapless > .column.mobile-padding {
+    padding: 15px !important;
+
+    @include mq($from: tablet) {
+      padding: 0 !important;
+    }
   }
 
   p {

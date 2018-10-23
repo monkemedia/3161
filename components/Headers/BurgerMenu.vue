@@ -55,6 +55,8 @@
     border: 0;
     background-color: transparent;
     margin: 0;
+    position: absolute;
+    right: 0;
 
     span {
       width: 22px;

@@ -127,6 +127,7 @@
       width: 114px;
       left: 50%;
       margin-left: -57px;
+      color: $white;
 
       .icon {
         animation: bounceArrow 2s infinite;

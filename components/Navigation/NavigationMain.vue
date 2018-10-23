@@ -2,9 +2,10 @@
   nav.navbar.is-spaced(:class="stickyHeader")
     .container
       .navbar-brand
-        burger-menu
         nuxt-link.navbar-item.logo(to="/")
-          img.main-logo(src="/logo.svg" alt="Dr James Griffith Hall Lodge No. 3161")
+          img.main-logo(src="/logo-white.svg" alt="Dr James Griffith Hall Lodge No. 3161" v-if="!isSticky")
+          img.main-logo(src="/logo.svg" alt="Dr James Griffith Hall Lodge No. 3161" v-else)
+        burger-menu
       .navbar-menu
         .navbar-end
           .navbar-item
@@ -27,7 +28,8 @@
 
     data () {
       return {
-        stickyHeader: false
+        stickyHeader: false,
+        isSticky: false
       }
     },
 
@@ -58,8 +60,10 @@
 
         if (scroll > shrinkHeader) {
           this.stickyHeader = 'is-sticky-header'
+          this.isSticky = true
         } else {
           this.stickyHeader = ''
+          this.isSticky = false
         }
       }
     }
@@ -98,24 +102,25 @@
     padding: 0;
 
     .logo {
-      position: fixed;
+      position: absolute;
       left: 50%;
-      margin-left: -52px;
-      padding-top: 0;
-      padding-bottom: 0;
-
-      .is-sticky-header &{
-        top: 0;
-      }
+      margin-left: -97.5px;
+      top: 7px;
 
       @include mq($from: tablet) {
-        margin-left: 0;
-        left: 0;
+        position: relative;
+        left: auto;
+        margin-left: auto;
+        top: auto;
+        margin-left: 20px;
+      }
 
-        img {
-          width: 100px;
+      img {
+        height: 22px;
+        max-width: 100%;
+
+        @include mq($from: tablet) {
           height: auto;
-          max-width: 100%;
         }
       }
     }
@@ -123,7 +128,7 @@
 
   .navbar-menu {
     .navbar-item {
-      padding-right: 40px;
+      // padding-right: 40px;
     }
 
     .navbar-link {
