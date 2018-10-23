@@ -3,7 +3,7 @@
     .container
       .navbar-brand
         nuxt-link.navbar-item.logo(to="/")
-          img.main-logo(src="/logo-white.svg" alt="Dr James Griffith Hall Lodge No. 3161" v-if="!isSticky")
+          img.main-logo(src="/logo-white.svg" alt="Dr James Griffith Hall Lodge No. 3161" v-if="!isSticky && isHomepage")
           img.main-logo(src="/logo.svg" alt="Dr James Griffith Hall Lodge No. 3161" v-else)
         burger-menu
       .navbar-menu
@@ -29,7 +29,8 @@
     data () {
       return {
         stickyHeader: false,
-        isSticky: false
+        isSticky: false,
+        isHomepage: false
       }
     },
 
@@ -43,6 +44,8 @@
       if (!process.browser) {
         return false
       }
+
+      this.isHomepage = !!this.$parent.$parent.$refs['homepage']
 
       window.addEventListener('scroll', _.debounce(() => {
         this.handleScroll()
@@ -80,7 +83,7 @@
     top: 0;
     width: 100%;
     transition: all .5s ease;
-    background-color: $grey-dark;
+    background-color: $white;
 
     .homepage & {
       position: absolute;
