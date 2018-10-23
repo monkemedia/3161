@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.homepage(ref="homepage")
+  div.homepage(ref="homepage" v-cloak)
     header-homepage(:data="homepage")
     .main
       content-blocks(:data="homepage.contentBlocks")
@@ -8,7 +8,7 @@
         .container.sub-main
           featured-items(:data="homepage.featuredItems")
           content-asset(:data="homepage")
-
+    footer-main
 </template>
 
 <script>
@@ -17,6 +17,7 @@
   import Banner from '@/components/Homepage/Banner/Index.vue'
   import FeaturedItems from '@/components/Homepage/FeaturedItems/Index.vue'
   import ContentAsset from '@/components/Homepage/ContentAsset/Index.vue'
+  import FooterMain from '@/components/Footers/FooterMain.vue'
 
   export default {
     components: {
@@ -24,7 +25,8 @@
       ContentBlocks,
       Banner,
       FeaturedItems,
-      ContentAsset
+      ContentAsset,
+      FooterMain
     },
 
     async fetch ({ store }) {

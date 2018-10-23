@@ -47,6 +47,10 @@ a {
   }
 }
 
+[v-cloak] {
+  display: none;
+}
+
 p {
   color: $body-color;
   font-size: rem($size-140);
