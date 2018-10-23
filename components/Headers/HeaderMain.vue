@@ -51,9 +51,8 @@
   }
 
   .hero {
-    height: 300px;
+    height: 380px;
     justify-content: center;
-    margin-top: 84px;
 
     @include mq($from: tablet) {
       position: relative;

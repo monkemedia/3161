@@ -11,6 +11,13 @@
         nuxt-link.button.is-primary.is-auto(:to="data.hero.button.path" v-scroll-reveal="{ delay: 500 }")
           | {{ data.hero.button.title }}
           span.button-line
+    .hero-foot.has-text-centered
+      .text-container
+        a(href="#test")
+          | Scroll to navigate
+          br
+          span.icon
+            fa.icon(:icon="['fas', 'chevron-down']")
     .hero-video-bg(v-if="!!video && !mobile")
       video(autoplay muted loop)
         source(:src="video" type="video/mp4")
@@ -100,7 +107,8 @@
       height: 100vh;
     }
 
-    .hero-body {
+    .hero-body,
+    .hero-foot {
       z-index: 1;
       flex-grow: 0;
 
@@ -108,6 +116,10 @@
         width: 100%;
         max-width: 400px;
         display: inline-block;
+      }
+
+      .icon {
+        animation: bounceArrow 2s infinite;
       }
     }
 

@@ -14,11 +14,17 @@
     .navbar-link {
       @include Bold();
       font-size: rem(12px);
+      color: $secondary;
 
       &.is-active,
       &:hover {
-        color: $secondary;
         background-color: transparent;
+      }
+    }
+
+    .homepage & {
+      .navbar-link {
+        color: $white;
       }
     }
   }

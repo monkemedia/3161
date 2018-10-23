@@ -47,8 +47,18 @@ module.exports = {
     }
   ],
   modules: [
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
+    ['nuxt-fontawesome', {
+      component: 'fa',
+      imports: [
+        {
+          set: '@fortawesome/free-solid-svg-icons',
+          icons: ['faChevronDown']
+        }
+      ]
+    }]
   ],
+
   markdownit: {
     injected: true
   },

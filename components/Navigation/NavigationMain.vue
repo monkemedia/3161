@@ -4,7 +4,7 @@
       .navbar-brand
         burger-menu
         nuxt-link.navbar-item.logo(to="/")
-          img.main-logo(:src="logo" alt="Dr James Griffith Hall Lodge No. 3161")
+          img.main-logo(src="/logo.svg" alt="Dr James Griffith Hall Lodge No. 3161")
       .navbar-menu
         .navbar-end
           .navbar-item
@@ -27,8 +27,7 @@
 
     data () {
       return {
-        stickyHeader: false,
-        logo: '/djgh-white-logo.png'
+        stickyHeader: false
       }
     },
 
@@ -46,16 +45,11 @@
       window.addEventListener('scroll', _.debounce(() => {
         this.handleScroll()
       }))
-      this.selectLogo()
     },
 
     methods: {
       getCurrentScroll () {
         return window.pageYOffset || document.documentElement.scrollTop
-      },
-
-      selectLogo () {
-        this.$parent.$parent.$refs.homepage && !this.stickyHeader ? this.logo = '/djgh-white-logo.png' : this.logo = '/djgh-black-logo.png'
       },
 
       handleScroll () {
@@ -67,8 +61,6 @@
         } else {
           this.stickyHeader = ''
         }
-
-        this.selectLogo()
       }
     }
   }
@@ -84,7 +76,7 @@
     top: 0;
     width: 100%;
     transition: all .5s ease;
-    background-color: $white;
+    background-color: $grey-dark;
 
     .homepage & {
       position: absolute;
@@ -92,9 +84,12 @@
     }
 
     &.is-sticky-header {
-      background-color: rgba(255, 255, 255, 1);
+      background-color: $white;
       position: fixed;
-      padding: 0 !important;
+
+      .navbar-link {
+        color: $secondary;
+      }
       // border-bottom: 1px solid $grey-300;
     }
   }
@@ -102,20 +97,26 @@
   .navbar-brand {
     padding: 0;
 
-    @include mq($from: tablet) {
-      padding: 0 20px;
-    }
-
     .logo {
-      position: absolute;
+      position: fixed;
       left: 50%;
       margin-left: -52px;
-      padding-top: 12px;
-      padding-bottom: 12px;
-      width: 104px;
+      padding-top: 0;
+      padding-bottom: 0;
+
+      .is-sticky-header &{
+        top: 0;
+      }
 
       @include mq($from: tablet) {
-        position: relative;
+        margin-left: 0;
+        left: 0;
+
+        img {
+          width: 100px;
+          height: auto;
+          max-width: 100%;
+        }
       }
     }
   }
@@ -129,30 +130,6 @@
       padding-left: 0;
       padding-right: 0;
       margin: 0 20px;
-
-      .homepage & {
-        color: $white;
-
-        &.is-active,
-        &:hover {
-          color: $white;
-        }
-      }
-
-      .is-sticky-header & {
-        color: $secondary;
-      }
-    }
-
-    .is-sticky-header & {
-      .homepage & {
-        .navbar-link {
-          &.is-active,
-          &:hover {
-            color: $secondary;
-          }
-        }
-      }
     }
   }
 
