@@ -47,7 +47,9 @@
     transform: none;
   }
   
-  &:hover {
+  &:hover,
+  &:focus,
+  &.nuxt-link-active {
     &:after {
       width: 100%;
     }
@@ -63,14 +65,4 @@
 }
   
 // Navigation
-@mixin NavbarUnderline() {
-  content: '';
-  position: absolute;
-  height: 3px;
-  bottom: 0;
-  left: 0;
-  background: $primary;
-  transform: translate(0, 3px);
-  transition: all .25s cubic-bezier(.4, .01, .1, 1);
-  width: 100%;
-} 
+
