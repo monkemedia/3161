@@ -109,6 +109,8 @@
       left: 50%;
       margin-left: -97.5px;
       top: 7px;
+      padding-top: 0;
+      padding-bottom: 0;
 
       @include mq($from: tablet) {
         position: relative;
@@ -124,6 +126,7 @@
 
         @include mq($from: tablet) {
           height: auto;
+          max-height: 48px;
         }
       }
     }

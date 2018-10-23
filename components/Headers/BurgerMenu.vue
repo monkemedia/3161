@@ -32,8 +32,6 @@
         const htmlTag = document.getElementsByTagName('html')[0]
         const navbar = document.getElementsByClassName('navbar')[0]
 
-        console.log('navbar', navbar)
-
         this.$store.commit('navigation/SET_MOBILE_MENU_TOGGLE', false)
         htmlTag.classList.remove('disable-overflow')
         navbar.classList.add('is-fixed-top')
