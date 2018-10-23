@@ -1,5 +1,5 @@
 <template lang="pug">
-  .container
+  .container#content-block
     .columns.is-gapless(v-for="(item, index) in data" )
       .column.is-6(:class="{ 'order':  index === 1}")
         .content-container.content-centered

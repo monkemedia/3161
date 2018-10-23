@@ -16,6 +16,7 @@ import nuxt_plugin_templatesplugin0aa3f182_320c2b49 from 'nuxt_plugin_templatesp
 import nuxt_plugin_markdownit_4f81076e from 'nuxt_plugin_markdownit_4f81076e' // Source: ./markdown-it.js
 import nuxt_plugin_vueprogressiveimage_bd141b48 from 'nuxt_plugin_vueprogressiveimage_bd141b48' // Source: ../plugins/vue-progressive-image (ssr: false)
 import nuxt_plugin_vuescrollreveal_36883210 from 'nuxt_plugin_vuescrollreveal_36883210' // Source: ../plugins/vue-scroll-reveal (ssr: false)
+import nuxt_plugin_vuescrollto_27a6f23e from 'nuxt_plugin_vuescrollto_27a6f23e' // Source: ../plugins/vue-scroll-to (ssr: false)
 
 
 // Component: <no-ssr>
@@ -160,6 +161,7 @@ async function createApp (ssrContext) {
   if (process.browser) { 
     if (typeof nuxt_plugin_vueprogressiveimage_bd141b48 === 'function') await nuxt_plugin_vueprogressiveimage_bd141b48(app.context, inject)
     if (typeof nuxt_plugin_vuescrollreveal_36883210 === 'function') await nuxt_plugin_vuescrollreveal_36883210(app.context, inject)
+    if (typeof nuxt_plugin_vuescrollto_27a6f23e === 'function') await nuxt_plugin_vuescrollto_27a6f23e(app.context, inject)
   }
 
   // If server-side, wait for async component to be resolved first
