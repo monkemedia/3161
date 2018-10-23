@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  div#top
     header-main(:data="page")
     .main
       .container.sub-main

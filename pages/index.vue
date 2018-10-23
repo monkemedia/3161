@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.homepage(ref="homepage" v-cloak)
+  div.homepage#top(ref="homepage" v-cloak)
     header-homepage(:data="homepage")
     .main
       content-blocks(:data="homepage.contentBlocks")
@@ -9,6 +9,7 @@
           featured-items(:data="homepage.featuredItems")
           content-asset(:data="homepage")
     footer-main
+    back-to-top
 </template>
 
 <script>
@@ -17,6 +18,7 @@
   import Banner from '@/components/Homepage/Banner/Index.vue'
   import FeaturedItems from '@/components/Homepage/FeaturedItems/Index.vue'
   import ContentAsset from '@/components/Homepage/ContentAsset/Index.vue'
+  import BackToTop from '@/components/Utilities/BackToTop.vue'
   import FooterMain from '@/components/Footers/FooterMain.vue'
 
   export default {
@@ -26,6 +28,7 @@
       Banner,
       FeaturedItems,
       ContentAsset,
+      BackToTop,
       FooterMain
     },
 

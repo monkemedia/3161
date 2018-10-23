@@ -10,6 +10,9 @@ config.autoAddCss = false
     import  { faChevronDown as fortawesomefreesolidsvgicons_faChevronDown } from '@fortawesome/free-solid-svg-icons'
     library.add(fortawesomefreesolidsvgicons_faChevronDown)
   
+    import  { faChevronUp as fortawesomefreesolidsvgicons_faChevronUp } from '@fortawesome/free-solid-svg-icons'
+    library.add(fortawesomefreesolidsvgicons_faChevronUp)
+  
 
 
 Vue.component('fa', FontAwesomeIcon)
