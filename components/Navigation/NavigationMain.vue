@@ -3,8 +3,9 @@
     .container
       .navbar-brand
         nuxt-link.navbar-item.logo(to="/")
-          img.main-logo(src="/logo-white.svg" alt="Dr James Griffith Hall Lodge No. 3161" v-if="!isSticky && isHomepage")
-          img.main-logo(src="/logo.svg" alt="Dr James Griffith Hall Lodge No. 3161" v-else)
+          img.main-logo.is-hidden-mobile(src="/logo-white.svg" alt="Dr James Griffith Hall Lodge No. 3161" v-if="!isSticky && isHomepage")
+          img.main-logo.is-hidden-mobile(src="/logo.svg" alt="Dr James Griffith Hall Lodge No. 3161" v-else)
+          img.main-logo.is-hidden-tablet(src="/logo-mobile.svg" alt="Dr James Griffith Hall Lodge No. 3161")
         burger-menu
       .navbar-menu
         .navbar-end
@@ -107,10 +108,9 @@
     .logo {
       position: absolute;
       left: 50%;
-      margin-left: -97.5px;
-      top: 7px;
-      padding-top: 0;
-      padding-bottom: 0;
+      margin-left: -13.9px;
+      top: 11px;
+      padding: 0;
 
       @include mq($from: tablet) {
         position: relative;
@@ -118,14 +118,14 @@
         margin-left: auto;
         top: auto;
         margin-left: 20px;
+        padding: 0 0.75rem;
       }
 
       img {
-        height: 22px;
+        height: auto;
         max-width: 100%;
 
         @include mq($from: tablet) {
-          height: auto;
           max-height: 48px;
         }
       }

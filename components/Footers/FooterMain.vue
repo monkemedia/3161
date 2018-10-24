@@ -1,10 +1,9 @@
 <template lang="pug">
-  footer
-    .container
-      .columns
-        .column
-          .footer-text
-            | Test people
+  footer.footer
+    .content.has-text-centered
+      p
+        <strong>Lodge3161</strong> by <a href="https://monkemedia.co.uk">monkemedia.co.uk</a>. The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
 </template>
 
 <script>
@@ -25,8 +24,10 @@
     background-image: url('/footer-bg.jpg');
     background-size: cover;
 
-    .footer-text {
-      padding: 80px 0;
+    .content {
+      p, strong {
+        color: $white;
+      }
     }
   }
 </style>
