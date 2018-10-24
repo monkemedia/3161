@@ -4,7 +4,7 @@
       navigation-main
     .hero-body.has-text-centered
       .text-container
-        h1.title.is-spaced(v-scroll-reveal="{ delay: 0 }")
+        h3.title.is-spaced(v-scroll-reveal="{ delay: 0 }")
           | {{ data.hero.title }}
         h2.subtitle(v-scroll-reveal="{ delay: 250 }")
           | {{ data.hero.subtitle }}
@@ -169,18 +169,17 @@
       font-size: rem(12px);
       color: $white;
       margin-bottom: 0;
-      @include ExtraBold();
     }
 
     .subtitle {
-      font-size: rem(50px);
+      font-family: $family-tertiary;
+      font-size: rem(70px);
       color: $white;
       line-height: 2;
       margin-bottom: 0;
-      @include ExtraBold();
 
       @include mq($from: tablet) {
-        font-size: rem(70px);
+        font-size: rem(100px);
       }
     }
 

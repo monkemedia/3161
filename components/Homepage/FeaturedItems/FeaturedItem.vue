@@ -84,7 +84,7 @@
       z-index: 10;
 
       .title {
-        @include ExtraBoldUppercase();
+        font-family: $family-secondary;
         font-size: rem(30px);
         width: 260px;
         line-height: .85;

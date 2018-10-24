@@ -119,9 +119,9 @@
     .subtitle {
       font-size: rem(35px);
       color: $white;
-      @include ExtraBold();
+      font-family: $family-secondary;
       margin: 0 0 10px 0;
-      text-decoration: underline;
+      font-weight: 700;
     }
 
     p {

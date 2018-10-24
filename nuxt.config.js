@@ -17,7 +17,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Muli:400,700,900' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Muli:400,700,900|Playfair+Display:400,700,900|Satisfy' },
       { rel: 'stylesheet', src: 'animate.css/animate.min.css', lang: 'css' }
     ]
   },
@@ -48,6 +48,10 @@ module.exports = {
     {
       src: '~/plugins/vue-scroll-to',
       ssr: false
+    },
+    {
+      src: '~/plugins/vue-vee-validate',
+      ssr: true
     }
   ],
   modules: [

@@ -3,7 +3,7 @@
     .columns
       .column
         .centered-section-blurb
-          h3.title
+          h1.title
             | {{ data.title }}
           span(v-html="$md.render(data.description)")
 </template>
@@ -32,7 +32,8 @@
   .title {
     font-size: rem(40px);
     margin-bottom: 20px;
-    @include ExtraBoldUppercase();
+    font-family: $family-secondary;
+    font-weight: 700;
   }
 
   .subtitle {
