@@ -96,13 +96,15 @@
   @import '~assets/css/utilities/mixins.scss';
 
   .hero {
-    height: 400px;
     justify-content: center;
+    margin-top: 52px;
 
     @include mq($from: tablet) {
       position: relative;
       width: 100vw;
       height: 100vh;
+      min-height: 550px;
+      margin-top: 0;
     }
 
     .hero-body,
@@ -117,6 +119,10 @@
         border: 6px solid $white;
         padding: 50px;
       }
+    }
+
+    .hero-body {
+      padding: 15px;
     }
 
     .scroll-to {
