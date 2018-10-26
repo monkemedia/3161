@@ -11,7 +11,7 @@
         nuxt-link.button.is-primary.is-auto(:to="data.hero.button.path" v-scroll-reveal="{ delay: 500 }")
           | {{ data.hero.button.title }}
           span.button-line
-    a.scroll-to(href="#" v-scroll-to="'#content-block'")
+    a.scroll-to.is-hidden-mobile(href="#" v-scroll-to="'#content-block'")
       .text Scroll to navigate
       br
       span.icon

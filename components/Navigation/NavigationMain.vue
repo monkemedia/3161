@@ -1,19 +1,20 @@
 <template lang="pug">
-  nav.navbar.is-spaced(:class="stickyHeader")
-    .container
-      .navbar-brand
-        nuxt-link.navbar-item.logo(to="/")
-          img.main-logo.is-hidden-mobile(src="/logo-white.svg" alt="Dr James Griffith Hall Lodge No. 3161" v-if="!isSticky && isHomepage")
-          img.main-logo.is-hidden-mobile(src="/logo.svg" alt="Dr James Griffith Hall Lodge No. 3161" v-else)
-          img.main-logo.is-hidden-tablet(src="/logo-mobile.svg" alt="Dr James Griffith Hall Lodge No. 3161")
-        burger-menu
-      .navbar-menu
-        .navbar-end
-          .navbar-item
-            nuxt-link.navbar-link.animated-underline(v-for="nav in navigation" :key="nav.slug" :to="`/page/${nav.slug}`")
-              | {{ nav.label }}
-            nuxt-link.navbar-link.animated-underline(to="/contact-us")
-              | Contact us
+  div
+    nav.navbar.is-spaced(:class="stickyHeader")
+      .container
+        .navbar-brand
+          nuxt-link.navbar-item.logo(to="/")
+            img.main-logo.is-hidden-mobile(src="/logo-white.svg" alt="Dr James Griffith Hall Lodge No. 3161" v-if="!isSticky && isHomepage")
+            img.main-logo.is-hidden-mobile(src="/logo.svg" alt="Dr James Griffith Hall Lodge No. 3161" v-else)
+            img.main-logo.is-hidden-tablet(src="/logo-mobile.svg" alt="Dr James Griffith Hall Lodge No. 3161")
+          burger-menu
+        .navbar-menu
+          .navbar-end
+            .navbar-item
+              nuxt-link.navbar-link.animated-underline(v-for="nav in navigation" :key="nav.slug" :to="`/page/${nav.slug}`")
+                | {{ nav.label }}
+              nuxt-link.navbar-link.animated-underline(to="/contact-us")
+                | Contact us
 </template>
 
 <script>
@@ -88,7 +89,11 @@
 
     .homepage & {
       position: absolute;
-      background-color: rgba(255, 255, 255, 0);
+      background-color: rgba(255, 255, 255, 1);
+
+      @include mq($from: tablet) {
+        background-color: rgba(255, 255, 255, 0);
+      }
     }
 
     &.is-sticky-header {

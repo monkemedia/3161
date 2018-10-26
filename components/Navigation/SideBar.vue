@@ -23,11 +23,11 @@
   @import '~assets/css/utilities/variables.scss';
   @import '~assets/css/utilities/mixins.scss';
 
-  $transition-amount: 300px;
+  $transition-amount: 100%;
 
   .side-bar {
     position: fixed;
-    top: 0;
+    top: 52px;
     left: 0;
     z-index: 100;
     visibility: hidden;
@@ -35,7 +35,7 @@
     height: 100%;
     transition: all 0.5s;
     transform: translateX(-$transition-amount);
-    background: $grey;
+    background: $white;
 
     .side-bar-open & {
       transform: translateX(0);
@@ -43,28 +43,28 @@
     }
 
     ul li {
-      border-bottom: 1px solid $grey-light;
+      border-bottom: 1px solid $grey-lighter;
       a {
         padding: 20px;
         width: 100%;
         display: inline-flex;
         font-size: rem(12px);
-        color: $white;
+        color: $secondary;
         @include ExtraBoldUppercase()
       }
     }
   }
 
-  .side-bar-open {
-    &:after {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.2);
-      content: '';
-      z-index: 40;
-    }
-  }
+  // .side-bar-open {
+  //   &:after {
+  //     position: fixed;
+  //     top: 0;
+  //     right: 0;
+  //     width: 100%;
+  //     height: 100%;
+  //     background: rgba(0,0,0,0.2);
+  //     content: '';
+  //     z-index: 40;
+  //   }
+  // }
 </style>
