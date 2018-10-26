@@ -1,44 +1,26 @@
 <template lang="pug">
-  div.homepage#top(ref="homepage" v-cloak)
-    header-homepage(:data="homepage")
-    .main
-      content-blocks(:data="homepage.contentBlocks")
-      banner.is-hidden-mobile(:data="homepage.banner")
-      section
-        .container.sub-main
-          featured-items(:data="homepage.featuredItems")
-          content-asset(:data="homepage")
-          location-map
+  .google-map-container
+    gmap-map.google-map(
+      :center="{lat:51.617957,lng:-3.953545}"
+      :options="mapStyle"
+      :zoom="16")
+      gmap-marker.monkey(
+        :animation="1"
+        :position="marker.position"
+        :icon="{ url: 'map-marker.svg' }"
+        :clickable="false"
+        :draggable="false"
+        style="height: 50px;"
+        @click="alert()")
+    .location-container
+      h2.title We meet here
+      p <strong>Swansea Masonic Hall</strong> <br> 152 St Helen's Road <br> Swansea <br> SA1 4DF
     footer-main
     back-to-top
 </template>
 
 <script>
-  import HeaderHomepage from '@/components/Headers/HeaderHomepage.vue'
-  import ContentBlocks from '@/components/Homepage/ContentBlocks/Index.vue'
-  import Banner from '@/components/Homepage/Banner/Index.vue'
-  import FeaturedItems from '@/components/Homepage/FeaturedItems/Index.vue'
-  import ContentAsset from '@/components/Homepage/ContentAsset/Index.vue'
-  import LocationMap from '@/components/Utilities/LocationMap.vue'
-  import BackToTop from '@/components/Utilities/BackToTop.vue'
-  import FooterMain from '@/components/Footers/FooterMain.vue'
-
   export default {
-    components: {
-      HeaderHomepage,
-      ContentBlocks,
-      Banner,
-      FeaturedItems,
-      ContentAsset,
-      LocationMap,
-      BackToTop,
-      FooterMain
-    },
-
-    async fetch ({ store }) {
-      return store.dispatch('homepage/fetchData')
-    },
-
     data () {
       return {
         marker: {
@@ -215,22 +197,51 @@
           ]
         }
       }
-    },
-
-    mounted () {
-      if (!process.client) return
-
-      return this.$store.dispatch('homepage/fetchData')
-    },
-
-    computed: {
-      homepage () {
-        return this.$store.getters['homepage/getData']
-      }
     }
   }
 </script>
 
 <style lang="scss" scoped>
+  @import '../../node_modules/sass-rem/rem';
+  @import '~assets/css/utilities/variables.scss';
+  @import '~assets/css/utilities/mixins.scss';
+  @import '../../node_modules/sass-mq/mq';
 
+  .google-map-container {
+    position: relative;
+    margin-top: 50px;
+
+    .google-map {
+      width: 100%;
+      height: 400px;
+    }
+
+    .location-container {
+      background-color: $white;
+      width: 100%;
+      max-width: 300px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -150px;
+      margin-top: -130px;
+      padding: 60px 40px;
+
+      @include mq($from: tablet) {
+        left: 40px;
+        margin-left: 0;
+      }
+
+      .title {
+        @include ExtraBoldUppercase();
+        font-size: rem(22px);
+        margin-bottom: 15px;
+        color: $primary;
+      }
+
+      p {
+        text-transform: uppercase;
+      }
+    }
+  }
 </style>
