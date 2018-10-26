@@ -15,12 +15,12 @@
     .location-container
       h2.title We meet here
       p <strong>Swansea Masonic Hall</strong> <br> 152 St Helen's Road <br> Swansea <br> SA1 4DF
-    footer-main
-    back-to-top
 </template>
 
 <script>
   export default {
+    name: 'LocationMap',
+
     data () {
       return {
         marker: {
