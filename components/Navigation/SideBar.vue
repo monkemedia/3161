@@ -2,7 +2,9 @@
   .side-bar
     ul
       li(v-for="nav in navigation")
-        nuxt-link(:to="nav.slug") {{ nav.label }}
+        nuxt-link(:to="`/page/${nav.slug}`") {{ nav.label }}
+      li
+        nuxt-link(to="/contact-us") Contact us
 </template>
 
 <script>
