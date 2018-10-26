@@ -2,6 +2,9 @@
   nuxt-link.item.image-link-overlay(to="test" v-scroll-reveal="{ delay: 250 * index }")
     .text
       p.title {{ data.title }}
+    .featured-button()
+      span.icon
+        fa.icon(:icon="['fas', 'angle-right']")
     no-ssr
       figure
         progressive-background(
@@ -92,6 +95,20 @@
         line-height: .85;
         color: $white;
       }
+    }
+
+    .featured-button {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 1;
+      background: $primary;
+      width: 40px;
+      height: 40px;
+      color: $white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 
