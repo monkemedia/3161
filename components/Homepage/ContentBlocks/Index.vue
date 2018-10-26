@@ -3,7 +3,7 @@
     .columns.is-gapless(v-for="(item, index) in data" )
       .column.is-6.mobile-padding(:class="{ 'order':  index === 1}")
         .content-container.content-centered
-          .text-container
+          .text-container.has-text-centered-mobile
             p.title(v-scroll-reveal="{ delay: 0 }") {{ item.title }}
             p(v-scroll-reveal="{ delay: 250 }") {{ item.description }}
             nuxt-link.button(:to="item.button.path" v-scroll-reveal="{ delay: 500 }")

@@ -37,9 +37,11 @@
     },
 
     created () {
-      if (process.client) {
-        this.responsiveImage()
+      if (!process.client) {
+        return
       }
+
+      this.responsiveImage()
     },
 
     methods: {
