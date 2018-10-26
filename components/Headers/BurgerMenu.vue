@@ -48,6 +48,7 @@
 
 <style lang="scss" scoped>
   @import '~assets/css/utilities/variables.scss';
+  @import '../../node_modules/sass-mq/mq';
 
   .navbar-burger {
     border: 0;
@@ -60,7 +61,11 @@
       width: 22px;
       height: 2px;
       left: calc(50% - 11px);
-      background-color: $white;
+      background-color: $secondary;
+
+      @include mq($from: tablet) {
+        background-color: $white;
+      }
 
       &:nth-child(1) {
         top: calc(50% - 8px);
