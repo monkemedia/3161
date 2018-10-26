@@ -114,6 +114,8 @@
         width: 100%;
         max-width: 400px;
         display: inline-block;
+        border: 6px solid $white;
+        padding: 50px;
       }
     }
 
@@ -173,13 +175,13 @@
 
     .subtitle {
       font-family: $family-tertiary;
-      font-size: rem(70px);
+      font-size: rem(50px);
       color: $white;
       line-height: 2;
       margin-bottom: 0;
 
       @include mq($from: tablet) {
-        font-size: rem(100px);
+        font-size: rem(80px);
       }
     }
 
