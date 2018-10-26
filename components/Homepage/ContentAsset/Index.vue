@@ -2,7 +2,7 @@
   .container
     .columns
       .column
-        .centered-section-blurb
+        .centered-section-blurb.has-text-center-mobile
           h1.title
             | {{ data.title }}
           span(v-html="$md.render(data.description)")
@@ -33,7 +33,6 @@
     font-size: rem(40px);
     margin-bottom: 20px;
     font-family: $family-secondary;
-    font-weight: 700;
   }
 
   .subtitle {
