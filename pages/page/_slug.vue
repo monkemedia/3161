@@ -49,6 +49,6 @@
   .title {
     font-size: rem(70px);
     margin-bottom: 20px;
-    font-family: $family-secondary;
+    @include ExtraBoldUppercase();
   }
 </style>
