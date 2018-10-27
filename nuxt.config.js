@@ -19,7 +19,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicons/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Muli:400,700,900|Playfair+Display:400,700,900|Satisfy' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Muli:400,700,900|Satisfy' },
       { rel: 'stylesheet', src: 'animate.css/animate.min.css', lang: 'css' },
       { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png' },
       { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png' },
