@@ -83,7 +83,7 @@
       font-size: rem(70px);
       color: $white;
       margin-bottom: 0;
-      font-family: $family-secondary;
+      @include ExtraBoldUppercase();
 
       @include mq($from: tablet) {
         font-size: rem(60px);
