@@ -1,7 +1,7 @@
 <template lang="pug">
   .google-map-container
     gmap-map.google-map(
-      :center="{lat:51.617957,lng:-3.953545}"
+      :center="centerMap()"
       :options="mapStyle"
       :zoom="16")
       gmap-marker.monkey(
@@ -10,8 +10,7 @@
         :icon="{ url: 'map-marker.svg' }"
         :clickable="false"
         :draggable="false"
-        style="height: 50px;"
-        @click="alert()")
+        style="height: 50px;")
     .location-container
       h2.title We meet here
       p <strong>Swansea Masonic Hall</strong> <br> 152 St Helen's Road <br> Swansea <br> SA1 4DF
@@ -29,8 +28,8 @@
           content: 'Hello',
           date_build: '',
           position: {
-            lat: 51.617957,
-            lng: -3.953545
+            lat: 51.617923,
+            lng: -3.953640
           }
         },
         mapStyle: {
@@ -197,6 +196,28 @@
           ]
         }
       }
+    },
+
+    methods: {
+      centerMap () {
+        if (!process.client) {
+          return
+        }
+
+        const wH = window.innerWidth
+
+        if (wH > 800) {
+          return {
+            lat: 51.617900,
+            lng: -3.957000
+          }
+        } else {
+          return {
+            lat: 51.617100,
+            lng: -3.953545
+          }
+        }
+      }
     }
   }
 </script>
@@ -219,17 +240,19 @@
     .location-container {
       background-color: $white;
       width: 100%;
-      max-width: 300px;
       position: absolute;
       left: 50%;
-      top: 50%;
       margin-left: -150px;
-      margin-top: -130px;
-      padding: 60px 40px;
+      padding: 30px 40px;
+      bottom: 20px;
+      max-width: 300px;
 
       @include mq($from: tablet) {
+        top: 50%;
         left: 40px;
         margin-left: 0;
+        margin-top: -130px;
+        padding: 60px 40px;
       }
 
       .title {
