@@ -32,7 +32,7 @@
   .title {
     font-size: rem(40px);
     margin-bottom: 20px;
-    font-family: $family-secondary;
+    @include ExtraBoldUppercase();
   }
 
   .subtitle {
