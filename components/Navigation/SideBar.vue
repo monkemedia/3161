@@ -1,5 +1,5 @@
 <template lang="pug">
-  .side-bar
+  .side-bar(:class="{ 'side-bar--open': isMobileMenuActive }")
     ul
       li(v-for="nav in navigation")
         nuxt-link(:to="`/page/${nav.slug}`") {{ nav.label }}
@@ -8,12 +8,32 @@
 </template>
 
 <script>
+  import _ from 'lodash'
+
   export default {
     name: 'SideBar',
+
+    created () {
+      if (!process.client) {
+        return
+      }
+
+      window.addEventListener('resize', _.debounce(this.closeSidebar))
+    },
 
     computed: {
       navigation () {
         return this.$store.getters['navigation/getData']
+      },
+
+      isMobileMenuActive () {
+        return this.$store.getters['navigation/isMobileMenuOpen']
+      }
+    },
+
+    methods: {
+      closeSidebar () {
+        this.$store.commit('navigation/SET_MOBILE_MENU_TOGGLE', false)
       }
     }
   }
@@ -39,7 +59,7 @@
     transform: translateX(-$transition-amount);
     background: $white;
 
-    .side-bar-open & {
+    &.side-bar--open {
       transform: translateX(0);
       visibility: visible;
     }
