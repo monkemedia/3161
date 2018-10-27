@@ -13,6 +13,12 @@ config.autoAddCss = false
     import  { faChevronUp as fortawesomefreesolidsvgicons_faChevronUp } from '@fortawesome/free-solid-svg-icons'
     library.add(fortawesomefreesolidsvgicons_faChevronUp)
   
+    import  { faAngleRight as fortawesomefreesolidsvgicons_faAngleRight } from '@fortawesome/free-solid-svg-icons'
+    library.add(fortawesomefreesolidsvgicons_faAngleRight)
+  
+    import  { faCaretDown as fortawesomefreesolidsvgicons_faCaretDown } from '@fortawesome/free-solid-svg-icons'
+    library.add(fortawesomefreesolidsvgicons_faCaretDown)
+  
 
 
 Vue.component('fa', FontAwesomeIcon)

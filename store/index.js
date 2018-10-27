@@ -3,6 +3,7 @@ import navigation from './modules/navigation.js'
 import homepage from './modules/homepage.js'
 import pages from './modules/pages.js'
 import page from './modules/page.js'
+import contact from './modules/contact.js'
 
 export default () => {
   return new Vuex.Store({
@@ -10,7 +11,8 @@ export default () => {
       navigation,
       homepage,
       pages,
-      page
+      page,
+      contact
     },
     actions: {
       async nuxtServerInit ({ dispatch }, context) {

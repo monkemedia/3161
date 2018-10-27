@@ -249,6 +249,7 @@
 
       @include mq($from: tablet) {
         top: 50%;
+        bottom: auto;
         left: 40px;
         margin-left: 0;
         margin-top: -130px;

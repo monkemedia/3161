@@ -18,7 +18,7 @@
 
 @mixin BoldUppercase() {
   text-transform: uppercase;
-  @inlude Bold()
+  @include Bold()
 }
 
 @mixin ExtraBoldUppercase() {

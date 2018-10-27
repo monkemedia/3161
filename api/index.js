@@ -55,6 +55,19 @@ export default {
             return res
           })
       }
+    },
+
+    contact: {
+      fetchData: (slug) => {
+        return cachios.get(`${url}/contentful/contact`, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+          .then(res => {
+            return res
+          })
+      }
     }
   }
 }

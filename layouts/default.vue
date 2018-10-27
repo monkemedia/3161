@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(:class="{ 'side-bar-open': isMobileMenuActive }")
+  div
     SideBar
     nuxt
 </template>
@@ -12,12 +12,6 @@
 
     components: {
       SideBar
-    },
-
-    computed: {
-      isMobileMenuActive () {
-        return this.$store.getters['navigation/isMobileMenuOpen']
-      }
     }
   }
 </script>
