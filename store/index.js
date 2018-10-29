@@ -4,6 +4,7 @@ import homepage from './modules/homepage.js'
 import pages from './modules/pages.js'
 import page from './modules/page.js'
 import contact from './modules/contact.js'
+import meta from './modules/meta.js'
 
 export default () => {
   return new Vuex.Store({
@@ -12,11 +13,15 @@ export default () => {
       homepage,
       pages,
       page,
-      contact
+      contact,
+      meta
     },
     actions: {
       async nuxtServerInit ({ dispatch }, context) {
         return dispatch('navigation/fetchData', context)
+          .then(() => {
+            return dispatch('meta/fetchData')
+          })
       }
     }
   })

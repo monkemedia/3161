@@ -4,16 +4,16 @@
       :center="centerMap()"
       :options="mapStyle"
       :zoom="16")
-      gmap-marker.monkey(
+      gmap-marker(
         :animation="1"
-        :position="marker.position"
+        :position="{ lat: meta.location.lat, lng: meta.location.lon }"
         :icon="{ url: 'map-marker.svg' }"
         :clickable="false"
         :draggable="false"
         style="height: 50px;")
     .location-container
       h2.title We meet here
-      p <strong>Swansea Masonic Hall</strong> <br> 152 St Helen's Road <br> Swansea <br> SA1 4DF
+      span(v-html="$md.render(meta.address)")
 </template>
 
 <script>
@@ -22,16 +22,6 @@
 
     data () {
       return {
-        marker: {
-          name: 'House of Aleida Greve',
-          description: 'description 1',
-          content: 'Hello',
-          date_build: '',
-          position: {
-            lat: 51.617923,
-            lng: -3.953640
-          }
-        },
         mapStyle: {
           disableDefaultUI: true,
           styles: [
@@ -195,6 +185,12 @@
             }
           ]
         }
+      }
+    },
+
+    computed: {
+      meta () {
+        return this.$store.getters['meta/getData']
       }
     },
 

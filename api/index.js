@@ -68,6 +68,20 @@ export default {
             return res
           })
       }
+    },
+
+    meta: {
+      fetchData: () => {
+        return cachios.get(`${url}/contentful/meta`, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+          .then(res => {
+            return res
+          })
+      }
     }
+
   }
 }
