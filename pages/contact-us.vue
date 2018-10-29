@@ -114,6 +114,7 @@
 <script>
   import HeaderMain from '@/components/Headers/HeaderMain.vue'
   import { Validator } from 'vee-validate'
+  import VueScrollTo from 'vue-scrollto'
   import PhoneNumber from 'awesome-phonenumber'
 
   const phoneNumber = {
@@ -184,7 +185,12 @@
         this.isSignInError = false
         // Validate form first
         this.$validator.validateAll()
-          .then((response) => {
+          .then(response => {
+            if (!response) {
+              this.isLoading = false
+              VueScrollTo.scrollTo('.is-danger')
+              return
+            }
             this.isLoading = true
             console.log('response', response)
           })
@@ -194,5 +200,9 @@
 </script>
 
 <style lang="scss" scoped>
+  .container {
+    padding-top: 60px !important;
+    padding-bottom: 60px;
+  }
 
 </style>
