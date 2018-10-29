@@ -1,6 +1,6 @@
 <template lang="pug">
   form(@submit.prevent="submit")
-    .notification.is-danger(v-if="isSignInError") {{ isSignInError.message }}
+    .notification.is-danger.is-error.has-text-centered(v-if="isSignInError") {{ isSignInError }}
     .columns
       .column
         .field(:class="{ 'is-error': errors.has('reason') }")
@@ -85,7 +85,7 @@
               type="text"
               data-vv-delay="600"
               :class="{ 'is-danger': errors.has('message') }"
-              v-validate="'required|message'")
+              v-validate="'required'")
             p(v-show="errors.has('message')" class="help is-danger" v-html="'Whoops! ' + errors.first('message')")
     .columns
       .column
@@ -99,14 +99,13 @@
   import { Validator } from 'vee-validate'
   import VueScrollTo from 'vue-scrollto'
   import PhoneNumber from 'awesome-phonenumber'
+  import api from '~/api'
 
   const phoneNumber = {
     getMessage: field => `${field} is not a valid phone number`,
     validate (value) {
       return new Promise(resolve => {
         let phone = new PhoneNumber(value, 'GB')
-
-        console.log(phone)
         resolve({
           valid: phone.isValid()
         })
@@ -153,7 +152,6 @@
 
     methods: {
       submit () {
-        console.log('test here people')
         // Hide errors first
         this.isSignInError = false
         // Validate form first
@@ -165,11 +163,20 @@
               return
             }
             this.isLoading = true
-            console.log('response', response)
+
+            api.contactForm.postData(this.formData)
+              .then(response => {
+                if (response.status === 200) {
+                  this.isLoading = false
+                }
+              })
           })
           .catch(err => {
-            console.log('ERROR', err)
-            this.isSignInError = err.message
+            this.isSignInError = err.error
+            this.isLoading = false
+            setTimeout(() => {
+              VueScrollTo.scrollTo('.is-error', { offset: -90 })
+            }, 300)
           })
       }
     }
