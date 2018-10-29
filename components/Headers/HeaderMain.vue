@@ -51,13 +51,15 @@
   }
 
   .hero {
-    height: 380px;
+    height: 240px;
     justify-content: center;
-    margin-top: 84px;
+    margin-top: 52px;
 
     @include mq($from: tablet) {
+      height: 380px;
       position: relative;
       width: 100vw;
+      margin-top: 84px;
     }
 
     .hero-body {
@@ -80,7 +82,7 @@
     }
 
     .title {
-      font-size: rem(70px);
+      font-size: rem(40px);
       color: $white;
       margin-bottom: 0;
       @include ExtraBoldUppercase();

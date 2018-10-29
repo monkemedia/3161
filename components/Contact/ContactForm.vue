@@ -94,9 +94,8 @@
       .columns
         .column
           .field.is-grouped.is-grouped-right
-            .control
-              button.button.is-primary.is-flip(:class="{ 'is-loading': isLoading }" type="submit")
-                span(data-text="Send message") Send message
+            button.button.is-primary.is-flip(:class="{ 'is-loading': isLoading }" type="submit")
+              span(data-text="Send message") Send message
 </template>
 
 <script>
@@ -161,7 +160,7 @@
         this.isLoading = false
         setTimeout(() => {
           VueScrollTo.scrollTo('.is-error', { offset: -90 })
-        }, 300)
+        }, 50)
       },
 
       submit () {
@@ -185,7 +184,7 @@
                   this.isSuccess = true
                   setTimeout(() => {
                     VueScrollTo.scrollTo('.is-success', { offset: -90 })
-                  }, 300)
+                  }, 50)
                   return
                 }
 
