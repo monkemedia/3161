@@ -112,7 +112,7 @@
 
 </template>
 
-<!-- <script>
+<script>
   import HeaderMain from '@/components/Headers/HeaderMain.vue'
   import { Validator } from 'vee-validate'
   import VueScrollTo from 'vue-scrollto'
@@ -198,7 +198,7 @@
       }
     }
   }
-</script> -->
+</script>
 
 <style lang="scss" scoped>
   .container {
