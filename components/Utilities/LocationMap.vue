@@ -201,7 +201,7 @@
     methods: {
       centerMap () {
         if (!process.client) {
-          return
+          return {}
         }
 
         const wH = window.innerWidth
