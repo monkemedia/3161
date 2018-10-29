@@ -138,9 +138,9 @@
       HeaderMain
     },
 
-    async fetch ({ store }) {
-      return store.dispatch('contact/fetchData')
-    },
+    // async fetch ({ store }) {
+    //   return store.dispatch('contact/fetchData')
+    // },
 
     data () {
       return {
@@ -167,11 +167,11 @@
       }
     },
 
-    mounted () {
-      if (!process.client) return
+    // mounted () {
+    //   if (!process.client) return
 
-      return this.$store.dispatch('contact/fetchData')
-    },
+    //   return this.$store.dispatch('contact/fetchData')
+    // },
 
     computed: {
       contact () {
