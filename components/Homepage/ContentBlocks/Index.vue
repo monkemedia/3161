@@ -68,7 +68,7 @@
   @import '~assets/css/utilities/mixins.scss';
 
   #content-block {
-    margin-top: 15px;
+    margin-top: 0;
   }
 
   .content-container {

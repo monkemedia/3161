@@ -79,6 +79,10 @@ ul.no-list {
   position: relative;
   display: inline-block;
   width: 100%;
+
+  > .container {
+    margin-top: 15px;
+  }
 }
 
 .sub-main {
