@@ -138,9 +138,9 @@
       HeaderMain
     },
 
-    // async fetch ({ store }) {
-    //   return store.dispatch('contact/fetchData')
-    // },
+    async fetch ({ store }) {
+      return store.dispatch('contact/fetchData')
+    },
 
     data () {
       return {
