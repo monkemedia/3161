@@ -36,7 +36,8 @@ h3
   margin-top: 10px;
 }
 
-a {
+a,
+a.navbar-link {
   &.animated-underline {
     @include LinkUnderline($primary);
   }
