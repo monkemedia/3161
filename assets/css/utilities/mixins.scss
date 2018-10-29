@@ -28,6 +28,7 @@
 
 @mixin LinkUnderline($color) {
   position: relative;
+
   &:after {
     content: '';
     position: absolute;
