@@ -114,24 +114,24 @@
 
 <script>
   import HeaderMain from '@/components/Headers/HeaderMain.vue'
-  import { Validator } from 'vee-validate'
+  // import { Validator } from 'vee-validate'
   import VueScrollTo from 'vue-scrollto'
-  import PhoneNumber from 'awesome-phonenumber'
+  // import PhoneNumber from 'awesome-phonenumber'
 
-  const phoneNumber = {
-    getMessage: field => `${field} is not a valid phone number`,
-    validate (value) {
-      return new Promise(resolve => {
-        console.log('HERE')
-        let phone = new PhoneNumber(value)
-        resolve({
-          valid: phone.isValid()
-        })
-      })
-    }
-  }
+  // const phoneNumber = {
+  //   getMessage: field => `${field} is not a valid phone number`,
+  //   validate (value) {
+  //     return new Promise(resolve => {
+  //       console.log('HERE')
+  //       let phone = new PhoneNumber(value)
+  //       resolve({
+  //         valid: phone.isValid()
+  //       })
+  //     })
+  //   }
+  // }
 
-  Validator.extend('phoneNumber', phoneNumber)
+  // Validator.extend('phoneNumber', phoneNumber)
 
   export default {
     components: {
