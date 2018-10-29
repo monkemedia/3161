@@ -7,11 +7,7 @@ export default {
   contentful: {
     navigation: {
       fetchData: () => {
-        return cachios.get(`${url}/contentful/navigation`, {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
+        return cachios.get(`${url}/contentful/navigation`)
           .then(res => {
             return res
           })
@@ -20,11 +16,7 @@ export default {
 
     homepage: {
       fetchData: () => {
-        return cachios.get(`${url}/contentful/homepage`, {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
+        return cachios.get(`${url}/contentful/homepage`)
           .then(res => {
             return res
           })
@@ -33,11 +25,7 @@ export default {
 
     pages: {
       fetchData: () => {
-        return cachios.get(`${url}/contentful/pages`, {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
+        return cachios.get(`${url}/contentful/pages`)
           .then(res => {
             return res
           })
@@ -46,11 +34,7 @@ export default {
 
     page: {
       fetchData: (slug) => {
-        return cachios.get(`${url}/contentful/page/${slug}`, {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
+        return cachios.get(`${url}/contentful/page/${slug}`)
           .then(res => {
             return res
           })
@@ -58,12 +42,8 @@ export default {
     },
 
     contact: {
-      fetchData: (slug) => {
-        return cachios.get(`${url}/contentful/contact`, {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
+      fetchData: () => {
+        return cachios.get(`${url}/contentful/contact`)
           .then(res => {
             return res
           })
@@ -72,16 +52,21 @@ export default {
 
     meta: {
       fetchData: () => {
-        return cachios.get(`${url}/contentful/meta`, {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
+        return cachios.get(`${url}/contentful/meta`)
           .then(res => {
             return res
           })
       }
     }
+  },
 
+  contactForm: {
+    postData: (data) => {
+      console.log('data', data)
+      return cachios.post(`${url}/contact-us`, data)
+        .then(res => {
+          return res
+        })
+    }
   }
 }
