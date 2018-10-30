@@ -135,7 +135,7 @@
         max-width: 100%;
 
         @include mq($from: tablet) {
-          max-height: 48px;
+          max-height: 26px;
         }
       }
     }
