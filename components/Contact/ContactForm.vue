@@ -178,9 +178,9 @@
             this.isLoading = true
 
             return api.contactForm.postData(this.formData)
-              .then(response => {
+              .then(res => {
                 this.isLoading = false
-                if (response.status === 200) {
+                if (res.status === 200) {
                   this.isSuccess = true
                   setTimeout(() => {
                     VueScrollTo.scrollTo('.is-success', { offset: -90 })
@@ -193,7 +193,7 @@
                 })
               })
               .catch(err => {
-                this.error(err)
+                this.error(err.response.data)
               })
           })
       }
