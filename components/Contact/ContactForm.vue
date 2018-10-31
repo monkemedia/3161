@@ -2,7 +2,7 @@
   div
     .success-container.is-success(v-if="isSuccess")
       h3.title Your message has been sent!
-      p {{ formData.first_name }} we will contact you as soon as possible.
+      p {{ formData.firstName }} we will contact you as soon as possible.
     form(@submit.prevent="submit" v-else)
       .notification.is-danger.is-error.has-text-centered(v-if="isSignInError") {{ isSignInError }}
       .columns
@@ -21,7 +21,7 @@
                 :class="{ 'is-danger': errors.has('reason') }"
                 v-validate="'required'")
                   option(disabled value="") Select a reason for your message
-                  option(v-for="reason in reasons" :value="reason.code") {{ reason.label }}
+                  option(v-for="reason in reasons" :value="reason.label") {{ reason.label }}
               p(v-show="errors.has('reason')" class="help is-danger" v-html="'Whoops! ' + errors.first('reason')")
       .columns
         .column.is-6
@@ -31,7 +31,7 @@
               input.input(
                 name="firstName"
                 id="firstName"
-                v-model="formData.first_name"
+                v-model="formData.firstName"
                 type="text"
                 data-vv-delay="600"
                 :class="{ 'is-danger': errors.has('firstName') }"
@@ -44,7 +44,7 @@
               input.input(
                 name="lastName"
                 id="lastName"
-                v-model="formData.last_name"
+                v-model="formData.lastName"
                 type="text"
                 data-vv-delay="600"
                 :class="{ 'is-danger': errors.has('lastName') }"
@@ -71,7 +71,7 @@
               input.input(
                 name="phoneNumber"
                 id="phoneNumber"
-                v-model="formData.phone_number"
+                v-model="formData.phoneNumber"
                 type="telephone"
                 data-vv-delay="600"
                 :class="{ 'is-danger': errors.has('phoneNumber') }"
@@ -132,10 +132,10 @@
       return {
         formData: {
           reason: '',
-          first_name: '',
-          last_name: '',
+          firstName: '',
+          lastName: '',
           email: '',
-          phone_number: '',
+          phoneNumber: '',
           message: ''
         },
         reasons: [
