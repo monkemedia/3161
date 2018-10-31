@@ -4,11 +4,10 @@
     .main
       content-blocks(:data="homepage.contentBlocks")
       banner.is-hidden-mobile(:data="homepage.banner")
-      section
-        .container.sub-main
-          featured-items(:data="homepage.featuredItems")
-          content-asset(:data="homepage")
-          location-map
+      .container.sub-main
+        featured-items(:data="homepage.featuredItems")
+        content-asset(:data="homepage")
+        location-map
     footer-main
     back-to-top
 </template>

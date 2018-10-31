@@ -67,10 +67,6 @@
   @import '~assets/css/utilities/variables.scss';
   @import '~assets/css/utilities/mixins.scss';
 
-  #content-block {
-    margin-top: 0;
-  }
-
   .content-container {
     background-color: $grey-lighter;
     width: 100%;
