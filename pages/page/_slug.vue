@@ -8,14 +8,17 @@
             .column
               h1.title {{ page.title }}
               p {{ page.description }}
+    footer-main
 </template>
 
 <script>
   import HeaderMain from '@/components/Headers/HeaderMain.vue'
+  import FooterMain from '@/components/Footers/FooterMain.vue'
 
   export default {
     components: {
-      HeaderMain
+      HeaderMain,
+      FooterMain
     },
 
     async fetch ({ store, params }) {

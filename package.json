@@ -31,6 +31,7 @@
     "sass-rem": "^2.0.1",
     "vee-validate": "^2.1.0-beta.11",
     "vue-clickaway": "^2.2.2",
+    "vue-cookie-law": "^1.8.0",
     "vue-progressive-image": "^3.1.0",
     "vue-scroll-reveal": "^1.0.11",
     "vue-scrollto": "^2.13.0",

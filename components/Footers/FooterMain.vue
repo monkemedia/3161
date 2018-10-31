@@ -4,11 +4,19 @@
       p
         <strong>Lodge3161.com</strong> by <strong><a href="https://monkemedia.co.uk">monkemedia.co.uk</a></strong>. The source code is licensed
         <strong><a href="http://opensource.org/licenses/mit-license.php">MIT</a></strong>.
+    no-ssr
+      cookie-law
 </template>
 
 <script>
+  import CookieLaw from 'vue-cookie-law'
+
   export default {
-    name: 'FooterMain'
+    name: 'FooterMain',
+
+    components: {
+      CookieLaw
+    }
   }
 </script>
 
