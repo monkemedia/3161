@@ -12,8 +12,8 @@ import { setContext, getLocation, getRouteData } from './utils'
 import { createStore } from './store.js'
 
 /* Plugins */
-import nuxt_plugin_templatesplugin0aa3f182_320c2b49 from 'nuxt_plugin_templatesplugin0aa3f182_320c2b49' // Source: ./templates.plugin.0aa3f182.js
-import nuxt_plugin_markdownit_4f81076e from 'nuxt_plugin_markdownit_4f81076e' // Source: ./markdown-it.js
+import nuxt_plugin_templatespluginb721abbc_94a0f44a from 'nuxt_plugin_templatespluginb721abbc_94a0f44a' // Source: ./templates.plugin.b721abbc.js
+import nuxt_plugin_markdownit_407c8a64 from 'nuxt_plugin_markdownit_407c8a64' // Source: ./markdown-it.js
 import nuxt_plugin_vueprogressiveimage_bd141b48 from 'nuxt_plugin_vueprogressiveimage_bd141b48' // Source: ../plugins/vue-progressive-image (ssr: false)
 import nuxt_plugin_vuescrollreveal_36883210 from 'nuxt_plugin_vuescrollreveal_36883210' // Source: ../plugins/vue-scroll-reveal (ssr: false)
 import nuxt_plugin_vuescrollto_27a6f23e from 'nuxt_plugin_vuescrollto_27a6f23e' // Source: ../plugins/vue-scroll-to (ssr: false)
@@ -157,8 +157,8 @@ async function createApp (ssrContext) {
 
   // Plugin execution
   
-  if (typeof nuxt_plugin_templatesplugin0aa3f182_320c2b49 === 'function') await nuxt_plugin_templatesplugin0aa3f182_320c2b49(app.context, inject)
-  if (typeof nuxt_plugin_markdownit_4f81076e === 'function') await nuxt_plugin_markdownit_4f81076e(app.context, inject)
+  if (typeof nuxt_plugin_templatespluginb721abbc_94a0f44a === 'function') await nuxt_plugin_templatespluginb721abbc_94a0f44a(app.context, inject)
+  if (typeof nuxt_plugin_markdownit_407c8a64 === 'function') await nuxt_plugin_markdownit_407c8a64(app.context, inject)
   if (typeof nuxt_plugin_vueveevalidate_3000f1ca === 'function') await nuxt_plugin_vueveevalidate_3000f1ca(app.context, inject)
   if (typeof nuxt_plugin_vuegooglemaps_4aa051ae === 'function') await nuxt_plugin_vuegooglemaps_4aa051ae(app.context, inject)
   
