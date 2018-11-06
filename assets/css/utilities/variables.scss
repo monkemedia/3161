@@ -27,7 +27,7 @@ $success                               :   $green;
 
 // Generic
 $body-bg                               :   $grey-100;
-$body-size                             :   62.5%;
+$body-size                             :   100%;
 $body-color                            :   $tertiary;
 $heading-color                         :   $secondary ;
 $link-color                            :   $secondary;
@@ -48,7 +48,7 @@ $size-240                              :   rem(24px);
 $size-280                              :   rem(28px);
 
 // Responsiveness
-$tablet                                :   769px;
+$tablet                                :   768px;
 $desktop                               :   1024px;
 $widescreen                            :   1216px;
 $fullhd                                :   1384px;

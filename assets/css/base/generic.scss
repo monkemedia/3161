@@ -80,6 +80,10 @@ ul.no-list {
   display: inline-block;
   width: 100%;
 
+  @include mq($from: tablet, $until: desktop) {
+    padding: 0 15px;
+  }
+
   > .container {
     margin-top: 15px;
     margin-bottom: 15px;

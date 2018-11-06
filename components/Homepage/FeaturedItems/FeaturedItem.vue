@@ -65,7 +65,7 @@
 
 <style lang="scss" scoped>
   @import '../../../node_modules/sass-rem/rem';
-  // @import '../node_modules/sass-mq/mq';
+  @import '../../../node_modules/sass-mq/mq';
   @import '~assets/css/utilities/variables.scss';
   @import '~assets/css/utilities/mixins.scss';
 
@@ -87,13 +87,17 @@
       transform: translate(-50%,-50%);
       text-align: center;
       z-index: 10;
+      width: 100%;
 
       .title {
         @include ExtraBoldUppercase();
-        font-size: rem(30px);
-        width: 260px;
+        font-size: rem(20px);
         line-height: .85;
         color: $white;
+
+        @include mq($from: desktop) {
+          font-size: rem(30px);
+        }
       }
     }
 

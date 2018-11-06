@@ -55,7 +55,7 @@
     justify-content: center;
     margin-top: 52px;
 
-    @include mq($from: tablet) {
+    @include mq($from: desktop) {
       height: 380px;
       position: relative;
       width: 100vw;

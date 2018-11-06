@@ -1,7 +1,7 @@
 <template lang="pug">
   .container#content-block
     .columns.is-gapless(v-for="(item, index) in data" )
-      .column.is-6.mobile-padding(:class="{ 'order':  index === 1}")
+      .column.is-6.is-half-tablet-only.mobile-padding(:class="{ 'order':  index === 1}")
         .content-container.content-centered
           .text-container.has-text-centered-mobile
             p.title(v-scroll-reveal="{ delay: 0 }") {{ item.title }}
@@ -9,7 +9,7 @@
             nuxt-link.button(:to="item.button.path" v-scroll-reveal="{ delay: 500 }")
               | {{ item.button.title }}
               span.button-line
-      .column.is-6
+      .column.is-6.is-half-tablet-only
         figure.image(v-scroll-reveal="{ distance: '0px' }")
           no-ssr
             progressive-img(
@@ -46,15 +46,12 @@
       responsiveImage () {
         const wH = window.innerWidth
 
-        if (wH >= 1200) {
-          this.imageOne = `${this.data[0].media.file}?h=2000&q=80`
-          this.imageTwo = `${this.data[1].media.file}?h=2000&q=80`
-        } else if (wH > 800 && wH < 1200) {
-          this.imageOne = `${this.data[0].media.file}?h=200&q=50`
-          this.imageTwo = `${this.data[1].media.file}?h=200&q=50`
+        if (wH >= 1216) {
+          this.imageOne = `${this.data[0].media.file}?q=80`
+          this.imageTwo = `${this.data[1].media.file}?q=80`
         } else {
-          this.imageOne = `${this.data[0].media.file}?h=400&q=80`
-          this.imageTwo = `${this.data[1].media.file}?h=400&q=80`
+          this.imageOne = `${this.data[0].media.file}?q=60`
+          this.imageTwo = `${this.data[1].media.file}?q=60`
         }
       }
     }
@@ -84,10 +81,14 @@
   }
 
   .title {
-    font-size: rem(36px);
-    width: 260px;
+    font-size: rem(26px);
     line-height: .85;
     @include ExtraBoldUppercase();
+
+    @include mq($from: desktop) {
+      font-size: rem(36px);
+      width: 260px;
+    }
   }
 
   .is-gapless {
@@ -109,6 +110,10 @@
 
   .order {
     order: 1;
+  }
+
+  .button {
+    margin-bottom: 0;
   }
 
 </style>

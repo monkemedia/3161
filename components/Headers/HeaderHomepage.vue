@@ -65,23 +65,16 @@
         const wH = window.innerWidth
         const isVideo = this.data.hero.media.contentType === 'video/mp4'
 
-        if (wH >= 1200) {
+        if (wH >= 1216) {
           if (isVideo) {
             this.video = this.data.hero.media.file
           } else {
             this.backgroundImg = `${this.data.hero.media.file}?h=2000&q=80`
           }
           this.mobile = false
-        } else if (wH > 800 && wH < 1200) {
-          if (isVideo) {
-            this.video = this.data.hero.media.file
-          } else {
-            this.backgroundImg = `${this.data.hero.media.file}?h=200&q=50`
-          }
-          this.mobile = false
         } else {
           this.video = false
-          this.backgroundImg = `${this.data.hero.media.mobile.file}?q=80`
+          this.backgroundImg = `${this.data.hero.media.mobile.file}?q=60`
           this.mobile = true
         }
       }

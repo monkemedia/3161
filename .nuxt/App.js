@@ -3,8 +3,6 @@ import NuxtLoading from './components/nuxt-loading.vue'
 
 import '../node_modules/@fortawesome/fontawesome-svg-core/styles.css'
 
-import '../node_modules/bulma/bulma.sass'
-
 import '../assets/css/main.scss'
 
 

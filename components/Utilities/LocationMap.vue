@@ -202,7 +202,7 @@
 
         const wH = window.innerWidth
 
-        if (wH > 800) {
+        if (wH >= 768) {
           return {
             lat: 51.617900,
             lng: -3.957000

@@ -19,7 +19,7 @@
     "animate.css": "^3.6.1",
     "awesome-phonenumber": "^2.2.6",
     "axios": "^0.18.0",
-    "bulma": "^0.7.1",
+    "bulma": "^0.7.2",
     "cachios": "^1.1.0",
     "install": "^0.12.1",
     "node-sass": "^4.9.3",

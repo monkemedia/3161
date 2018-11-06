@@ -16,7 +16,6 @@
           no-ssr
             progressive-background.banner-bg(
               v-if="backgroundImg"
-              v-scroll-reveal="{ distance: '0px' }"
               :src="backgroundImg"
               :placeholder="`${data.media.file}?h=100&q=5`"
               :blur="30")

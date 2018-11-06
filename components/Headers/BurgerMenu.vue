@@ -63,7 +63,7 @@
       left: calc(50% - 11px);
       background-color: $secondary;
 
-      @include mq($from: tablet) {
+      @include mq($from: desktop) {
         background-color: $white;
       }
 

@@ -4,8 +4,9 @@
       .container
         .navbar-brand
           nuxt-link.navbar-item.logo(to="/")
-            img.main-logo.is-hidden-mobile(src="/logo-white.svg" :alt="meta.siteTitle" v-if="!isSticky && isHomepage")
-            img.main-logo.is-hidden-mobile(src="/logo.svg" :alt="meta.siteTitle" v-else)
+            img.main-logo.is-hidden-mobile.is-hidden-tablet-only(src="/logo-white.svg" :alt="meta.siteTitle" v-if="!isSticky && isHomepage")
+            img.main-logo.is-hidden-mobile.is-hidden-tablet-only(src="/logo.svg" :alt="meta.siteTitle" v-else)
+            img.main-logo.is-hidden-mobile.is-hidden-desktop(src="/logo.svg" :alt="meta.siteTitle")
             img.main-logo.is-hidden-tablet(src="/logo-mobile.svg" :alt="meta.siteTitle")
           burger-menu
         .navbar-menu
@@ -95,7 +96,7 @@
       position: absolute;
       background-color: rgba(255, 255, 255, 1);
 
-      @include mq($from: tablet) {
+      @include mq($from: desktop) {
         background-color: rgba(255, 255, 255, 0);
       }
     }
@@ -127,6 +128,9 @@
         margin-left: auto;
         top: auto;
         margin-left: 20px;
+      }
+
+      @include mq($from: desktop) {
         padding: 0 0.75rem;
       }
 
@@ -134,7 +138,7 @@
         height: auto;
         max-width: 100%;
 
-        @include mq($from: tablet) {
+        @include mq($from: desktop) {
           max-height: 28px;
         }
       }
