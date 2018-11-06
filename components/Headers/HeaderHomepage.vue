@@ -4,9 +4,9 @@
       navigation-main
     .hero-body.has-text-centered
       .text-container
-        h3.title.is-spaced(v-scroll-reveal="{ delay: 0 }")
+        p.title.is-spaced(v-scroll-reveal="{ delay: 0 }")
           | {{ data.hero.title }}
-        h2.subtitle(v-scroll-reveal="{ delay: 250 }")
+        p.subtitle(v-scroll-reveal="{ delay: 250 }")
           | {{ data.hero.subtitle }}
         nuxt-link.button.is-primary.is-auto(:to="data.hero.button.path" v-scroll-reveal="{ delay: 500 }")
           | {{ data.hero.button.title }}

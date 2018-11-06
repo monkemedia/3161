@@ -6,16 +6,19 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'Dr James Griffith Hall - Swansea Freemasonry',
+    title: 'Dr James Griffith Hall Lodge - Swansea Freemasonry',
     htmlAttrs: {
       lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' },
+      { hid: 'description', name: 'description', content: 'Established back in 1918, Dr James Griffith Hall Lodge' },
       { name: 'msapplication-TileColor', content: '#ffffff' },
       { name: 'theme-color', content: '#ffffff' }
+    ],
+    noscript: [
+      { innerHTML: 'This website requires JavaScript.' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicons/favicon.ico' },

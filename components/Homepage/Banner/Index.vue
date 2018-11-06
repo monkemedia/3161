@@ -5,9 +5,9 @@
         section.banner
           .banner-body
             .text-container
-              h1.title(v-scroll-reveal="{ delay: 0 }")
+              p.title(v-scroll-reveal="{ delay: 0 }")
                 | {{ data.title }} //
-              h2.subtitle(v-scroll-reveal="{ delay: 250 }")
+              p.subtitle(v-scroll-reveal="{ delay: 250 }")
                 | {{ data.subtitle }}
               p.is-hidden-mobile(v-scroll-reveal="{ delay: 500 }") {{ data.description }}
               nuxt-link.button.is-primary(:to="data.button.path" v-scroll-reveal="{ delay: 750 }")
@@ -112,12 +112,14 @@
       font-size: rem(10px);
       color: $primary;
       margin-bottom: 10px;
+      line-height: 1;
       @include ExtraBoldUppercase();
     }
 
     .subtitle {
       font-size: rem(35px);
       color: $white;
+      line-height: 1;
       @include ExtraBoldUppercase();
       margin: 0 0 10px 0;
     }
