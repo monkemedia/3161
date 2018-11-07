@@ -83,17 +83,7 @@ module.exports = {
   markdownit: {
     injected: true
   },
-  render: {
-    csp: {
-      enabled: true,
-      policies: {
-        'script-src': [
-          'https://maps.googleapis.com',
-          'https://fonts.googleapis.com'
-        ],
-      }
-    }
-  },
+
   /*
   ** Build configuration
   */
