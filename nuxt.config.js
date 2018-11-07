@@ -85,9 +85,13 @@ module.exports = {
   },
   render: {
     csp: {
+      enabled: true,
       policies: {
         'script-src': [
-          'https://maps.googleapis.com',
+          'self',
+          'https://maps.googleapis.com'
+        ],
+        'font-src': [
           'https://fonts.googleapis.com'
         ]
       }
