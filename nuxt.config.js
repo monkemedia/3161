@@ -83,6 +83,16 @@ module.exports = {
   markdownit: {
     injected: true
   },
+  render: {
+    csp: {
+      policies: {
+        'script-src': [
+          'https://maps.googleapis.com',
+          'https://fonts.googleapis.com'
+        ]
+      }
+    }
+  },
   /*
   ** Build configuration
   */
@@ -92,17 +102,6 @@ module.exports = {
     postcss: {
       plugins: {
         'postcss-custom-properties': false
-      }
-    },
-
-    render: {
-      csp: {
-        policies: {
-          'script-src': [
-            'https://maps.googleapis.com',
-            'https://fonts.googleapis.com'
-          ]
-        }
       }
     },
     /*
