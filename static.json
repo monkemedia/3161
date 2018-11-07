@@ -1,0 +1,14 @@
+{
+  "headers": {
+    "/**": {
+      "Content-Security-Policy": "default-src 'self'; script-src https://maps.googleapis.com https://fonts.googleapis.com;",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "DENY",
+      "X-XSS-Protection": "1; mode=block"
+    },
+    "/static/**": {
+      "Cache-Control": "public, max-age=512000"
+    },
+  }
+}
