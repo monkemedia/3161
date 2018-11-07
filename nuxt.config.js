@@ -89,11 +89,9 @@ module.exports = {
       policies: {
         'script-src': [
           'self',
-          'https://maps.googleapis.com'
-        ],
-        'font-src': [
+          'https://maps.googleapis.com',
           'https://fonts.googleapis.com'
-        ]
+        ],
       }
     }
   },
