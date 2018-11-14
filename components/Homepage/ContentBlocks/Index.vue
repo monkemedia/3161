@@ -47,11 +47,11 @@
         const wH = window.innerWidth
 
         if (wH >= 1216) {
-          this.imageOne = `${this.data[0].media.file}?q=80`
-          this.imageTwo = `${this.data[1].media.file}?q=80`
+          this.imageOne = `${this.data[0].media.file}?h=600&q=80`
+          this.imageTwo = `${this.data[1].media.file}?h=600&q=80`
         } else {
-          this.imageOne = `${this.data[0].media.file}?q=60`
-          this.imageTwo = `${this.data[1].media.file}?q=60`
+          this.imageOne = `${this.data[0].media.file}?h=600&q=60`
+          this.imageTwo = `${this.data[1].media.file}?h=600&q=60`
         }
       }
     }
