@@ -4,18 +4,19 @@
       .column.is-6.is-half-tablet-only.mobile-padding(:class="{ 'order':  index === 1}")
         .content-container.content-centered
           .text-container.has-text-centered-mobile
-            p.title(v-scroll-reveal="{ delay: 0 }") {{ item.title }}
-            p(v-scroll-reveal="{ delay: 250 }") {{ item.description }}
-            nuxt-link.button(:to="item.button.path" v-scroll-reveal="{ delay: 500 }")
+            p.title {{ item.title }}
+            p {{ item.description }}
+            nuxt-link.button(:to="item.button.path")
               | {{ item.button.title }}
               span.button-line
       .column.is-6.is-half-tablet-only
-        figure.image(v-scroll-reveal="{ distance: '0px' }")
+        figure.image.is-square
           no-ssr
-            progressive-img(
-              :src="index === 0 ? imageOne : imageTwo"
-              :placeholder="`${item.media.file}?h=100&q=5`"
-              :blur="30")
+            img(v-lazy="index === 0 ? imageOne : imageTwo")
+            //- progressive-img(
+            //-   :src="index === 0 ? imageOne : imageTwo"
+            //-   :placeholder="`${item.media.file}?h=100&q=5`"
+            //-   :blur="30")
 </template>
 
 <script>
@@ -74,7 +75,7 @@
       max-width: 300px;
       padding: 40px 10px;
 
-      @include mq($from: tablet) {
+      @include mq($from: desktop) {
         padding: 0;
       }
     }

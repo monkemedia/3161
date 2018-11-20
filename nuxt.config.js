@@ -51,7 +51,7 @@ module.exports = {
       ssr: false
     },
     {
-      src: '~/plugins/vue-scroll-reveal',
+      src: '~/plugins/vue-lazy-load',
       ssr: false
     },
     {

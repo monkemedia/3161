@@ -1,5 +1,5 @@
 <template lang="pug">
-  nuxt-link.item.image-link-overlay(to="test" v-scroll-reveal="{ delay: 250 * index }")
+  nuxt-link.item.image-link-overlay(to="test")
     .text
       p.title {{ data.title }}
     .featured-button()

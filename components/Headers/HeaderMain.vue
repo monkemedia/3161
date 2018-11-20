@@ -4,7 +4,7 @@
     .hero
       .hero-body.has-text-centered
         .text-container
-          h1.title.is-spaced(v-scroll-reveal="{ delay: 0 }")
+          h1.title.is-spaced
             | {{ data.hero.title }}
       no-ssr
         progressive-background.hero-bg(

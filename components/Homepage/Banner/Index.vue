@@ -5,12 +5,12 @@
         section.banner
           .banner-body
             .text-container
-              p.title(v-scroll-reveal="{ delay: 0 }")
+              p.title
                 | {{ data.title }} //
-              p.subtitle(v-scroll-reveal="{ delay: 250 }")
+              p.subtitle
                 | {{ data.subtitle }}
-              p.is-hidden-mobile(v-scroll-reveal="{ delay: 500 }") {{ data.description }}
-              nuxt-link.button.is-primary(:to="data.button.path" v-scroll-reveal="{ delay: 750 }")
+              p.is-hidden-mobile {{ data.description }}
+              nuxt-link.button.is-primary(:to="data.button.path")
                 | {{ data.button.title }}
                 span.button-line
           no-ssr

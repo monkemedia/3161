@@ -15,7 +15,7 @@ import { createStore } from './store.js'
 import nuxt_plugin_templatespluginb721abbc_94a0f44a from 'nuxt_plugin_templatespluginb721abbc_94a0f44a' // Source: ./templates.plugin.b721abbc.js
 import nuxt_plugin_markdownit_407c8a64 from 'nuxt_plugin_markdownit_407c8a64' // Source: ./markdown-it.js
 import nuxt_plugin_vueprogressiveimage_bd141b48 from 'nuxt_plugin_vueprogressiveimage_bd141b48' // Source: ../plugins/vue-progressive-image (ssr: false)
-import nuxt_plugin_vuescrollreveal_36883210 from 'nuxt_plugin_vuescrollreveal_36883210' // Source: ../plugins/vue-scroll-reveal (ssr: false)
+import nuxt_plugin_vuelazyload_025de73c from 'nuxt_plugin_vuelazyload_025de73c' // Source: ../plugins/vue-lazy-load (ssr: false)
 import nuxt_plugin_vuescrollto_27a6f23e from 'nuxt_plugin_vuescrollto_27a6f23e' // Source: ../plugins/vue-scroll-to (ssr: false)
 import nuxt_plugin_vueveevalidate_3000f1ca from 'nuxt_plugin_vueveevalidate_3000f1ca' // Source: ../plugins/vue-vee-validate
 import nuxt_plugin_vuegooglemaps_4aa051ae from 'nuxt_plugin_vuegooglemaps_4aa051ae' // Source: ../plugins/vue-google-maps
@@ -164,7 +164,7 @@ async function createApp (ssrContext) {
   
   if (process.browser) { 
     if (typeof nuxt_plugin_vueprogressiveimage_bd141b48 === 'function') await nuxt_plugin_vueprogressiveimage_bd141b48(app.context, inject)
-    if (typeof nuxt_plugin_vuescrollreveal_36883210 === 'function') await nuxt_plugin_vuescrollreveal_36883210(app.context, inject)
+    if (typeof nuxt_plugin_vuelazyload_025de73c === 'function') await nuxt_plugin_vuelazyload_025de73c(app.context, inject)
     if (typeof nuxt_plugin_vuescrollto_27a6f23e === 'function') await nuxt_plugin_vuescrollto_27a6f23e(app.context, inject)
   }
 

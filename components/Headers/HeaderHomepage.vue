@@ -4,11 +4,11 @@
       navigation-main
     .hero-body.has-text-centered
       .text-container
-        p.title.is-spaced(v-scroll-reveal="{ delay: 0 }")
+        p.title.is-spaced
           | {{ data.hero.title }}
-        p.subtitle(v-scroll-reveal="{ delay: 250 }")
+        p.subtitle
           | {{ data.hero.subtitle }}
-        nuxt-link.button.is-primary.is-auto(:to="data.hero.button.path" v-scroll-reveal="{ delay: 500 }")
+        nuxt-link.button.is-primary.is-auto(:to="data.hero.button.path")
           | {{ data.hero.button.title }}
           span.button-line
     a.scroll-to.is-hidden-mobile(href="#" v-scroll-to="'#content-block'")
@@ -65,7 +65,7 @@
         const wH = window.innerWidth
         const isVideo = this.data.hero.media.contentType === 'video/mp4'
 
-        if (wH >= 1216) {
+        if (wH >= 720) {
           if (isVideo) {
             this.video = this.data.hero.media.file
           } else {
@@ -143,6 +143,7 @@
       height: 100%;
       width: 100%;
       z-index: 0;
+      top: 0;
     }
 
     .hero-video-bg {
