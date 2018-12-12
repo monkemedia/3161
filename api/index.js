@@ -23,6 +23,15 @@ export default {
       }
     },
 
+    location: {
+      fetchData: () => {
+        return cachios.get(`${url}/contentful/location`)
+          .then(res => {
+            return res
+          })
+      }
+    },
+
     pages: {
       fetchData: () => {
         return cachios.get(`${url}/contentful/pages`)
@@ -48,21 +57,11 @@ export default {
             return res
           })
       }
-    },
-
-    meta: {
-      fetchData: () => {
-        return cachios.get(`${url}/contentful/meta`)
-          .then(res => {
-            return res
-          })
-      }
     }
   },
 
   contactForm: {
     postData: (data) => {
-      console.log('data', data)
       return cachios.post(`${url}/contact-us`, data)
         .then(res => {
           return res

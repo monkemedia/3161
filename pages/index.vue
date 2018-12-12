@@ -7,7 +7,7 @@
       .container.sub-main
         featured-items(:data="homepage.featuredItems")
         content-asset(:data="homepage")
-        location-map
+        location-map(:data="location")
     footer-main
     back-to-top
 </template>
@@ -21,8 +21,11 @@
   import LocationMap from '@/components/Utilities/LocationMap.vue'
   import BackToTop from '@/components/Utilities/BackToTop.vue'
   import FooterMain from '@/components/Footers/FooterMain.vue'
+  import mixin from '@/plugins/mixins/common.js'
 
   export default {
+    mixins: [mixin],
+
     components: {
       HeaderHomepage,
       ContentBlocks,
@@ -36,17 +39,31 @@
 
     async fetch ({ store }) {
       return store.dispatch('homepage/fetchData')
+        .then(() => {
+          return store.dispatch('location/fetchData')
+        })
     },
 
     mounted () {
       if (!process.client) return
 
       return this.$store.dispatch('homepage/fetchData')
+        .then(() => {
+          return this.$store.dispatch('location/fetchData')
+        })
     },
 
     computed: {
       homepage () {
         return this.$store.getters['homepage/getData']
+      },
+
+      pageMeta () {
+        return this.homepage.pageMeta
+      },
+
+      location () {
+        return this.$store.getters['location/getData']
       }
     }
   }

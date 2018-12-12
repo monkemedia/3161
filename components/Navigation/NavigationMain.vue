@@ -4,10 +4,10 @@
       .container
         .navbar-brand
           nuxt-link.navbar-item.logo(to="/")
-            img.main-logo.is-hidden-mobile.is-hidden-tablet-only(src="/logo-white.svg" :alt="meta.siteTitle" v-if="!isSticky && isHomepage")
-            img.main-logo.is-hidden-mobile.is-hidden-tablet-only(src="/logo.svg" :alt="meta.siteTitle" v-else)
-            img.main-logo.is-hidden-mobile.is-hidden-desktop(src="/logo.svg" :alt="meta.siteTitle")
-            img.main-logo.is-hidden-tablet(src="/logo-mobile.svg" :alt="meta.siteTitle")
+            img.main-logo.is-hidden-mobile.is-hidden-tablet-only(src="/logo-white.svg" :alt="alt" v-if="!isSticky && isHomepage")
+            img.main-logo.is-hidden-mobile.is-hidden-tablet-only(src="/logo.svg" :alt="alt" v-else)
+            img.main-logo.is-hidden-mobile.is-hidden-desktop(src="/logo.svg" :alt="alt")
+            img.main-logo.is-hidden-tablet(src="/logo-mobile.svg" :alt="alt")
           burger-menu
         .navbar-menu
           .navbar-end
@@ -31,6 +31,7 @@
 
     data () {
       return {
+        alt: 'Dr James Griffith Hall Lodge',
         stickyHeader: false,
         isSticky: false,
         isHomepage: false

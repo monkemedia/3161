@@ -11,8 +11,8 @@ const mutations = {
 }
 
 const actions = {
-  fetchData ({ commit }, data) {
-    return api.contentful.meta.fetchData(data)
+  fetchData ({ commit }) {
+    return api.contentful.location.fetchData()
       .then((response) => {
         commit('SET_DATA', response.data)
         return response.data

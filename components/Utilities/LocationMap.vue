@@ -6,19 +6,26 @@
       :zoom="16")
       gmap-marker(
         :animation="1"
-        :position="{ lat: meta.location.lat, lng: meta.location.lon }"
+        :position="{ lat: data.location.lat, lng: data.location.lon }"
         :icon="{ url: 'map-marker.svg' }"
         :clickable="false"
         :draggable="false"
         style="height: 50px;")
     .location-container
       h2.title We meet here
-      span(v-html="$md.render(meta.address)")
+      span(v-html="$md.render(data.address)")
 </template>
 
 <script>
   export default {
     name: 'LocationMap',
+
+    props: {
+      data: {
+        type: Object,
+        required: true
+      }
+    },
 
     data () {
       return {
@@ -185,12 +192,6 @@
             }
           ]
         }
-      }
-    },
-
-    computed: {
-      meta () {
-        return this.$store.getters['meta/getData']
       }
     },
 

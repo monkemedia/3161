@@ -14,8 +14,11 @@
 <script>
   import HeaderMain from '@/components/Headers/HeaderMain.vue'
   import FooterMain from '@/components/Footers/FooterMain.vue'
+  import mixin from '@/plugins/mixins/common.js'
 
   export default {
+    mixins: [mixin],
+
     components: {
       HeaderMain,
       FooterMain
@@ -34,6 +37,10 @@
     computed: {
       page () {
         return this.$store.getters['page/getData']
+      },
+
+      pageMeta () {
+        return this.page.pageMeta
       }
     }
   }
