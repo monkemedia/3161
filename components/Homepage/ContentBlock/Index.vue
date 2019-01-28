@@ -1,37 +1,32 @@
 <template lang="pug">
   .container#content-block
-    .columns.is-gapless(v-for="(item, index) in data" )
-      .column.is-6.is-half-tablet-only.mobile-padding(:class="{ 'order':  index === 1}")
+    .columns.is-gapless
+      .column.is-7.is-half-tablet-only
+        figure
+          no-ssr
+            img(v-lazy="image")
+      .column.is-5.is-half-tablet-only.mobile-padding
         .content-container.content-centered
           .text-container.has-text-centered-mobile
-            p.title {{ item.title }}
-            p {{ item.description }}
-            nuxt-link.button(:to="item.button.path")
-              | {{ item.button.title }}
+            h3.title {{ data.title }}
+            p {{ data.description }}
+            nuxt-link.button(:to="data.button.path")
+              | {{ data.button.title }}
               span.button-line
-      .column.is-6.is-half-tablet-only
-        figure.image.is-square
-          no-ssr
-            img(v-lazy="index === 0 ? imageOne : imageTwo")
-            //- progressive-img(
-            //-   :src="index === 0 ? imageOne : imageTwo"
-            //-   :placeholder="`${item.media.file}?h=100&q=5`"
-            //-   :blur="30")
 </template>
 
 <script>
   export default {
     props: {
       data: {
-        type: Array,
+        type: Object,
         required: true
       }
     },
 
     data () {
       return {
-        imageOne: '',
-        imageTwo: ''
+        image: ''
       }
     },
 
@@ -47,12 +42,10 @@
       responsiveImage () {
         const wH = window.innerWidth
 
-        if (wH >= 1216) {
-          this.imageOne = `${this.data[0].media.file}?h=600&q=80`
-          this.imageTwo = `${this.data[1].media.file}?h=600&q=80`
+        if (wH >= 1170) {
+          this.image = `${this.data.media.file}?h=600&q=80`
         } else {
-          this.imageOne = `${this.data[0].media.file}?h=600&q=60`
-          this.imageTwo = `${this.data[1].media.file}?h=600&q=60`
+          this.image = `${this.data.media.file}?h=600&q=60`
         }
       }
     }
@@ -65,10 +58,16 @@
   @import '~assets/css/utilities/variables.scss';
   @import '~assets/css/utilities/mixins.scss';
 
+  .container {
+    @include mq($from: desktop) {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 120px 0;
+    }
+  }
+
   .content-container {
-    background-color: $grey-lighter;
     width: 100%;
-    height: 100%;
 
     .text-container {
       width: 100%;
@@ -82,14 +81,8 @@
   }
 
   .title {
-    font-size: rem(26px);
-    line-height: .85;
-    @include ExtraBoldUppercase();
-
-    @include mq($from: desktop) {
-      font-size: rem(36px);
-      width: 260px;
-    }
+    font-size: rem(14px);
+    @include BoldUppercase();
   }
 
   .is-gapless {
@@ -103,10 +96,6 @@
     @include mq($from: tablet) {
       padding: 0 !important;
     }
-  }
-
-  p {
-    font-size: rem(13px);
   }
 
   .order {
