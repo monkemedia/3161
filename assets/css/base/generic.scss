@@ -6,7 +6,7 @@
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
   color: $heading-color;
-  letter-spacing: rem(.4px);
+  letter-spacing: rem(.7px);
 }
 
 body {
@@ -53,8 +53,8 @@ a.navbar-link {
 
 p {
   color: $body-color;
-  font-size: rem($size-140);
-  line-height: 1.8;
+  font-size: rem($size-130);
+  line-height: 2.2;
 
   &:not(:last-child) {
     margin-bottom: 10px;
@@ -140,6 +140,7 @@ ul.no-list {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 
 .loading-overlay {

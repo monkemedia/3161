@@ -12,9 +12,9 @@
   .navbar-brand,
   .navbar-menu {
     .navbar-link {
-      @include Bold();
       font-size: rem(12px);
       color: $secondary;
+      @include SemiBoldUppercase();
 
       &.is-active,
       &:hover {

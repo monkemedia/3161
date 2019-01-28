@@ -41,10 +41,6 @@
     computed: {
       navigation () {
         return this.$store.getters['navigation/getData']
-      },
-
-      meta () {
-        return this.$store.getters['meta/getData']
       }
     },
 

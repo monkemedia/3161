@@ -107,9 +107,7 @@
 
       .text-container {
         width: 100%;
-        max-width: 400px;
         display: inline-block;
-        border: 6px solid $white;
         padding: 50px;
       }
     }
@@ -120,7 +118,7 @@
 
     .scroll-to {
       font-size: rem(12px);
-      @include ExtraBold();
+      @include BoldUppercase();
       position: absolute;
       bottom: 10px;
       z-index: 1;
@@ -171,17 +169,23 @@
       font-size: rem(12px);
       color: $white;
       margin-bottom: 0;
+      font-family: $family-primary;
+      font-weight: 400;
+      letter-spacing: 7px;
+      text-transform: uppercase;
     }
 
     .subtitle {
-      font-family: $family-tertiary;
+      font-family: $family-primary;
+      @include BoldUppercase();
+      letter-spacing: 8px;
       font-size: rem(50px);
       color: $white;
       line-height: 2;
       margin-bottom: 0;
 
       @include mq($from: tablet) {
-        font-size: rem(80px);
+        font-size: rem(55px);
       }
     }
 

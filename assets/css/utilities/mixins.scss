@@ -6,14 +6,21 @@
 }
 
 // Typorgraphy
+@mixin SemiBold() {
+  font-weight: 600;
+}
+
 @mixin Bold() {
-  font-family: $family-primary;
   font-weight: 700;
 }
 
 @mixin ExtraBold() {
-  font-family: $family-primary;
   font-weight: 900;
+}
+
+@mixin SemiBoldUppercase() {
+  text-transform: uppercase;
+  @include SemiBold()
 }
 
 @mixin BoldUppercase() {
