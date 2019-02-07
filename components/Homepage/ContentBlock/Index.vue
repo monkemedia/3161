@@ -1,6 +1,6 @@
 <template lang="pug">
   .container#content-block
-    .columns.is-gapless
+    .columns
       .column.is-7.is-half-tablet-only
         figure
           no-ssr
