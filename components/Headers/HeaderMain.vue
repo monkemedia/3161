@@ -5,7 +5,9 @@
       .hero-body.has-text-centered
         .text-container
           h1.title.is-spaced
-            | {{ data.hero.title }}
+            | {{ data.title }}
+          h2.subtitle.is-spaced
+            | {{ data.blurb }}
       no-ssr
         progressive-background.hero-bg(
           :src="data.hero.media.file"

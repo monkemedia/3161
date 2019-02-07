@@ -14,6 +14,8 @@
             .navbar-item
               nuxt-link.navbar-link.animated-underline(v-for="nav in navigation" :key="nav.slug" :to="`/page/${nav.slug}`")
                 | {{ nav.label }}
+              nuxt-link.navbar-link.animated-underline(to="/news")
+                | News
               nuxt-link.navbar-link.animated-underline(to="/contact-us")
                 | Contact us
 </template>

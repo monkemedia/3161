@@ -50,6 +50,15 @@ export default {
       }
     },
 
+    news: {
+      fetchData: () => {
+        return cachios.get(`${url}/contentful/news`)
+          .then(res => {
+            return res
+          })
+      }
+    },
+
     contact: {
       fetchData: () => {
         return cachios.get(`${url}/contentful/contact`)

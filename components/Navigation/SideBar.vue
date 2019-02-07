@@ -4,6 +4,8 @@
       li(v-for="nav in navigation")
         nuxt-link(:to="`/page/${nav.slug}`") {{ nav.label }}
       li
+        nuxt-link(to="/news") News
+      li
         nuxt-link(to="/contact-us") Contact us
 </template>
 

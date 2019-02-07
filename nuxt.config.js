@@ -68,6 +68,7 @@ module.exports = {
     }
   ],
   modules: [
+    '@nuxtjs/moment',
     '@nuxtjs/markdownit',
     ['nuxt-fontawesome', {
       component: 'fa',

@@ -4,6 +4,7 @@ import homepage from './modules/homepage.js'
 import location from './modules/location.js'
 import pages from './modules/pages.js'
 import page from './modules/page.js'
+import news from './modules/news.js'
 import contact from './modules/contact.js'
 
 export default () => {
@@ -14,11 +15,12 @@ export default () => {
       location,
       pages,
       page,
+      news,
       contact
     },
     actions: {
       async nuxtServerInit ({ dispatch }, context) {
-        return dispatch('navigation/fetchData', context)
+        return dispatch('news/fetchData', context)
       }
     }
   })
