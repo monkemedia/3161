@@ -2,16 +2,22 @@
   aside.side-bar
     search-box
     recent-posts
+    connect-with-us
+    archives
 </template>
 
 <script>
   import SearchBox from '@/components/Utilities/SearchBox'
   import RecentPosts from '@/components/News/Utilities/RecentPosts'
+  import ConnectWithUs from '@/components/News/Utilities/ConnectWithUs'
+  import Archives from '@/components/News/Utilities/Archives'
 
   export default {
     components: {
       SearchBox,
-      RecentPosts
+      RecentPosts,
+      ConnectWithUs,
+      Archives
     }
   }
 </script>
