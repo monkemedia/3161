@@ -3,12 +3,6 @@
   color: $white;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-  color: $heading-color;
-  letter-spacing: rem(.7px);
-}
-
 body {
   background-color: $body-bg;
   min-height: 100%;
@@ -17,6 +11,28 @@ body {
 
 hr {
   background-color: $grey-300;
+}
+
+h1, h2, h3, h4, h5 {
+  letter-spacing: rem(1px);
+  text-transform: uppercase;
+  color: $grey;
+  font-weight: 600;
+
+  &.underline {
+    padding-bottom: 10px;
+    position: relative;
+
+    &:after {
+      content: '';
+      width: 35px;
+      height: 2px;
+      background: $primary;
+      display: block;
+      position: absolute;
+      bottom: 0;
+    }
+  }
 }
 
 h1

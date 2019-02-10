@@ -20,7 +20,7 @@ export default () => {
     },
     actions: {
       async nuxtServerInit ({ dispatch }, context) {
-        return dispatch('news/fetchData', context)
+        return dispatch('navigation/fetchData', context)
       }
     }
   })

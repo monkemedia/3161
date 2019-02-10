@@ -41,7 +41,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import '../../node_modules/sass-mq/mq';
   @import '../../node_modules/sass-rem/rem';
   @import '~assets/css/utilities/variables.scss';

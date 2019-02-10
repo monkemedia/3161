@@ -57,20 +57,20 @@
 
     &__day {
       font-size: rem(16px);
-      font-weight: 700;
+      font-weight: 600;
       line-height: 1;
     }
 
     &__month {
       font-size: rem(12px);
       text-transform: uppercase;
-      font-weight: 700;
+      font-weight: 600;
       line-height: 1;
     }
 
     &__year {
       font-size: rem(12px);
-      font-weight: 700;
+      font-weight: 600;
       color: $white;
       padding: 6px 4px;
     }

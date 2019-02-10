@@ -7,19 +7,21 @@
           .column.is-8
             news-list-item(:data="article" :key="article.id" v-for="article in news")
           .column.is-4
-
+            side-bar
     footer-main
 </template>
 
 <script>
   import HeaderMain from '@/components/Headers/HeaderMain.vue'
   import NewsListItem from '@/components/News/NewsListItem.vue'
+  import SideBar from '@/components/News/Utilities/SideBar.vue'
   import FooterMain from '@/components/Footers/FooterMain.vue'
 
   export default {
     components: {
       HeaderMain,
       NewsListItem,
+      SideBar,
       FooterMain
     },
 
