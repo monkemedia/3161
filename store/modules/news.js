@@ -41,7 +41,7 @@ const getters = {
   },
 
   getRecentData (state) {
-    return state.data
+    return state.recentData
   }
 }
 
