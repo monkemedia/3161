@@ -101,15 +101,8 @@ ul.no-list {
   }
 
   > .container {
-    margin-bottom: 15px;
-
-    @include mq($from: tablet) {
-      margin-top: 15px;
-
-      &.sub-main {
-        margin-top: -50px;
-      }
-    }
+    padding-top: 60px !important;
+    padding-bottom: 60px;
   }
 }
 
@@ -169,6 +162,23 @@ ul.no-list {
       border: 2px solid $primary;
       border-right-color: transparent;
       border-top-color: transparent;
+    }
+  }
+}
+
+.has-overlay {
+  position: relative;
+
+  .overlay {
+    background: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    height: 100%;
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+
+    + div {
+      z-index: 3 !important;
     }
   }
 }

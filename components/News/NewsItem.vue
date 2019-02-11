@@ -10,10 +10,9 @@
           user-actions
         .media-content
           header
-            h3 {{ data.summary }}
+            h3 {{ data.summary}}
           article
-            p {{ limitDescription() }}
-            nuxt-link(:to="'/news/' + data.id").button Read more
+            div(v-html="$md.render(data.description)")
 
 </template>
 
@@ -31,14 +30,6 @@
       data: {
         type: Object,
         required: true
-      }
-    },
-
-    methods: {
-      limitDescription () {
-        const description = this.data.description
-
-        return description.length > 200 ? description.substring(0, 200) + '...' : description
       }
     }
   }
@@ -75,10 +66,6 @@
 
   .card {
     margin-bottom: 50px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
   }
 
   .media-left {

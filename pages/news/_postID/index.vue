@@ -1,26 +1,26 @@
 <template lang="pug">
   div#top
-    header-main(:data="header")
+    header-news(:image="post.fields.image.fields" :title="post.fields.title")
     .main
       .container.sub-main
         .columns
           .column.is-8
-            news-list-item(:data="article" :key="article.id" v-for="article in news")
+            news-item(:data="post.fields")
           .column.is-4
             side-bar
     footer-main
 </template>
 
 <script>
-  import HeaderMain from '@/components/Headers/HeaderMain.vue'
-  import NewsListItem from '@/components/News/NewsListItem.vue'
+  import HeaderNews from '@/components/Headers/HeaderNews.vue'
+  import NewsItem from '@/components/News/NewsItem.vue'
   import SideBar from '@/components/News/Utilities/SideBar.vue'
   import FooterMain from '@/components/Footers/FooterMain.vue'
 
   export default {
     components: {
-      HeaderMain,
-      NewsListItem,
+      HeaderNews,
+      NewsItem,
       SideBar,
       FooterMain
     },
@@ -39,10 +39,10 @@
       }
     },
 
-    async fetch ({ store }) {
+    async fetch ({ store, params }) {
       return store.dispatch('news/fetchRecentData', 3)
         .then(() => {
-          return store.dispatch('news/fetchData')
+          return store.dispatch('newsPost/fetchData', params.postID)
         })
     },
 
@@ -51,22 +51,18 @@
 
       return this.$store.dispatch('news/fetchRecentData', 3)
         .then(() => {
-          return this.$store.dispatch('news/fetchData')
+          return this.$store.dispatch('newsPost/fetchData', this.$route.params.postID)
         })
     },
 
     computed: {
-      news () {
-        return this.$store.getters['news/getData']
+      post () {
+        return this.$store.getters['newsPost/getData']
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  .container {
-    padding-top: 60px !important;
-    padding-bottom: 60px;
-  }
 
 </style>

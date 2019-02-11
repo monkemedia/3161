@@ -1,0 +1,89 @@
+.hero {
+  justify-content: center;
+  margin-top: 52px;
+
+  @include mq($from: tablet) {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    min-height: 550px;
+    margin-top: 0;
+  }
+
+  .hero-body,
+  .hero-foot {
+    z-index: 1;
+    flex-grow: 0;
+
+    .text-container {
+      width: 100%;
+      display: inline-block;
+      padding: 50px;
+    }
+  }
+
+  .hero-body {
+    padding: 15px;
+  }
+
+  .scroll-to {
+    font-size: rem(12px);
+    @include BoldUppercase();
+    position: absolute;
+    bottom: 10px;
+    z-index: 1;
+    text-align: center;
+    width: 114px;
+    left: 50%;
+    margin-left: -57px;
+    color: $white;
+
+    .icon {
+      animation: bounceArrow 2s infinite;
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  .hero-bg {
+    background-size: cover;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    top: 0;
+  }
+
+  .progressive-background {
+    position: absolute;
+  }
+
+  .title--small {
+    font-size: rem(12px);
+    color: $white;
+    margin-bottom: 0;
+    font-family: $family-primary;
+    font-weight: 400;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+  }
+
+  .title--large {
+    font-family: $family-primary;
+    @include BoldUppercase();
+    letter-spacing: 8px;
+    font-size: rem(50px);
+    color: $white;
+    line-height: 2;
+    margin-bottom: 0;
+
+    @include mq($from: tablet) {
+      font-size: rem(55px);
+    }
+  }
+
+  .button {
+    color: $white;
+    margin: 0;
+  }
+}

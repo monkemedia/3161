@@ -56,6 +56,22 @@ export default {
           .then(res => {
             return res
           })
+      },
+
+      fetchRecentData: (limit) => {
+        return cachios.get(`${url}/contentful/news?limit=${limit}`)
+          .then(res => {
+            return res
+          })
+      }
+    },
+
+    newsPost: {
+      fetchData: (postID) => {
+        return cachios.get(`${url}/contentful/news/${postID}`)
+          .then(res => {
+            return res
+          })
       }
     },
 

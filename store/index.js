@@ -5,6 +5,7 @@ import location from './modules/location.js'
 import pages from './modules/pages.js'
 import page from './modules/page.js'
 import news from './modules/news.js'
+import newsPost from './modules/newsPost.js'
 import contact from './modules/contact.js'
 
 export default () => {
@@ -16,6 +17,7 @@ export default () => {
       pages,
       page,
       news,
+      newsPost,
       contact
     },
     actions: {

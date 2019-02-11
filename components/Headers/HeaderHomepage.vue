@@ -4,9 +4,9 @@
       navigation-main
     .hero-body.has-text-centered
       .text-container
-        p.title.is-spaced
+        h1.title--small.is-spaced
           | {{ data.hero.title }}
-        p.subtitle
+        p.title--large
           | {{ data.hero.subtitle }}
         nuxt-link.button.is-primary.is-auto(:to="data.hero.button.path")
           | {{ data.hero.button.title }}
@@ -83,115 +83,4 @@
 </script>
 
 <style lang="scss" scoped>
-  @import '../../node_modules/sass-rem/rem';
-  @import '../../node_modules/sass-mq/mq';
-  @import '~assets/css/utilities/variables.scss';
-  @import '~assets/css/utilities/mixins.scss';
-
-  .hero {
-    justify-content: center;
-    margin-top: 52px;
-
-    @include mq($from: tablet) {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      min-height: 550px;
-      margin-top: 0;
-    }
-
-    .hero-body,
-    .hero-foot {
-      z-index: 1;
-      flex-grow: 0;
-
-      .text-container {
-        width: 100%;
-        display: inline-block;
-        padding: 50px;
-      }
-    }
-
-    .hero-body {
-      padding: 15px;
-    }
-
-    .scroll-to {
-      font-size: rem(12px);
-      @include BoldUppercase();
-      position: absolute;
-      bottom: 10px;
-      z-index: 1;
-      text-align: center;
-      width: 114px;
-      left: 50%;
-      margin-left: -57px;
-      color: $white;
-
-      .icon {
-        animation: bounceArrow 2s infinite;
-        width: 10px;
-        height: 10px;
-      }
-    }
-
-    .hero-bg {
-      background-size: cover;
-      position: fixed;
-      height: 100%;
-      width: 100%;
-      z-index: 0;
-      top: 0;
-    }
-
-    .hero-video-bg {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 0;
-
-      video {
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-      }
-    }
-
-    .title {
-      font-size: rem(12px);
-      color: $white;
-      margin-bottom: 0;
-      font-family: $family-primary;
-      font-weight: 400;
-      letter-spacing: 7px;
-      text-transform: uppercase;
-    }
-
-    .subtitle {
-      font-family: $family-primary;
-      @include BoldUppercase();
-      letter-spacing: 8px;
-      font-size: rem(50px);
-      color: $white;
-      line-height: 2;
-      margin-bottom: 0;
-
-      @include mq($from: tablet) {
-        font-size: rem(55px);
-      }
-    }
-
-    .button {
-      color: $white;
-      margin: 0;
-    }
-  }
 </style>

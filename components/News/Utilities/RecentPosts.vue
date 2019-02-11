@@ -2,40 +2,33 @@
   .recent-posts
     h4.underline Recent Posts
     ul.recent-posts__items
-      li.recent-posts__item
-        .media
-          .media-left
-            figure.is-64x64
-              img(src="https://bulma.io/images/placeholders/64x64.png")
-          .media-content
-            h5 Title here peope
-            time here
-      li.recent-posts__item
-        .media
-          .media-left
-            figure.is-64x64
-              img(src="https://bulma.io/images/placeholders/64x64.png")
-          .media-content
-            h5 Title here peope
-            time here
-      li.recent-posts__item
-        .media
-          .media-left
-            figure.is-64x64
-              img(src="https://bulma.io/images/placeholders/64x64.png")
-          .media-content
-            h5 Title here peope
-            time here
+      li.recent-posts__item(v-for="post in recentPosts")
+        nuxt-link(:to="'/news/' + post.id")
+          .media
+            .media-left
+              figure.is-64x64
+                img(:src="post.image.fields.file.url + '?fit=thumb&h=64&w=64'" :alt="post.image.fields.title")
+            .media-content
+              h5 {{ post.title }}
+              time {{ date }}
 </template>
 
 <script>
+  import moment from 'moment'
+
   export default {
     props: {
     },
 
     data () {
       return {
-        date: ''
+        date: moment(this.recentPosts).format('D MMM YYYY')
+      }
+    },
+
+    computed: {
+      recentPosts () {
+        return this.$store.getters['news/getRecentData']
       }
     }
   }
