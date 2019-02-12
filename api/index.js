@@ -67,8 +67,17 @@ export default {
     },
 
     newsPost: {
-      fetchData: (postID) => {
-        return cachios.get(`${url}/contentful/news/${postID}`)
+      fetchData: (postId) => {
+        return cachios.get(`${url}/contentful/news/${postId}`)
+          .then(res => {
+            return res
+          })
+      }
+    },
+
+    author: {
+      fetchData: (postId) => {
+        return cachios.get(`${url}/contentful/author/${postId}`)
           .then(res => {
             return res
           })

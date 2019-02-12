@@ -6,6 +6,7 @@ import pages from './modules/pages.js'
 import page from './modules/page.js'
 import news from './modules/news.js'
 import newsPost from './modules/newsPost.js'
+import author from './modules/author.js'
 import contact from './modules/contact.js'
 
 export default () => {
@@ -18,6 +19,7 @@ export default () => {
       page,
       news,
       newsPost,
+      author,
       contact
     },
     actions: {

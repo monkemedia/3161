@@ -5,7 +5,7 @@ Vue.use(Router)
 
 const _3add0660 = () => import('../pages/contact-us.vue' /* webpackChunkName: "pages/contact-us" */).then(m => m.default || m)
 const _e67fc30a = () => import('../pages/news/index.vue' /* webpackChunkName: "pages/news/index" */).then(m => m.default || m)
-const _6770f086 = () => import('../pages/news/_postID/index.vue' /* webpackChunkName: "pages/news/_postID/index" */).then(m => m.default || m)
+const _040748a6 = () => import('../pages/news/_postId/index.vue' /* webpackChunkName: "pages/news/_postId/index" */).then(m => m.default || m)
 const _15c64c22 = () => import('../pages/page/_slug.vue' /* webpackChunkName: "pages/page/_slug" */).then(m => m.default || m)
 const _9170e406 = () => import('../pages/index.vue' /* webpackChunkName: "pages/index" */).then(m => m.default || m)
 
@@ -78,9 +78,9 @@ export function createRouter () {
 			name: "news"
 		},
 		{
-			path: "/news/:postID",
-			component: _6770f086,
-			name: "news-postID"
+			path: "/news/:postId",
+			component: _040748a6,
+			name: "news-postId"
 		},
 		{
 			path: "/page/:slug?",
