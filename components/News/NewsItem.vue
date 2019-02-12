@@ -13,6 +13,9 @@
             h3 {{ data.summary}}
           article
             div(v-html="$md.render(data.description)")
+      .tags
+        span.tag.is-white.tag-label TAGS
+        span.tag(v-for="tag in data.tags") {{ tag }}
 
 </template>
 
@@ -71,6 +74,22 @@
   .media-left {
     margin-right: rem(30px);
     width: 120px;
+  }
+
+  .tags {
+    margin: 30px 0 0;
+
+    .tag {
+      font-weight: 600;
+      font-size: rem(12px);
+      color: $grey-700;
+      padding: 14px 22px;
+    }
+
+    .tag-label {
+      color: $secondary;
+      padding-left: 0;
+    }
   }
 
 </style>
