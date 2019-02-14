@@ -6,7 +6,7 @@
         .columns
           .column.is-8
             news-item(:data="post.fields")
-            about-author
+            about-author(:data="author")
           .column.is-4
             side-bar
     footer-main
@@ -71,6 +71,10 @@
     computed: {
       post () {
         return this.$store.getters['newsPost/getData']
+      },
+
+      author () {
+        return this.$store.getters['author/getData']
       }
     }
   }

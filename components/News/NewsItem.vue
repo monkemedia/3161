@@ -68,7 +68,7 @@
   }
 
   .card {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
 
   .media-left {

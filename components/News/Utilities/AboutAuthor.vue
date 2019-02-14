@@ -1,27 +1,26 @@
 <template lang="pug">
-   .card
-    .card-image
-      figure.image.is-16by9
-        //- img(:src="data.image.fields.file.url + '?h=360&q=80'" :alt="data.image.fields.title")
+   .card.about-author
     .card-content
-      .media
+      header.about-author__header
+        h3.about-author__title About the author
+      .media.about-author__content
         .media-left
-          //- date-tile(:data="data.date")
-          //- user-actions
+          figure.image.is-96x96
+            img(:src="data.image.file + '?h=96&q=80'" :alt="data.image.title")
         .media-content
-          //- header
-          //-   h3 {{ data.summary}}
-          //- article
-          //-   div(v-html="$md.render(data.description)")
+          header
+            h4.about-author__content__title {{ data.name }}
+          article
+            p {{ data.about }}
 </template>
 
 <script>
   export default {
     props: {
-      // data: {
-      //   type: String,
-      //   required: true
-      // }
+      data: {
+        type: Object,
+        required: true
+      }
     },
 
     data () {
@@ -37,5 +36,22 @@
   // @import '../../../node_modules/sass-mq/mq';
   @import '~assets/css/utilities/variables.scss';
   @import '~assets/css/utilities/mixins.scss';
+
+  .about-author {
+    &__header {
+      margin-bottom: 20px;
+    }
+
+    &__title {
+      font-size: rem(15px);
+    }
+
+    &__content {
+
+      &__title {
+        font-size: rem(13px);
+      }
+    }
+  }
 
 </style>
