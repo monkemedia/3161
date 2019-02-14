@@ -15,7 +15,8 @@
             div(v-html="$md.render(data.description)")
       .tags
         span.tag.is-white.tag-label TAGS
-        span.tag(v-for="tag in data.tags") {{ tag }}
+        span.tag(v-for="tag in data.tags")
+          nuxt-link(:to="`/news?tag=${tag}`") {{ tag }}
 
 </template>
 

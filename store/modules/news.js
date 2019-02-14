@@ -32,7 +32,26 @@ const actions = {
         return response.data
       })
       .catch()
+  },
+
+  fetchTagData ({ commit }, data) {
+    return api.contentful.news.fetchTagData(data)
+      .then((response) => {
+        commit('SET_DATA', response.data)
+        return response.data
+      })
+      .catch()
+  },
+
+  fetchSearchData ({ commit }, data) {
+    return api.contentful.news.fetchSearchData(data)
+      .then((response) => {
+        commit('SET_DATA', response.data)
+        return response.data
+      })
+      .catch()
   }
+
 }
 
 const getters = {

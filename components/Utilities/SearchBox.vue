@@ -1,15 +1,32 @@
 <template lang="pug">
   .search-bar
-    .field
-      .control
-        input.input(placeholder="Search")
-        button
-          span.icon
-            i.fas.fa-search
+    form(@submit.prevent="submitSearch")
+      .field
+        .control
+          input.input(placeholder="Search" v-model="search")
+          button(type="submit")
+            span.icon
+              i.fas.fa-search
 </template>
 
 <script>
   export default {
+    data () {
+      return {
+        search: ''
+      }
+    },
+
+    methods: {
+      submitSearch () {
+        this.$router.push({
+          path: '/news',
+          query: {
+            search: this.search
+          }
+        })
+      }
+    }
 
   }
 </script>

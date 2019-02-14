@@ -8,88 +8,78 @@ export default {
     navigation: {
       fetchData: () => {
         return cachios.get(`${url}/contentful/navigation`)
-          .then(res => {
-            return res
-          })
+          .then(res => res)
       }
     },
 
     homepage: {
       fetchData: () => {
         return cachios.get(`${url}/contentful/homepage`)
-          .then(res => {
-            return res
-          })
+          .then(res => res)
       }
     },
 
     location: {
       fetchData: () => {
         return cachios.get(`${url}/contentful/location`)
-          .then(res => {
-            return res
-          })
+          .then(res => res)
       }
     },
 
     pages: {
       fetchData: () => {
         return cachios.get(`${url}/contentful/pages`)
-          .then(res => {
-            return res
-          })
+          .then(res => res)
       }
     },
 
     page: {
       fetchData: (slug) => {
         return cachios.get(`${url}/contentful/page/${slug}`)
-          .then(res => {
-            return res
-          })
+          .then(res => res)
       }
     },
 
     news: {
       fetchData: () => {
         return cachios.get(`${url}/contentful/news`)
-          .then(res => {
-            return res
-          })
+          .then(res => res)
       },
 
       fetchRecentData: (limit) => {
         return cachios.get(`${url}/contentful/news?limit=${limit}`)
-          .then(res => {
-            return res
-          })
+          .then(res => res)
+      },
+
+      fetchTagData: (tag) => {
+        return cachios.get(`${url}/contentful/news?tag=${tag}`)
+          .then(res => res)
+      },
+
+      fetchSearchData: (search) => {
+        return cachios.get(`${url}/contentful/news?search=${search}`)
+          .then(res => res)
       }
     },
 
     newsPost: {
       fetchData: (postId) => {
         return cachios.get(`${url}/contentful/news/${postId}`)
-          .then(res => {
-            return res
-          })
+          .then(res => res)
       }
     },
 
     author: {
       fetchData: (postId) => {
         return cachios.get(`${url}/contentful/author/${postId}`)
-          .then(res => {
-            return res
-          })
+          .then(res => res)
       }
     },
 
     contact: {
       fetchData: () => {
         return cachios.get(`${url}/contentful/contact`)
-          .then(res => {
-            return res
-          })
+          .then(res => res)
       }
     }
   },
