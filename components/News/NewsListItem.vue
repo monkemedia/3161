@@ -7,7 +7,7 @@
       .media
         .media-left
           date-tile(:data="data.date")
-          user-actions
+          user-actions(:data="data")
         .media-content
           header
             h3 {{ data.summary }}

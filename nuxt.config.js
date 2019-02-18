@@ -1,6 +1,10 @@
+require('dotenv').config()
+
 module.exports = {
   env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:4000/'
+    baseUrl: process.env.BASE_URL,
+    restDbUrl: process.env.REST_DB_URL,
+    restDbApiKey: process.env.REST_DB_API_KEY
   },
   /*
   ** Headers of the page
@@ -69,6 +73,7 @@ module.exports = {
     }
   ],
   modules: [
+    '@nuxtjs/dotenv',
     '@nuxtjs/moment',
     '@nuxtjs/markdownit',
     ['nuxt-fontawesome', {
