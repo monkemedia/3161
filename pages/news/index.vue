@@ -5,8 +5,9 @@
       .container.sub-main
         .columns
           .column.is-8
-            div(v-if="news.length > 0")
-              news-list-item(:data="article" :key="article.id" v-for="article in news")
+            div(v-if="news.items.length > 0")
+              news-list-item(:data="article" :key="article.id" v-for="article in news.items")
+              pagination
             p.no-matches(v-else) Oh no! Nothing matches "{{ $route.query.search }}"
           .column.is-4
             side-bar
@@ -16,6 +17,7 @@
 <script>
   import HeaderMain from '@/components/Headers/HeaderMain.vue'
   import NewsListItem from '@/components/News/NewsListItem.vue'
+  import Pagination from '@/components/News/Utilities/Pagination.vue'
   import SideBar from '@/components/News/Utilities/SideBar.vue'
   import FooterMain from '@/components/Footers/FooterMain.vue'
 
@@ -23,6 +25,7 @@
     components: {
       HeaderMain,
       NewsListItem,
+      Pagination,
       SideBar,
       FooterMain
     },

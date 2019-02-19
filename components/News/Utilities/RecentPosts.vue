@@ -2,7 +2,7 @@
   .recent-posts
     h4.underline Recent Posts
     ul.recent-posts__items
-      li.recent-posts__item(v-for="post in recentPosts")
+      li.recent-posts__item(v-for="post in recentPosts.items")
         nuxt-link(:to="'/news/' + post.id")
           .media
             .media-left

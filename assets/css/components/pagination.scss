@@ -1,0 +1,31 @@
+.pagination {
+
+  @include tablet {
+    justify-content: center;
+  }
+
+  .pagination-list {
+    flex-grow: 0;
+  }
+
+  .pagination-ellipsis,
+  .pagination-next,
+  .pagination-previous,
+  .pagination-link {
+    border: 0;
+    background-color: $grey-lighter;
+    border-radius: 2px;
+    margin: 0 1px;
+    color: $primary;
+    font-weight: 600;
+    font-size: rem(13px);
+    min-width: 45px;
+    height: 45px;
+    padding: 6px 10px;
+
+    &.is-current {
+      background: $primary;
+      color: $white;
+    }
+  }
+}
