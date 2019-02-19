@@ -38,6 +38,8 @@
   @import '~assets/css/utilities/mixins.scss';
 
   .about-author {
+    margin-bottom: 20px;
+
     &__header {
       margin-bottom: 20px;
     }

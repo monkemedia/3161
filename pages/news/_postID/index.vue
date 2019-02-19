@@ -10,6 +10,9 @@
           .column.is-8
             news-item(:data="post")
             about-author(:data="author")
+            vue-disqus(
+              shortname="lodge3161-com"
+              :identifier="$route.params.postId")
           .column.is-4
             side-bar()
     footer-main

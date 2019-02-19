@@ -70,6 +70,14 @@ module.exports = {
     {
       src: '~/plugins/vue-google-maps',
       ssr: true
+    },
+    {
+      src: '~/plugins/vue-disqus',
+      ssr: false
+    },
+    {
+      src: '~/plugins/vue-disqus-count',
+      ssr: false
     }
   ],
   modules: [

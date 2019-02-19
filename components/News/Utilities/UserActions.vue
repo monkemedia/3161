@@ -3,16 +3,17 @@
     li
       span.icon
         i.fas.fa-comments
-      | 3 Comments
+      nuxt-link(:to="'/news/' + data.likes.postId + '#disqus_thread'")
+        vue-disqus-count(:identifier="data.likes.postId")
     li
       button(@click="updateLike()" :class="{ 'is-liked' : isLiked, 'is-disabled': isSaving }")
         span.icon
           i.fas.fa-heart
         | {{ postLikes }} Likes
-    li
-      span.icon
-        i.fas.fa-eye
-      | 3 Views
+    //- li
+    //-   span.icon
+    //-     i.fas.fa-eye
+    //-   | 3 Views
 </template>
 
 <script>
@@ -75,6 +76,9 @@
           this.isLiked = false
           this.postLikes -= 1
           api.restDb.updateData(payload)
+            .catch(err => {
+              console.log(err)
+            })
         } else {
           if (isLikedStorage) {
             isLikedStorage.push(postId)
@@ -86,6 +90,9 @@
           }
           this.postLikes += 1
           api.restDb.updateData(payload)
+            .catch(err => {
+              console.log(err)
+            })
         }
       }
     }
@@ -114,6 +121,10 @@
       font-weight: 600;
       text-transform: uppercase;
       cursor: pointer;
+    }
+
+    a {
+      color: $body-color;
     }
 
     .icon {
